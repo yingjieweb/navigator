@@ -1,0 +1,82 @@
+/*css reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*:before,*:after{
+    box-sizing:border-box;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+body{
+    /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
+    background-color: #eeeeee;
+}
+.header{
+    margin: 20px;
+}
+.search{
+    display: flex;
+    justify-content: space-between;
+}
+.search input{
+    height:40px;
+    width: 100%;
+    margin-right:10px;
+    padding:0 10px;
+    border:1px solid #ddd;/*input有难看的默认边框*/
+    border-radius:4px;
+}
+.search button{
+    height:40px;
+    white-space: nowrap;
+    padding: 0 25px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0282B9;
+    color: white;
+    font-size: 16px;
+}
+
+.main{}
+.main > .siteList{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.main > .siteList > li{
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    padding: 20px 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.main > .siteList .logo{
+    font-size: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main > .siteList .site{
+    font-size: 16px;
+    margin-top: 4px;
+}
+.main > .siteList .addSite{}
