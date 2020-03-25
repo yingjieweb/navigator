@@ -1,7 +1,7 @@
 //获取localStorage
 let oldCache = localStorage.getItem('cache');
 let cache = JSON.parse(oldCache);
-let hashMap =  [
+let hashMap = cache ||  [
   {logoPath:require(`./assets/img/icon/icon1.png`),url:'https://www.csdn.net'},
   {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im/'}
 ]
@@ -21,7 +21,6 @@ let $addSiteLi = $('.addSiteLi');
 let render = function(){
   $('.siteList').find('li:not(.addSiteLi)').remove(); //渲染签移除添加按钮前的模块
   hashMap.forEach((item,index)=>{ //根据hashMap创建相应的元素并添加到新增按钮前
-    console.log(index)
     let $li = $(`<li class="block">
       <a href="${item.url}">
         <div class="logo"><img src=${item.logoPath} alt="点击添加"></div>
@@ -32,7 +31,6 @@ let render = function(){
     `).insertBefore($addSiteLi);
 
     $li.on('click','.close',(event)=>{
-      console.log('点击了关闭按钮')
       event.stopPropagation();  //阻止事件冒泡
       hashMap.splice(index,1);  //*****************
       render();
@@ -51,7 +49,6 @@ $('.addSite').on('click',function () {
   }
   let path = require('./assets/img/icon/icon3.png'); //不能使用变量，待优化
   hashMap.push({logoPath:path,url:url});
-  console.log(hashMap)
   render(); //重新渲染
 })
 
@@ -60,3 +57,13 @@ window.onbeforeunload = function () {
   let newCache = JSON.stringify(hashMap);
   localStorage.setItem('cache',newCache);
 }
+
+//监听键盘事件
+// $(document).on('keypress', (event) => {
+//   const key = event.key; //const {key} = event;
+//   for (let i = 0; i < hashMap.length; i++) {
+//     if (hashMap[i].logo.toLowerCase() === key) {
+//       window.open(hashMap[i].url)
+//     }
+//   }
+// })

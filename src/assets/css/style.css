@@ -26,9 +26,22 @@ body{
 .header{
     margin: 20px;
 }
+@media(min-width:500px) {
+    .header {
+        margin-top: 200px;
+        margin-bottom: 60px;
+    }
+}
 .search{
     display: flex;
     justify-content: space-between;
+}
+@media (min-width:500px) {
+    .search{
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 .search input{
     height:40px;
@@ -49,12 +62,28 @@ body{
     font-size: 16px;
 }
 
-.main{}
+.main{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .main > .siteList{
-    margin: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+}
+@media (min-width:500px) {  /*屏幕大于500像素*/
+    .siteList{
+        margin-left: 0;
+        margin-right: 0;
+        margin-right: -30px;    /*负margin*/
+        justify-content: flex-start;
+    }
+}
+@media (max-width:500px) {  /*屏幕小于500像素*/
+    .siteList{
+        margin: 20px;
+        justify-content: space-between;
+    }
 }
 .main > .siteList > li{
     width: 160px;
@@ -68,6 +97,12 @@ body{
     padding: 20px 0;
     cursor: pointer;
     margin-bottom: 10px;
+    cursor: pointer;    /*鼠标手势*/
+}
+@media (min-width: 500px) {
+    .main > .siteList > li{
+        margin-right: 20px;
+    }
 }
 .main > .siteList .block{
     position: relative;
@@ -87,5 +122,8 @@ body{
     font-size: 30px;
     top: -5px;
     right: 4px;
+    display: none;
 }
-.main > .siteList .addSite{}
+.block:hover > .close{
+    display: block;
+}
