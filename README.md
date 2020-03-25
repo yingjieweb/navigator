@@ -14,3 +14,9 @@ parcel src/index.html
 ```
 parcel build src/index.html --no-minify
 ```
+
+## Set the project path
+```
+parcel build --help
+parcel build src/index.html --no-minify --public-url ./
+```

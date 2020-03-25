@@ -1,6 +1,5 @@
 .DS_Store
 /node_modules
-/dist
 /idea
 /yarn-error.log
 /package-lock
