@@ -69,6 +69,9 @@ body{
     cursor: pointer;
     margin-bottom: 10px;
 }
+.main > .siteList .block{
+    position: relative;
+}
 .main > .siteList .logo{
     font-size: 64px;
     display: flex;
@@ -78,5 +81,11 @@ body{
 .main > .siteList .site{
     font-size: 16px;
     margin-top: 4px;
+}
+.main > .siteList .close{
+    position: absolute;
+    font-size: 30px;
+    top: -5px;
+    right: 4px;
 }
 .main > .siteList .addSite{}
