@@ -21,7 +21,7 @@ img{
 body{
     /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
     /*background-color: #eeeeee;*/
-    background-image: url(/normal.d50ebf7d.jpg);
+    background-image: url(normal.d50ebf7d.jpg);
     background-repeat:repeat;
     background-size:100%;
 }
@@ -131,4 +131,4 @@ body{
 }
 
 
-/*# sourceMappingURL=/style.7ec08f38.css.map */
+/*# sourceMappingURL=style.3781c774.css.map */

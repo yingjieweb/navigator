@@ -118,11 +118,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"AB3p":[function(require,module,exports) {
-module.exports = "/icon1.c628f532.png";
+module.exports = "icon1.c628f532.png";
 },{}],"GXZF":[function(require,module,exports) {
-module.exports = "/icon2.37573020.png";
+module.exports = "icon2.37573020.png";
 },{}],"Skyo":[function(require,module,exports) {
-module.exports = "/icon3.beb5a5ec.png";
+module.exports = "icon3.beb5a5ec.png";
 },{}],"epB2":[function(require,module,exports) {
 //获取localStorage
 var oldCache = localStorage.getItem('cache');
@@ -191,4 +191,4 @@ window.onbeforeunload = function () {
 //   }
 // })
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo"}]},{},["epB2"], null)
-//# sourceMappingURL=/main.982e9d5c.js.map
+//# sourceMappingURL=main.982e9d5c.js.map
