@@ -3,7 +3,8 @@ let oldCache = localStorage.getItem('cache');
 let cache = JSON.parse(oldCache);
 let hashMap = cache ||  [
   {logoPath:require(`./assets/img/icon/icon1.png`),url:'https://www.csdn.net'},
-  {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im/'}
+  {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im'},
+  {logoPath:require(`./assets/img/icon/icon3.png`),url:'https://modao.cc'}
 ]
 
 //简化url
@@ -47,7 +48,7 @@ $('.addSite').on('click',function () {
   if (url.indexOf('http') !== 0){
     url = 'https://' + url;
   }
-  let path = require('./assets/img/icon/icon3.png'); //不能使用变量，待优化
+  let path = require('./assets/img/icon/icon4.png'); //不能使用变量，待优化
   hashMap.push({logoPath:path,url:url});
   render(); //重新渲染
 })
