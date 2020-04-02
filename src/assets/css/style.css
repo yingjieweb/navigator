@@ -29,7 +29,7 @@ body {
     background-image: url(../img/wallpaper/normal.jpg);
     background-repeat: repeat;
     background-size: 100%;
-    font-family: 'Segoe UI', 'Roboto', arial, sans-serif
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
 }
 
 .header {
@@ -41,6 +41,23 @@ body {
         margin-top: 200px;
         margin-bottom: 60px;
     }
+}
+
+.tab-bar {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-bar-item {
+    margin: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.selected { /*tab-bar-item选中样式*/
+    transform: scale(1.4) translateY(-5px) rotate(720deg);
+    transition: 1s;/*动画过渡*/
 }
 
 .search {
