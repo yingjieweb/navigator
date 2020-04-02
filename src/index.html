@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>navigator</title>
+  <!--设置title图标ico-->
+  <link rel="icon" href="assets/img/title/pilot.ico" type="images/x-ico" />
   <!--添加阿里 icon 动态引入-->
   <style type="text/css">
     .icon {
@@ -20,8 +22,17 @@
 </head>
 <body>
   <header class="header">
+    <div class="tab-bar">
+      <div class="tab-bar-item baidu selected"><img src="./assets/img/tabbar/baidu.png" alt="百度"></div>
+      <div class="tab-bar-item zhihu"><img src="./assets/img/tabbar/zhihu.png" alt="知乎"></div>
+      <div class="tab-bar-item csdn"><img src="./assets/img/tabbar/csdn.png" alt="csdn"></div>
+      <div class="tab-bar-item github"><img src="./assets/img/tabbar/github.png" alt="github"></div>
+      <div class="tab-bar-item github"><img src="./assets/img/tabbar/knowledge.png" alt="超星"></div>
+      <div class="tab-bar-item github"><img src="./assets/img/tabbar/academic.png" alt="百度学术"></div>
+      <div class="tab-bar-item github"><img src="./assets/img/tabbar/duxiu.png" alt="读秀"></div>
+    </div>
     <form class="search" method="get" action="http://www.baidu.com/s">
-      <input name="wd" type="text" required>
+      <input name="wd" type="text" required placeholder="众里寻他千百度 —— 百度">
       <button type="submit">搜索</button>
     </form>
   </header>
@@ -29,7 +40,7 @@
     <ul class="siteList">
       <li class="addSiteLi">
         <div class="logo addSite">
-          <img src="./assets/img/add.png" alt="点击添加">
+          <img src="./assets/img/add.png">
         </div>
         <div class="site">添加快捷方式</div>
       </li>
