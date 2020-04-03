@@ -26,9 +26,9 @@ img {
 body {
     /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
     /*background-color: #eeeeee;*/
-    background-image: url(normal.d50ebf7d.jpg);
-    background-repeat: repeat;
-    background-size: 100%;
+    background-image: url(yourname.522359a2.jpg);
+    background-size:  100vw 100vh;
+    background-repeat: no-repeat;
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 
 .selected { /*tab-bar-item选中样式*/
-    transform: scale(1.4) translateY(-5px) rotate(720deg);
+    transform: scale(1.4) translateY(-8px) rotate(720deg);
     transition: 1s;/*动画过渡*/
 }
 
@@ -89,9 +89,9 @@ body {
     padding: 0 25px;
     border: none;
     border-radius: 4px;
-    background-color: #0282B9;
-    color: white;
+    background-color: white;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .main {
@@ -131,7 +131,7 @@ body {
     flex-direction: column;
     background: white;
     border: 1px solid #DDD;
-    border-radius: 4px;
+    border-radius: 10%;
     padding: 20px 0;
     cursor: pointer;
     margin-bottom: 10px;
@@ -190,4 +190,15 @@ live2d-widget-container {
     height: 400px;
 }
 
-/*# sourceMappingURL=style.1580fd33.css.map */
+.footer .arrow{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    position: absolute;
+    left: 50vw;
+    bottom: 50px;
+    transform: translate(-50%,-50%);
+}
+
+/*# sourceMappingURL=style.e4db0935.css.map */

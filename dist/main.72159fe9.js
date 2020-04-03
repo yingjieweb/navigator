@@ -152,11 +152,14 @@ var $input = $('.search input'); //获取search表单的input
 
 var $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
 
+var $arrow = $('.arrow'); //获取底部的箭头
+
 $tabBar.on('click', "div", function (event) {
   //事件委托
   var $tabItem = $(event.currentTarget); //获取当前被点击的元素
 
-  $tabItem.addClass("selected").siblings().removeClass("selected");
+  $tabItem.addClass("selected").siblings().removeClass("selected"); //toggleClass
+
   var index = $tabItem.index(); //采取四个表单的措施也是可以的，或者采用判断 index 值修改表单的action和input的name属性
   //$tabContent.children().eq(index).addClass("active").siblings().removeClass("active");
 
@@ -228,6 +231,10 @@ $('.addSite').on('click', function () {
     url: url
   });
   render(); //重新渲染
+}); //点击箭头切换背景图片
+
+$arrow.on('click', function () {
+  alert('等待开发，小傻瓜~');
 }); //窗口关闭前保存到localStorage
 
 /*window.onbeforeunload = function () {
@@ -244,4 +251,4 @@ $('.addSite').on('click', function () {
 //   }
 // })
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj"}]},{},["epB2"], null)
-//# sourceMappingURL=main.97c73af3.js.map
+//# sourceMappingURL=main.72159fe9.js.map
