@@ -19,10 +19,11 @@ let $tabBar = $('.tab-bar');  //获取tabBar的按钮
 let $search = $('.search');  //获取search表单
 let $input = $('.search input');  //获取search表单的input
 let $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
+let $arrow = $('.arrow'); //获取底部的箭头
 
 $tabBar.on('click',"div",(event)=>{ //事件委托
   const $tabItem = $(event.currentTarget);  //获取当前被点击的元素
-  $tabItem.addClass("selected").siblings().removeClass("selected");
+  $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass
 
   let index = $tabItem.index();
 
@@ -92,6 +93,11 @@ $('.addSite').on('click',function () {
   let path = require('./assets/img/icon/icon4.png'); //不能使用变量，待优化
   hashMap.push({logoPath:path,url:url});
   render(); //重新渲染
+})
+
+//点击箭头切换背景图片
+$arrow.on('click',()=>{
+  alert('等待开发，小傻瓜~');
 })
 
 //窗口关闭前保存到localStorage
