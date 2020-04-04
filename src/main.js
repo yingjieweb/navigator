@@ -23,7 +23,7 @@ let $arrow = $('.arrow'); //获取底部的箭头
 
 $tabBar.on('click',"div",(event)=>{ //事件委托
   const $tabItem = $(event.currentTarget);  //获取当前被点击的元素
-  $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass
+  $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass(value,stateVal); 看mdn吧
 
   let index = $tabItem.index();
 
