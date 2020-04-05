@@ -1,10 +1,11 @@
 //获取localStorage
 let oldCache = localStorage.getItem('cache');
 let cache = JSON.parse(oldCache);
-let hashMap = cache ||  [
+let hashMap = cache ||  [ //网址快捷方式图标及url
   {logoPath:require(`./assets/img/icon/icon1.png`),url:'https://www.csdn.net'},
   {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im'},
-  {logoPath:require(`./assets/img/icon/icon3.png`),url:'https://modao.cc'}
+  {logoPath:require(`./assets/img/icon/icon3.png`),url:'https://modao.cc'},
+  {logoPath:require(`./assets/img/icon/icon4.png`),url:'https://www.cnki.net'}
 ]
 
 //简化url
@@ -90,14 +91,28 @@ $('.addSite').on('click',function () {
   if (url.indexOf('http') !== 0){
     url = 'https://' + url;
   }
-  let path = require('./assets/img/icon/icon4.png'); //不能使用变量，待优化
+  let path = require('./assets/img/icon/icon5.png'); //不能使用变量，待优化
   hashMap.push({logoPath:path,url:url});
   render(); //重新渲染
 })
 
+let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0;  //标记当前背景图片
+let wallpaperArray = [  //背景图片地址数组
+  {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/coast.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/icemountain.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/shanfeng.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/xinggui.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)}
+]
+//渲染前先获取localstorage中标记的图片
+$("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
 //点击箭头切换背景图片
 $arrow.on('click',()=>{
-  alert('等待开发，小傻瓜~');
+  wallpaperFlag = wallpaperFlag === 6 ? 0 : wallpaperFlag += 1;
+  localStorage.setItem("backgroundImageFlag",wallpaperFlag);  //存储当前壁纸标记到 localStorage
+  $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
 
 //窗口关闭前保存到localStorage

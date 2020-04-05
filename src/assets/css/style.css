@@ -25,11 +25,11 @@ img {
 
 body {
     /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
-    /*background-color: #eeeeee;*/
     background-image: url(../img/wallpaper/yourname.jpg);
     background-size:  100vw 100vh;
     background-repeat: no-repeat;
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    transition: 2s ease-in-out;   /*背景图片切换效果*/
 }
 
 .header {
@@ -191,7 +191,6 @@ live2d-widget-container {
 }
 
 .footer .arrow{
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-self: flex-end;
@@ -199,4 +198,19 @@ live2d-widget-container {
     left: 50vw;
     bottom: 50px;
     transform: translate(-50%,-50%);
+}
+
+.footer .arrow {
+    animation: vibration 3s infinite;
+}
+@keyframes vibration {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0px, -10px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
 }
