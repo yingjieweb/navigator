@@ -118,18 +118,35 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"AB3p":[function(require,module,exports) {
-module.exports = "icon1.c628f532.png";
+module.exports = "icon1.8e073538.png";
 },{}],"GXZF":[function(require,module,exports) {
-module.exports = "icon2.37573020.png";
+module.exports = "icon2.dc66dd17.png";
 },{}],"Skyo":[function(require,module,exports) {
-module.exports = "icon3.beb5a5ec.png";
+module.exports = "icon3.b006812b.png";
 },{}],"sTvj":[function(require,module,exports) {
-module.exports = "icon4.14aecbe4.png";
+module.exports = "icon4.c8dee8ec.png";
+},{}],"f9I4":[function(require,module,exports) {
+module.exports = "icon5.b6d93138.png";
+},{}],"kAkt":[function(require,module,exports) {
+module.exports = "yourname.522359a2.jpg";
+},{}],"TZzd":[function(require,module,exports) {
+module.exports = "coast.92898ee6.jpg";
+},{}],"kh9R":[function(require,module,exports) {
+module.exports = "icemountain.87caa530.jpg";
+},{}],"l3b3":[function(require,module,exports) {
+module.exports = "shanfeng.f942a819.jpg";
+},{}],"qyTH":[function(require,module,exports) {
+module.exports = "sunset.5d19c241.jpg";
+},{}],"ORQS":[function(require,module,exports) {
+module.exports = "xinggui.e053defc.jpg";
+},{}],"UonK":[function(require,module,exports) {
+module.exports = "lantern.667737f1.jpg";
 },{}],"epB2":[function(require,module,exports) {
 //获取localStorage
 var oldCache = localStorage.getItem('cache');
 var cache = JSON.parse(oldCache);
-var hashMap = cache || [{
+var hashMap = cache || [//网址快捷方式图标及url
+{
   logoPath: require("./assets/img/icon/icon1.png"),
   url: 'https://www.csdn.net'
 }, {
@@ -138,6 +155,9 @@ var hashMap = cache || [{
 }, {
   logoPath: require("./assets/img/icon/icon3.png"),
   url: 'https://modao.cc'
+}, {
+  logoPath: require("./assets/img/icon/icon4.png"),
+  url: 'https://www.cnki.net'
 }]; //简化url
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -158,7 +178,7 @@ $tabBar.on('click', "div", function (event) {
   //事件委托
   var $tabItem = $(event.currentTarget); //获取当前被点击的元素
 
-  $tabItem.addClass("selected").siblings().removeClass("selected"); //toggleClass
+  $tabItem.addClass("selected").siblings().removeClass("selected"); //toggleClass(value,stateVal); 看mdn吧
 
   var index = $tabItem.index(); //采取四个表单的措施也是可以的，或者采用判断 index 值修改表单的action和input的name属性
   //$tabContent.children().eq(index).addClass("active").siblings().removeClass("active");
@@ -223,7 +243,7 @@ $('.addSite').on('click', function () {
     url = 'https://' + url;
   }
 
-  var path = require('./assets/img/icon/icon4.png'); //不能使用变量，待优化
+  var path = require('./assets/img/icon/icon5.png'); //不能使用变量，待优化
 
 
   hashMap.push({
@@ -231,10 +251,33 @@ $('.addSite').on('click', function () {
     url: url
   });
   render(); //重新渲染
-}); //点击箭头切换背景图片
+});
+var wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0; //标记当前背景图片
+
+var wallpaperArray = [//背景图片地址数组
+{
+  imagePath: require("./assets/img/wallpaper/yourname.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/coast.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/icemountain.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/shanfeng.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/sunset.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/xinggui.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/lantern.jpg")
+}]; //渲染前先获取localstorage中标记的图片
+
+$("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
 
 $arrow.on('click', function () {
-  alert('等待开发，小傻瓜~');
+  wallpaperFlag = wallpaperFlag === 6 ? 0 : wallpaperFlag += 1;
+  localStorage.setItem("backgroundImageFlag", wallpaperFlag); //存储当前壁纸标记到 localStorage
+
+  $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
 }); //窗口关闭前保存到localStorage
 
 /*window.onbeforeunload = function () {
@@ -250,5 +293,5 @@ $arrow.on('click', function () {
 //     }
 //   }
 // })
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj"}]},{},["epB2"], null)
-//# sourceMappingURL=main.72159fe9.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/coast.jpg":"TZzd","./assets/img/wallpaper/icemountain.jpg":"kh9R","./assets/img/wallpaper/shanfeng.jpg":"l3b3","./assets/img/wallpaper/sunset.jpg":"qyTH","./assets/img/wallpaper/xinggui.jpg":"ORQS","./assets/img/wallpaper/lantern.jpg":"UonK"}]},{},["epB2"], null)
+//# sourceMappingURL=main.f472e004.js.map
