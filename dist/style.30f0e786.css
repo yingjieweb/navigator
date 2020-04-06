@@ -25,11 +25,21 @@ img {
 
 body {
     /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
-    background-image: url(yourname.522359a2.jpg);
+    /*background-image: url(../img/wallpaper/yourname.jpg);*//*闪切背景图片*/
     background-size:  100vw 100vh;
     background-repeat: no-repeat;
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
     transition: 2s ease-in-out;   /*背景图片切换效果*/
+}
+
+.nav .notes {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.nav .notes img{
+    border: 1px solid red;
+    margin: 5px;
 }
 
 .header {
@@ -215,5 +225,4 @@ live2d-widget-container {
     }
 }
 
-
-/*# sourceMappingURL=style.e8cb0295.css.map */
+/*# sourceMappingURL=style.30f0e786.css.map */
