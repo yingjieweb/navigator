@@ -103,18 +103,15 @@ $('.addSite').on('click',function () {
 let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0;  //标记当前背景图片
 let wallpaperArray = [  //背景图片地址数组
   {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/xinggui.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/classroom.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/house.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/starSky.jpg`)}
+  {imagePath:require(`./assets/img/wallpaper/xinggui.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)}
 ]
 //渲染前先获取localstorage中标记的图片
 $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
 //点击箭头切换背景图片
 $arrow.on('click',()=>{
-  wallpaperFlag = wallpaperFlag === 6 ? 0 : wallpaperFlag += 1;
+  wallpaperFlag = wallpaperFlag === 3 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag",wallpaperFlag);  //存储当前壁纸标记到 localStorage
   $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
