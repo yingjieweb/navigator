@@ -15,14 +15,18 @@ const simplifyUrl = (url) => {
     .replace('www.', '')
     .replace(/\/.*/, ''); // 删除 / 开头的内容
 }
-
+let $notes = $('.notes'); //获取便签按钮
 let $tabBar = $('.tab-bar');  //获取tabBar的按钮
 let $search = $('.search');  //获取search表单
 let $input = $('.search input');  //获取search表单的input
 let $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
 let $arrow = $('.arrow'); //获取底部的箭头
 
-$tabBar.on('click',"div",(event)=>{ //事件委托
+$notes.on('click',()=>{
+  alert('小傻瓜，是不是等不及了?');
+})
+
+$tabBar.on('click',"div",(event)=>{ //tabBar事件委托
   const $tabItem = $(event.currentTarget);  //获取当前被点击的元素
   $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass(value,stateVal); 看mdn吧
 
@@ -99,12 +103,12 @@ $('.addSite').on('click',function () {
 let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0;  //标记当前背景图片
 let wallpaperArray = [  //背景图片地址数组
   {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/coast.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/icemountain.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/shanfeng.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/xinggui.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)}
+  {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/classroom.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/house.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/starSky.jpg`)}
 ]
 //渲染前先获取localstorage中标记的图片
 $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
