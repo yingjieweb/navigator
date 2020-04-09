@@ -28,5 +28,5 @@ npm init -y
 
 ### Simplify build command
 ```
-npm build
+npm build   //package.json
 ```
