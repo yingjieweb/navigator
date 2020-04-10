@@ -105,13 +105,14 @@ let wallpaperArray = [  //背景图片地址数组
   {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/xinggui.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/frozenBubble.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)}
 ]
 //渲染前先获取localstorage中标记的图片
 $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
 //点击箭头切换背景图片
 $arrow.on('click',()=>{
-  wallpaperFlag = wallpaperFlag === 3 ? 0 : wallpaperFlag += 1;
+  wallpaperFlag = wallpaperFlag === 4 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag",wallpaperFlag);  //存储当前壁纸标记到 localStorage
   $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
