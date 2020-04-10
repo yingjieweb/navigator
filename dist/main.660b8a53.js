@@ -133,6 +133,8 @@ module.exports = "yourname.522359a2.jpg";
 module.exports = "lantern.667737f1.jpg";
 },{}],"ORQS":[function(require,module,exports) {
 module.exports = "xinggui.e053defc.jpg";
+},{}],"v2gl":[function(require,module,exports) {
+module.exports = "frozenBubble.2137c6a3.jpg";
 },{}],"qyTH":[function(require,module,exports) {
 module.exports = "sunset.5d19c241.jpg";
 },{}],"epB2":[function(require,module,exports) {
@@ -261,13 +263,15 @@ var wallpaperArray = [//背景图片地址数组
 }, {
   imagePath: require("./assets/img/wallpaper/xinggui.jpg")
 }, {
+  imagePath: require("./assets/img/wallpaper/frozenBubble.jpg")
+}, {
   imagePath: require("./assets/img/wallpaper/sunset.jpg")
 }]; //渲染前先获取localstorage中标记的图片
 
 $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
 
 $arrow.on('click', function () {
-  wallpaperFlag = wallpaperFlag === 3 ? 0 : wallpaperFlag += 1;
+  wallpaperFlag = wallpaperFlag === 4 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag", wallpaperFlag); //存储当前壁纸标记到 localStorage
 
   $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
@@ -286,5 +290,5 @@ $arrow.on('click', function () {
 //     }
 //   }
 // })
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/xinggui.jpg":"ORQS","./assets/img/wallpaper/sunset.jpg":"qyTH"}]},{},["epB2"], null)
-//# sourceMappingURL=main.3e186b15.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/xinggui.jpg":"ORQS","./assets/img/wallpaper/frozenBubble.jpg":"v2gl","./assets/img/wallpaper/sunset.jpg":"qyTH"}]},{},["epB2"], null)
+//# sourceMappingURL=main.660b8a53.js.map
