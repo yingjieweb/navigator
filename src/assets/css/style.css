@@ -32,18 +32,72 @@ body {
     transition: 2s ease-in-out;   /*背景图片切换效果*/
 }
 
-.nav .notes {
-    display: flex;
-    flex-direction: row-reverse;
+nav {
+    position: fixed;
+    right: 0;
+    top: 0;
 }
 
-.nav .notes img{
-    border: 1px solid red;
+nav .notes {
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .notes input {
+    height: 40px;
+    width: 100%;
     margin: 5px;
+    padding: 0 10px;
+    border: 1px solid #ddd; /*input有难看的默认边框*/
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+}
+
+nav .notes button {
+    height: 40px;
+    margin: 5px;
+    white-space: nowrap;
+    padding: 0 25px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+    border-radius: 4px;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.notesList {
+    margin: 5px;
+    max-width: 320px;
+    display: none;
+    border: 1px solid #C38C83;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+}
+
+.showNotes {
+    display: block;
+}
+
+.notesList:hover {
+    display: block;
+}
+
+.notesList li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #C38C83;
+    /*text-decoration: line-through;*/
+}
+
+.notesList li span{
+    margin: 0 10px;
 }
 
 .header {
-    margin: 20px;
+    margin: 60px;
 }
 
 @media (min-width: 500px) {
@@ -97,7 +151,8 @@ body {
     height: 40px;
     white-space: nowrap;
     padding: 0 25px;
-    border: none;
+    border: 1px solid #ddd; /*input有难看的默认边框*/
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
     border-radius: 4px;
     background-color: white;
     font-size: 16px;
@@ -208,6 +263,7 @@ live2d-widget-container {
     left: 50vw;
     bottom: 50px;
     transform: translate(-50%,-50%);
+    cursor: pointer;
 }
 
 .footer .arrow {

@@ -1,12 +1,17 @@
-//获取localStorage
-let oldCache = localStorage.getItem('cache');
-let cache = JSON.parse(oldCache);
-let hashMap = cache ||  [ //网址快捷方式图标及url
+//获取localStorage - 网址
+let oldSitesCache = localStorage.getItem('sitesCache');
+let sitesCache = JSON.parse(oldSitesCache);
+let hashMap = sitesCache ||  [ //网址快捷方式图标及url
   {logoPath:require(`./assets/img/icon/icon1.png`),url:'https://www.csdn.net'},
   {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im'},
   {logoPath:require(`./assets/img/icon/icon3.png`),url:'https://modao.cc'},
   {logoPath:require(`./assets/img/icon/icon4.png`),url:'https://www.cnki.net'}
 ]
+
+//获取localStorage - notes
+let oldNotesCache = localStorage.getItem('notesCache');
+let notesCache = JSON.parse(oldNotesCache);
+let notesArray = notesCache || ['您目前还没有梦想呢，小蠢猪 ~'];
 
 //简化url
 const simplifyUrl = (url) => {
@@ -15,15 +20,48 @@ const simplifyUrl = (url) => {
     .replace('www.', '')
     .replace(/\/.*/, ''); // 删除 / 开头的内容
 }
-let $notes = $('.notes'); //获取便签按钮
+let $notesInput = $('.notesInput'); //获取便签input
+let $notesList = $('.notesList'); //获取便签List
+let $notesListUl = $('.notesListUl'); //获取便签List
+let $notesButton = $('.notesButton'); //获取便签按钮
 let $tabBar = $('.tab-bar');  //获取tabBar的按钮
 let $search = $('.search');  //获取search表单
 let $input = $('.search input');  //获取search表单的input
 let $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
 let $arrow = $('.arrow'); //获取底部的箭头
 
-$notes.on('click',()=>{
-  alert('小傻瓜，是不是等不及了?');
+$notesInput.on('focus',() => {
+  $notesList.addClass('showNotes');
+})
+$notesInput.on('blur',() => {
+  $notesList.removeClass('showNotes');
+})
+$notesButton.on('click', () => {
+  if ($notesInput.val() === '') {
+    alert('你还没写愿望呢，小蠢猪！');
+  } else {
+    $notesListUl.append(`
+      <li>
+          <span style="line-height: 40px; max-width: 280px;">${$notesInput.val()}</span>
+          <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+        </li>
+    `);
+
+    notesArray.push($notesInput.val());
+    if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小蠢猪 ~') {
+      notesArray = notesArray.splice(1);
+    }
+    let newNotesCache = JSON.stringify(notesArray);
+    localStorage.setItem('notesCache',newNotesCache);
+    alert('当当当当，许愿成功啦！');
+    $notesInput.val('');
+    render();
+  }
+})
+$notesInput.bind('keypress', (event) => {
+  if(event.code === 'Enter') {
+    alert('点你右侧小本本，记录当前愿望哦 ~')
+  }
 })
 
 $tabBar.on('click',"div",(event)=>{ //tabBar事件委托
@@ -80,9 +118,20 @@ let render = function(){
 
     $li.on('click','.close',(event)=>{
       event.stopPropagation();  //阻止事件冒泡
-      hashMap.splice(index,1);  //*****************
+      hashMap.splice(index,1);
       render();
     })
+  })
+
+  $notesListUl.find('li').remove(); //渲染前移除之前的notes
+  notesArray.forEach((item) => {
+    let $li = $(`<li title="点击小红心就表示愿望已经实现了哦 ~">
+      <span style="line-height: 40px; max-width: 280px;">${item}</span>
+      <svg class="icon" onclick="window.alert('愿望实现功能正在开发当中呢 ~')"><use xlink:href="#icon-aixin"></use></svg>
+    </li>
+    `);
+
+    $notesListUl.append($li);
   })
 }
 
@@ -104,24 +153,25 @@ let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0; 
 let wallpaperArray = [  //背景图片地址数组
   {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/xinggui.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/frozenBubble.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)}
+  {imagePath:require(`./assets/img/wallpaper/xialuo.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/littleFish.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/xiaopao.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/bobi.jpg`)}
 ]
 //渲染前先获取localstorage中标记的图片
 $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
 //点击箭头切换背景图片
 $arrow.on('click',()=>{
-  wallpaperFlag = wallpaperFlag === 4 ? 0 : wallpaperFlag += 1;
+  wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag",wallpaperFlag);  //存储当前壁纸标记到 localStorage
   $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
 
 //窗口关闭前保存到localStorage
-/*window.onbeforeunload = function () {
-  let newCache = JSON.stringify(hashMap);
-  localStorage.setItem('cache',newCache);
-}*/
+window.onbeforeunload = function () {
+  let newSitesCache = JSON.stringify(hashMap);
+  localStorage.setItem('sitesCache',newSitesCache);
+}
 
 //监听键盘事件
 // $(document).on('keypress', (event) => {

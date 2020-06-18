@@ -14,6 +14,7 @@
       vertical-align: -0.15em;
       fill: currentColor;
       overflow: hidden;
+      cursor: pointer;
     }
   </style>
   <!--初始化样式 normalize.css-->
@@ -21,9 +22,18 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav class="nav">
+  <nav>
     <div class="notes">
-      <img src="./assets/img/pull.png" alt="下拉标签">
+        <input class="notesInput" type="text" placeholder="在这许小小愿望，小傻瓜！"/>
+        <button class="notesButton" type="submit" title="点击许愿哦 ~"><img src="./assets/img/schedule.png"></button>
+    </div>
+    <div class="notesList">
+      <ul class="notesListUl">
+        <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
+          <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
+          <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+        </li>-->
+      </ul>
     </div>
   </nav>
   <header class="header">
@@ -52,8 +62,8 @@
     </ul>
   </main>
   <footer class="footer">
-    <div class="arrow">
-      <img src="./assets/img/arrow.png" alt="">
+    <div class="arrow" title="点击切换背景图片">
+      <img src="./assets/img/arrow.png">
     </div>
   </footer>
   <!--Kanban container-->
@@ -75,7 +85,7 @@
   });
 </script>
 <!--添加阿里 icon 动态引入-->
-<script src="//at.alicdn.com/t/font_1709463_nqqvu649xfo.js"></script>
+<script src="//at.alicdn.com/t/font_1709463_gcxlpbmf635.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script src="main.js"></script>
 </html>
