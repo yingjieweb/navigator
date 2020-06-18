@@ -128,20 +128,22 @@ module.exports = "icon4.c8dee8ec.png";
 },{}],"f9I4":[function(require,module,exports) {
 module.exports = "icon5.b6d93138.png";
 },{}],"kAkt":[function(require,module,exports) {
-module.exports = "yourname.522359a2.jpg";
+module.exports = "yourname.7afbc98d.jpg";
 },{}],"UonK":[function(require,module,exports) {
 module.exports = "lantern.667737f1.jpg";
-},{}],"ORQS":[function(require,module,exports) {
-module.exports = "xinggui.e053defc.jpg";
-},{}],"v2gl":[function(require,module,exports) {
-module.exports = "frozenBubble.2137c6a3.jpg";
-},{}],"qyTH":[function(require,module,exports) {
-module.exports = "sunset.5d19c241.jpg";
+},{}],"IgeY":[function(require,module,exports) {
+module.exports = "xialuo.3b9bf53d.jpg";
+},{}],"PaiM":[function(require,module,exports) {
+module.exports = "littleFish.2dfd97f0.jpg";
+},{}],"Z3Ut":[function(require,module,exports) {
+module.exports = "xiaopao.e0296320.jpg";
+},{}],"z61Y":[function(require,module,exports) {
+module.exports = "bobi.81165ee4.jpg";
 },{}],"epB2":[function(require,module,exports) {
-//获取localStorage
-var oldCache = localStorage.getItem('cache');
-var cache = JSON.parse(oldCache);
-var hashMap = cache || [//网址快捷方式图标及url
+//获取localStorage - 网址
+var oldSitesCache = localStorage.getItem('sitesCache');
+var sitesCache = JSON.parse(oldSitesCache);
+var hashMap = sitesCache || [//网址快捷方式图标及url
 {
   logoPath: require("./assets/img/icon/icon1.png"),
   url: 'https://www.csdn.net'
@@ -154,13 +156,23 @@ var hashMap = cache || [//网址快捷方式图标及url
 }, {
   logoPath: require("./assets/img/icon/icon4.png"),
   url: 'https://www.cnki.net'
-}]; //简化url
+}]; //获取localStorage - notes
+
+var oldNotesCache = localStorage.getItem('notesCache');
+var notesCache = JSON.parse(oldNotesCache);
+var notesArray = notesCache || ['您目前还没有梦想呢，小蠢猪 ~']; //简化url
 
 var simplifyUrl = function simplifyUrl(url) {
   return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
 };
 
-var $notes = $('.notes'); //获取便签按钮
+var $notesInput = $('.notesInput'); //获取便签input
+
+var $notesList = $('.notesList'); //获取便签List
+
+var $notesListUl = $('.notesListUl'); //获取便签List
+
+var $notesButton = $('.notesButton'); //获取便签按钮
 
 var $tabBar = $('.tab-bar'); //获取tabBar的按钮
 
@@ -172,8 +184,34 @@ var $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
 
 var $arrow = $('.arrow'); //获取底部的箭头
 
-$notes.on('click', function () {
-  alert('小傻瓜，是不是等不及了?');
+$notesInput.on('focus', function () {
+  $notesList.addClass('showNotes');
+});
+$notesInput.on('blur', function () {
+  $notesList.removeClass('showNotes');
+});
+$notesButton.on('click', function () {
+  if ($notesInput.val() === '') {
+    alert('你还没写愿望呢，小蠢猪！');
+  } else {
+    $notesListUl.append("\n      <li>\n          <span style=\"line-height: 40px; max-width: 280px;\">".concat($notesInput.val(), "</span>\n          <svg class=\"icon\"><use xlink:href=\"#icon-aixin\"></use></svg>\n        </li>\n    "));
+    notesArray.push($notesInput.val());
+
+    if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小蠢猪 ~') {
+      notesArray = notesArray.splice(1);
+    }
+
+    var newNotesCache = JSON.stringify(notesArray);
+    localStorage.setItem('notesCache', newNotesCache);
+    alert('当当当当，许愿成功啦！');
+    $notesInput.val('');
+    render();
+  }
+});
+$notesInput.bind('keypress', function (event) {
+  if (event.code === 'Enter') {
+    alert('点你右侧小本本，记录当前愿望哦 ~');
+  }
 });
 $tabBar.on('click', "div", function (event) {
   //tabBar事件委托
@@ -227,10 +265,15 @@ var render = function render() {
     $li.on('click', '.close', function (event) {
       event.stopPropagation(); //阻止事件冒泡
 
-      hashMap.splice(index, 1); //*****************
-
+      hashMap.splice(index, 1);
       render();
     });
+  });
+  $notesListUl.find('li').remove(); //渲染前移除之前的notes
+
+  notesArray.forEach(function (item) {
+    var $li = $("<li title=\"\u70B9\u51FB\u5C0F\u7EA2\u5FC3\u5C31\u8868\u793A\u613F\u671B\u5DF2\u7ECF\u5B9E\u73B0\u4E86\u54E6 ~\">\n      <span style=\"line-height: 40px; max-width: 280px;\">".concat(item, "</span>\n      <svg class=\"icon\" onclick=\"window.alert('\u613F\u671B\u5B9E\u73B0\u529F\u80FD\u6B63\u5728\u5F00\u53D1\u5F53\u4E2D\u5462 ~')\"><use xlink:href=\"#icon-aixin\"></use></svg>\n    </li>\n    "));
+    $notesListUl.append($li);
   });
 }; //页面刷新时先渲染hashMap
 
@@ -261,27 +304,28 @@ var wallpaperArray = [//背景图片地址数组
 }, {
   imagePath: require("./assets/img/wallpaper/lantern.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/xinggui.jpg")
+  imagePath: require("./assets/img/wallpaper/xialuo.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/frozenBubble.jpg")
+  imagePath: require("./assets/img/wallpaper/littleFish.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/sunset.jpg")
+  imagePath: require("./assets/img/wallpaper/xiaopao.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/bobi.jpg")
 }]; //渲染前先获取localstorage中标记的图片
 
 $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
 
 $arrow.on('click', function () {
-  wallpaperFlag = wallpaperFlag === 4 ? 0 : wallpaperFlag += 1;
+  wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag", wallpaperFlag); //存储当前壁纸标记到 localStorage
 
   $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
 }); //窗口关闭前保存到localStorage
 
-/*window.onbeforeunload = function () {
-  let newCache = JSON.stringify(hashMap);
-  localStorage.setItem('cache',newCache);
-}*/
-//监听键盘事件
+window.onbeforeunload = function () {
+  var newSitesCache = JSON.stringify(hashMap);
+  localStorage.setItem('sitesCache', newSitesCache);
+}; //监听键盘事件
 // $(document).on('keypress', (event) => {
 //   const key = event.key; //const {key} = event;
 //   for (let i = 0; i < hashMap.length; i++) {
@@ -290,5 +334,5 @@ $arrow.on('click', function () {
 //     }
 //   }
 // })
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/xinggui.jpg":"ORQS","./assets/img/wallpaper/frozenBubble.jpg":"v2gl","./assets/img/wallpaper/sunset.jpg":"qyTH"}]},{},["epB2"], null)
-//# sourceMappingURL=main.660b8a53.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/xialuo.jpg":"IgeY","./assets/img/wallpaper/littleFish.jpg":"PaiM","./assets/img/wallpaper/xiaopao.jpg":"Z3Ut","./assets/img/wallpaper/bobi.jpg":"z61Y"}]},{},["epB2"], null)
+//# sourceMappingURL=main.a8cd9805.js.map
