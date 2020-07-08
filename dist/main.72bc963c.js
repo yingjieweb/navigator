@@ -117,29 +117,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"assets/img/icon/icon1.png":[function(require,module,exports) {
-module.exports = "/icon1.025d74a3.png";
-},{}],"assets/img/icon/icon2.png":[function(require,module,exports) {
-module.exports = "/icon2.e97346f6.png";
-},{}],"assets/img/icon/icon3.png":[function(require,module,exports) {
-module.exports = "/icon3.631c2f62.png";
-},{}],"assets/img/icon/icon4.png":[function(require,module,exports) {
-module.exports = "/icon4.c2045f5a.png";
-},{}],"assets/img/icon/icon5.png":[function(require,module,exports) {
-module.exports = "/icon5.385abb0f.png";
-},{}],"assets/img/wallpaper/yourname.jpg":[function(require,module,exports) {
-module.exports = "/yourname.ee10e296.jpg";
-},{}],"assets/img/wallpaper/lantern.jpg":[function(require,module,exports) {
-module.exports = "/lantern.f2da7eb8.jpg";
-},{}],"assets/img/wallpaper/xialuo.jpg":[function(require,module,exports) {
-module.exports = "/xialuo.631c1ac3.jpg";
-},{}],"assets/img/wallpaper/littleFish.jpg":[function(require,module,exports) {
-module.exports = "/littleFish.720f78aa.jpg";
-},{}],"assets/img/wallpaper/xiaopao.jpg":[function(require,module,exports) {
-module.exports = "/xiaopao.21cad7d0.jpg";
-},{}],"assets/img/wallpaper/bobi.jpg":[function(require,module,exports) {
-module.exports = "/bobi.6604dcf5.jpg";
-},{}],"main.js":[function(require,module,exports) {
+})({"AB3p":[function(require,module,exports) {
+module.exports = "icon1.8e073538.png";
+},{}],"GXZF":[function(require,module,exports) {
+module.exports = "icon2.dc66dd17.png";
+},{}],"Skyo":[function(require,module,exports) {
+module.exports = "icon3.b006812b.png";
+},{}],"sTvj":[function(require,module,exports) {
+module.exports = "icon4.c8dee8ec.png";
+},{}],"f9I4":[function(require,module,exports) {
+module.exports = "icon5.b6d93138.png";
+},{}],"kAkt":[function(require,module,exports) {
+module.exports = "yourname.7afbc98d.jpg";
+},{}],"Elsr":[function(require,module,exports) {
+module.exports = "bridge.2f509167.jpg";
+},{}],"UonK":[function(require,module,exports) {
+module.exports = "lantern.667737f1.jpg";
+},{}],"IgeY":[function(require,module,exports) {
+module.exports = "xialuo.3b9bf53d.jpg";
+},{}],"PaiM":[function(require,module,exports) {
+module.exports = "littleFish.2dfd97f0.jpg";
+},{}],"Z3Ut":[function(require,module,exports) {
+module.exports = "xiaopao.e0296320.jpg";
+},{}],"epB2":[function(require,module,exports) {
 //获取localStorage - 网址
 var oldSitesCache = localStorage.getItem('sitesCache');
 var sitesCache = JSON.parse(oldSitesCache);
@@ -302,6 +302,8 @@ var wallpaperArray = [//背景图片地址数组
 {
   imagePath: require("./assets/img/wallpaper/yourname.jpg")
 }, {
+  imagePath: require("./assets/img/wallpaper/bridge.jpg")
+}, {
   imagePath: require("./assets/img/wallpaper/lantern.jpg")
 }, {
   imagePath: require("./assets/img/wallpaper/xialuo.jpg")
@@ -309,8 +311,6 @@ var wallpaperArray = [//背景图片地址数组
   imagePath: require("./assets/img/wallpaper/littleFish.jpg")
 }, {
   imagePath: require("./assets/img/wallpaper/xiaopao.jpg")
-}, {
-  imagePath: require("./assets/img/wallpaper/bobi.jpg")
 }]; //渲染前先获取localstorage中标记的图片
 
 $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
@@ -334,209 +334,5 @@ window.onbeforeunload = function () {
 //     }
 //   }
 // })
-},{"./assets/img/icon/icon1.png":"assets/img/icon/icon1.png","./assets/img/icon/icon2.png":"assets/img/icon/icon2.png","./assets/img/icon/icon3.png":"assets/img/icon/icon3.png","./assets/img/icon/icon4.png":"assets/img/icon/icon4.png","./assets/img/icon/icon5.png":"assets/img/icon/icon5.png","./assets/img/wallpaper/yourname.jpg":"assets/img/wallpaper/yourname.jpg","./assets/img/wallpaper/lantern.jpg":"assets/img/wallpaper/lantern.jpg","./assets/img/wallpaper/xialuo.jpg":"assets/img/wallpaper/xialuo.jpg","./assets/img/wallpaper/littleFish.jpg":"assets/img/wallpaper/littleFish.jpg","./assets/img/wallpaper/xiaopao.jpg":"assets/img/wallpaper/xiaopao.jpg","./assets/img/wallpaper/bobi.jpg":"assets/img/wallpaper/bobi.jpg"}],"C:/Users/Song/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-var global = arguments[3];
-var OVERLAY_ID = '__parcel__error__overlay__';
-var OldModule = module.bundle.Module;
-
-function Module(moduleName) {
-  OldModule.call(this, moduleName);
-  this.hot = {
-    data: module.bundle.hotData,
-    _acceptCallbacks: [],
-    _disposeCallbacks: [],
-    accept: function (fn) {
-      this._acceptCallbacks.push(fn || function () {});
-    },
-    dispose: function (fn) {
-      this._disposeCallbacks.push(fn);
-    }
-  };
-  module.bundle.hotData = null;
-}
-
-module.bundle.Module = Module;
-var checkedAssets, assetsToAccept;
-var parent = module.bundle.parent;
-
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = "" || location.hostname;
-  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57045" + '/');
-
-  ws.onmessage = function (event) {
-    checkedAssets = {};
-    assetsToAccept = [];
-    var data = JSON.parse(event.data);
-
-    if (data.type === 'update') {
-      var handled = false;
-      data.assets.forEach(function (asset) {
-        if (!asset.isNew) {
-          var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
-
-          if (didAccept) {
-            handled = true;
-          }
-        }
-      }); // Enable HMR for CSS by default.
-
-      handled = handled || data.assets.every(function (asset) {
-        return asset.type === 'css' && asset.generated.js;
-      });
-
-      if (handled) {
-        console.clear();
-        data.assets.forEach(function (asset) {
-          hmrApply(global.parcelRequire, asset);
-        });
-        assetsToAccept.forEach(function (v) {
-          hmrAcceptRun(v[0], v[1]);
-        });
-      } else if (location.reload) {
-        // `location` global exists in a web worker context but lacks `.reload()` function.
-        location.reload();
-      }
-    }
-
-    if (data.type === 'reload') {
-      ws.close();
-
-      ws.onclose = function () {
-        location.reload();
-      };
-    }
-
-    if (data.type === 'error-resolved') {
-      console.log('[parcel] ✨ Error resolved');
-      removeErrorOverlay();
-    }
-
-    if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
-      removeErrorOverlay();
-      var overlay = createErrorOverlay(data);
-      document.body.appendChild(overlay);
-    }
-  };
-}
-
-function removeErrorOverlay() {
-  var overlay = document.getElementById(OVERLAY_ID);
-
-  if (overlay) {
-    overlay.remove();
-  }
-}
-
-function createErrorOverlay(data) {
-  var overlay = document.createElement('div');
-  overlay.id = OVERLAY_ID; // html encode message and stack trace
-
-  var message = document.createElement('div');
-  var stackTrace = document.createElement('pre');
-  message.innerText = data.error.message;
-  stackTrace.innerText = data.error.stack;
-  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
-  return overlay;
-}
-
-function getParents(bundle, id) {
-  var modules = bundle.modules;
-
-  if (!modules) {
-    return [];
-  }
-
-  var parents = [];
-  var k, d, dep;
-
-  for (k in modules) {
-    for (d in modules[k][1]) {
-      dep = modules[k][1][d];
-
-      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(k);
-      }
-    }
-  }
-
-  if (bundle.parent) {
-    parents = parents.concat(getParents(bundle.parent, id));
-  }
-
-  return parents;
-}
-
-function hmrApply(bundle, asset) {
-  var modules = bundle.modules;
-
-  if (!modules) {
-    return;
-  }
-
-  if (modules[asset.id] || !bundle.parent) {
-    var fn = new Function('require', 'module', 'exports', asset.generated.js);
-    asset.isNew = !modules[asset.id];
-    modules[asset.id] = [fn, asset.deps];
-  } else if (bundle.parent) {
-    hmrApply(bundle.parent, asset);
-  }
-}
-
-function hmrAcceptCheck(bundle, id) {
-  var modules = bundle.modules;
-
-  if (!modules) {
-    return;
-  }
-
-  if (!modules[id] && bundle.parent) {
-    return hmrAcceptCheck(bundle.parent, id);
-  }
-
-  if (checkedAssets[id]) {
-    return;
-  }
-
-  checkedAssets[id] = true;
-  var cached = bundle.cache[id];
-  assetsToAccept.push([bundle, id]);
-
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    return true;
-  }
-
-  return getParents(global.parcelRequire, id).some(function (id) {
-    return hmrAcceptCheck(global.parcelRequire, id);
-  });
-}
-
-function hmrAcceptRun(bundle, id) {
-  var cached = bundle.cache[id];
-  bundle.hotData = {};
-
-  if (cached) {
-    cached.hot.data = bundle.hotData;
-  }
-
-  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
-    cached.hot._disposeCallbacks.forEach(function (cb) {
-      cb(bundle.hotData);
-    });
-  }
-
-  delete bundle.cache[id];
-  bundle(id);
-  cached = bundle.cache[id];
-
-  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-    cached.hot._acceptCallbacks.forEach(function (cb) {
-      cb();
-    });
-
-    return true;
-  }
-}
-},{}]},{},["C:/Users/Song/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/bridge.jpg":"Elsr","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/xialuo.jpg":"IgeY","./assets/img/wallpaper/littleFish.jpg":"PaiM","./assets/img/wallpaper/xiaopao.jpg":"Z3Ut"}]},{},["epB2"], null)
+//# sourceMappingURL=main.72bc963c.js.map
