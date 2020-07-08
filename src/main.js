@@ -152,11 +152,11 @@ $('.addSite').on('click',function () {
 let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0;  //标记当前背景图片
 let wallpaperArray = [  //背景图片地址数组
   {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/bridge.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/xialuo.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/littleFish.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/xiaopao.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/bobi.jpg`)}
+  {imagePath:require(`./assets/img/wallpaper/xiaopao.jpg`)}
 ]
 //渲染前先获取localstorage中标记的图片
 $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
