@@ -118,27 +118,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"AB3p":[function(require,module,exports) {
-module.exports = ".cache/icon1.8e073538.png";
+module.exports = "icon1.8e073538.png";
 },{}],"GXZF":[function(require,module,exports) {
-module.exports = ".cache/icon2.dc66dd17.png";
+module.exports = "icon2.dc66dd17.png";
 },{}],"Skyo":[function(require,module,exports) {
-module.exports = ".cache/icon3.b006812b.png";
+module.exports = "icon3.b006812b.png";
 },{}],"sTvj":[function(require,module,exports) {
-module.exports = ".cache/icon4.c8dee8ec.png";
+module.exports = "icon4.c8dee8ec.png";
 },{}],"f9I4":[function(require,module,exports) {
-module.exports = ".cache/icon5.b6d93138.png";
+module.exports = "icon5.b6d93138.png";
 },{}],"kAkt":[function(require,module,exports) {
-module.exports = ".cache/yourname.7afbc98d.jpg";
+module.exports = "yourname.7afbc98d.jpg";
 },{}],"UonK":[function(require,module,exports) {
-module.exports = ".cache/lantern.667737f1.jpg";
+module.exports = "lantern.667737f1.jpg";
 },{}],"SLsw":[function(require,module,exports) {
-module.exports = ".cache/bike.0049547a.jpg";
+module.exports = "bike.0049547a.jpg";
 },{}],"O0r3":[function(require,module,exports) {
-module.exports = ".cache/alley.130af910.png";
+module.exports = "alley.130af910.png";
 },{}],"qyTH":[function(require,module,exports) {
-module.exports = ".cache/sunset.bd9fae51.jpg";
+module.exports = "sunset.bd9fae51.jpg";
 },{}],"ZaH3":[function(require,module,exports) {
-module.exports = ".cache/plum.63af599e.jpg";
+module.exports = "plum.63af599e.jpg";
 },{}],"epB2":[function(require,module,exports) {
 //获取localStorage - 网址
 var oldSitesCache = localStorage.getItem('sitesCache');
@@ -335,4 +335,4 @@ window.onbeforeunload = function () {
 //   }
 // })
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/sunset.jpg":"qyTH","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=.cache/main.74986e38.js.map
+//# sourceMappingURL=main.74986e38.js.map
