@@ -118,27 +118,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"AB3p":[function(require,module,exports) {
-module.exports = "icon1.8e073538.png";
+module.exports = ".cache/icon1.8e073538.png";
 },{}],"GXZF":[function(require,module,exports) {
-module.exports = "icon2.dc66dd17.png";
+module.exports = ".cache/icon2.dc66dd17.png";
 },{}],"Skyo":[function(require,module,exports) {
-module.exports = "icon3.b006812b.png";
+module.exports = ".cache/icon3.b006812b.png";
 },{}],"sTvj":[function(require,module,exports) {
-module.exports = "icon4.c8dee8ec.png";
+module.exports = ".cache/icon4.c8dee8ec.png";
 },{}],"f9I4":[function(require,module,exports) {
-module.exports = "icon5.b6d93138.png";
+module.exports = ".cache/icon5.b6d93138.png";
 },{}],"kAkt":[function(require,module,exports) {
-module.exports = "yourname.7afbc98d.jpg";
-},{}],"Elsr":[function(require,module,exports) {
-module.exports = "bridge.2f509167.jpg";
+module.exports = ".cache/yourname.7afbc98d.jpg";
 },{}],"UonK":[function(require,module,exports) {
-module.exports = "lantern.667737f1.jpg";
-},{}],"IgeY":[function(require,module,exports) {
-module.exports = "xialuo.3b9bf53d.jpg";
-},{}],"PaiM":[function(require,module,exports) {
-module.exports = "littleFish.2dfd97f0.jpg";
-},{}],"Z3Ut":[function(require,module,exports) {
-module.exports = "xiaopao.e0296320.jpg";
+module.exports = ".cache/lantern.667737f1.jpg";
+},{}],"SLsw":[function(require,module,exports) {
+module.exports = ".cache/bike.0049547a.jpg";
+},{}],"O0r3":[function(require,module,exports) {
+module.exports = ".cache/alley.130af910.png";
+},{}],"qyTH":[function(require,module,exports) {
+module.exports = ".cache/sunset.bd9fae51.jpg";
+},{}],"ZaH3":[function(require,module,exports) {
+module.exports = ".cache/plum.63af599e.jpg";
 },{}],"epB2":[function(require,module,exports) {
 //获取localStorage - 网址
 var oldSitesCache = localStorage.getItem('sitesCache');
@@ -302,15 +302,15 @@ var wallpaperArray = [//背景图片地址数组
 {
   imagePath: require("./assets/img/wallpaper/yourname.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/bridge.jpg")
-}, {
   imagePath: require("./assets/img/wallpaper/lantern.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/xialuo.jpg")
+  imagePath: require("./assets/img/wallpaper/bike.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/littleFish.jpg")
+  imagePath: require("./assets/img/wallpaper/alley.png")
 }, {
-  imagePath: require("./assets/img/wallpaper/xiaopao.jpg")
+  imagePath: require("./assets/img/wallpaper/sunset.jpg")
+}, {
+  imagePath: require("./assets/img/wallpaper/plum.jpg")
 }]; //渲染前先获取localstorage中标记的图片
 
 $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
@@ -334,5 +334,5 @@ window.onbeforeunload = function () {
 //     }
 //   }
 // })
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/bridge.jpg":"Elsr","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/xialuo.jpg":"IgeY","./assets/img/wallpaper/littleFish.jpg":"PaiM","./assets/img/wallpaper/xiaopao.jpg":"Z3Ut"}]},{},["epB2"], null)
-//# sourceMappingURL=main.72bc963c.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/sunset.jpg":"qyTH","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
+//# sourceMappingURL=.cache/main.74986e38.js.map
