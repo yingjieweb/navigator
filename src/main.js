@@ -155,7 +155,7 @@ let wallpaperArray = [  //背景图片地址数组
   {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/bike.jpg`)},
   {imagePath:require(`./assets/img/wallpaper/alley.png`)},
-  {imagePath:require(`./assets/img/wallpaper/sunset.jpg`)},
+  {imagePath:require(`./assets/img/wallpaper/pier.png`)},
   {imagePath:require(`./assets/img/wallpaper/plum.jpg`)},
 ]
 //渲染前先获取localstorage中标记的图片

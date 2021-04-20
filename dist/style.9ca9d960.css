@@ -9,9 +9,7 @@
     box-sizing: border-box;
 }
 
-ul, ol {
-    list-style: none;
-}
+ul, ol {list-style: none;}
 
 a {
     color: inherit;
@@ -49,9 +47,15 @@ nav .notes input {
     width: 100%;
     margin: 5px;
     padding: 0 10px;
-    border: 1px solid #ddd; /*input有难看的默认边框*/
+    border: none;
+    outline: none;
+    color: #34495e;
     border-radius: 4px;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
 nav .notes button {
@@ -59,46 +63,43 @@ nav .notes button {
     margin: 5px;
     white-space: nowrap;
     padding: 0 25px;
-    border: 1px solid #ddd;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+    border: none;
+    outline: none;
     border-radius: 4px;
-    background-color: white;
     font-size: 16px;
     cursor: pointer;
+
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .notesList {
     margin: 5px;
     max-width: 320px;
     display: none;
-    border: 1px solid #C38C83;
-    border-radius: 5px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
 }
 
-.showNotes {
-    display: block;
-}
+.showNotes {display: block;}
 
-.notesList:hover {
-    display: block;
-}
+.notesList:hover {display: block;}
 
 .notesList li {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #C38C83;
-    /*text-decoration: line-through;*/
+    border-radius: 4px;
+    color: #34495e;
+
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
-.notesList li span{
-    margin: 0 10px;
-}
+.notesList li span{margin: 0 10px;}
 
-.header {
-    margin: 60px;
-}
+.header {margin: 60px;}
 
 @media (min-width: 500px) {
     .header {
@@ -142,21 +143,32 @@ nav .notes button {
     width: 100%;
     margin-right: 10px;
     padding: 0 10px;
-    border: 1px solid #ddd; /*input有难看的默认边框*/
+    border: none;
+    outline: none;
+    color: #34495e;
     border-radius: 4px;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .search button {
     height: 40px;
     white-space: nowrap;
     padding: 0 25px;
-    border: 1px solid #ddd; /*input有难看的默认边框*/
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+    border: none;
+    outline: none;
     border-radius: 4px;
     background-color: white;
     font-size: 16px;
     cursor: pointer;
+
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .main {
@@ -174,8 +186,7 @@ nav .notes button {
     /*屏幕大于500像素*/
     .siteList {
         margin-left: 0;
-        margin-right: 0;
-        margin-right: -30px; /*负margin*/
+        margin-right: -30px;
         justify-content: flex-start;
     }
 }
@@ -194,14 +205,10 @@ nav .notes button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: white;
-    border: 1px solid #DDD;
     border-radius: 10%;
     padding: 20px 0;
-    cursor: pointer;
     margin-bottom: 10px;
-    cursor: pointer; /*鼠标手势*/
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2); /*x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色*/
+    cursor: pointer;
 }
 
 @media (min-width: 500px) {
@@ -212,6 +219,17 @@ nav .notes button {
 
 .main > .siteList .block {
     position: relative;
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
+}
+
+.main > .siteList .addSiteLi {
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .main > .siteList .logo {
@@ -221,6 +239,7 @@ nav .notes button {
 }
 
 .main > .siteList .site {
+    color: #34495e;
     margin-top: 4px;
 }
 
@@ -230,6 +249,7 @@ nav .notes button {
     top: -8px;
     right: 4px;
     display: none;
+    color: #909090;
 }
 
 .block:hover > .close {
@@ -282,4 +302,4 @@ live2d-widget-container {
 }
 
 
-/*# sourceMappingURL=style.2f78e996.css.map */
+/*# sourceMappingURL=style.9ca9d960.css.map */

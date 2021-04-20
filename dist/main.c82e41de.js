@@ -135,8 +135,8 @@ module.exports = "lantern.667737f1.jpg";
 module.exports = "bike.0049547a.jpg";
 },{}],"O0r3":[function(require,module,exports) {
 module.exports = "alley.130af910.png";
-},{}],"qyTH":[function(require,module,exports) {
-module.exports = "sunset.bd9fae51.jpg";
+},{}],"C48A":[function(require,module,exports) {
+module.exports = "pier.82ee67c4.png";
 },{}],"ZaH3":[function(require,module,exports) {
 module.exports = "plum.63af599e.jpg";
 },{}],"epB2":[function(require,module,exports) {
@@ -308,7 +308,7 @@ var wallpaperArray = [//背景图片地址数组
 }, {
   imagePath: require("./assets/img/wallpaper/alley.png")
 }, {
-  imagePath: require("./assets/img/wallpaper/sunset.jpg")
+  imagePath: require("./assets/img/wallpaper/pier.png")
 }, {
   imagePath: require("./assets/img/wallpaper/plum.jpg")
 }]; //渲染前先获取localstorage中标记的图片
@@ -334,5 +334,5 @@ window.onbeforeunload = function () {
 //     }
 //   }
 // })
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/sunset.jpg":"qyTH","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.74986e38.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
+//# sourceMappingURL=main.c82e41de.js.map
