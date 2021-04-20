@@ -334,5 +334,16 @@ window.onbeforeunload = function () {
 //     }
 //   }
 // })
+// 百度统计脚本
+
+
+var _hmt = _hmt || [];
+
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8c000df8ca601a751a83c60449488c8e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.c82e41de.js.map
+//# sourceMappingURL=main.6838d110.js.map
