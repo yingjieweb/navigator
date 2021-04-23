@@ -146,7 +146,7 @@ var sitesCache = JSON.parse(oldSitesCache);
 var hashMap = sitesCache || [//网址快捷方式图标及url
 {
   logoPath: require("./assets/img/icon/icon1.png"),
-  url: 'https://www.csdn.net'
+  url: '//http://www.graduate.nuaa.edu.cn/'
 }, {
   logoPath: require("./assets/img/icon/icon2.png"),
   url: 'https://juejin.im'
@@ -160,7 +160,7 @@ var hashMap = sitesCache || [//网址快捷方式图标及url
 
 var oldNotesCache = localStorage.getItem('notesCache');
 var notesCache = JSON.parse(oldNotesCache);
-var notesArray = notesCache || ['您目前还没有梦想呢，小蠢猪 ~']; //简化url
+var notesArray = notesCache || ['您目前还没有梦想呢，小傻瓜 ~']; //简化url
 
 var simplifyUrl = function simplifyUrl(url) {
   return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
@@ -192,12 +192,12 @@ $notesInput.on('blur', function () {
 });
 $notesButton.on('click', function () {
   if ($notesInput.val() === '') {
-    alert('你还没写愿望呢，小蠢猪！');
+    alert('你还没写愿望呢，小傻瓜！');
   } else {
     $notesListUl.append("\n      <li>\n          <span style=\"line-height: 40px; max-width: 280px;\">".concat($notesInput.val(), "</span>\n          <svg class=\"icon\"><use xlink:href=\"#icon-aixin\"></use></svg>\n        </li>\n    "));
     notesArray.push($notesInput.val());
 
-    if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小蠢猪 ~') {
+    if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小傻瓜 ~') {
       notesArray = notesArray.splice(1);
     }
 
@@ -346,4 +346,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.6838d110.js.map
+//# sourceMappingURL=main.c11787cf.js.map
