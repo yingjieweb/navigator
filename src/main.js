@@ -2,7 +2,7 @@
 let oldSitesCache = localStorage.getItem('sitesCache');
 let sitesCache = JSON.parse(oldSitesCache);
 let hashMap = sitesCache ||  [ //网址快捷方式图标及url
-  {logoPath:require(`./assets/img/icon/icon1.png`),url:'https://www.csdn.net'},
+  {logoPath:require(`./assets/img/icon/icon1.png`),url:'//http://www.graduate.nuaa.edu.cn/'},
   {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im'},
   {logoPath:require(`./assets/img/icon/icon3.png`),url:'https://modao.cc'},
   {logoPath:require(`./assets/img/icon/icon4.png`),url:'https://www.cnki.net'}
@@ -11,7 +11,7 @@ let hashMap = sitesCache ||  [ //网址快捷方式图标及url
 //获取localStorage - notes
 let oldNotesCache = localStorage.getItem('notesCache');
 let notesCache = JSON.parse(oldNotesCache);
-let notesArray = notesCache || ['您目前还没有梦想呢，小蠢猪 ~'];
+let notesArray = notesCache || ['您目前还没有梦想呢，小傻瓜 ~'];
 
 //简化url
 const simplifyUrl = (url) => {
@@ -38,7 +38,7 @@ $notesInput.on('blur',() => {
 })
 $notesButton.on('click', () => {
   if ($notesInput.val() === '') {
-    alert('你还没写愿望呢，小蠢猪！');
+    alert('你还没写愿望呢，小傻瓜！');
   } else {
     $notesListUl.append(`
       <li>
@@ -48,7 +48,7 @@ $notesButton.on('click', () => {
     `);
 
     notesArray.push($notesInput.val());
-    if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小蠢猪 ~') {
+    if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小傻瓜 ~') {
       notesArray = notesArray.splice(1);
     }
     let newNotesCache = JSON.stringify(notesArray);
