@@ -1,34 +1,40 @@
-//获取localStorage - 网址
+// 获取localStorage - 网址
 let oldSitesCache = localStorage.getItem('sitesCache');
 let sitesCache = JSON.parse(oldSitesCache);
-let hashMap = sitesCache ||  [ //网址快捷方式图标及url
-  {logoPath:require(`./assets/img/icon/icon1.png`),url:'//http://www.graduate.nuaa.edu.cn/'},
+let hashMap = sitesCache ||  [
+  {logoPath:require(`./assets/img/icon/icon1.png`),url:'http://www.graduate.nuaa.edu.cn'},
   {logoPath:require(`./assets/img/icon/icon2.png`),url:'https://juejin.im'},
   {logoPath:require(`./assets/img/icon/icon3.png`),url:'https://modao.cc'},
   {logoPath:require(`./assets/img/icon/icon4.png`),url:'https://www.cnki.net'}
 ]
 
-//获取localStorage - notes
+// 获取localStorage - notes
 let oldNotesCache = localStorage.getItem('notesCache');
 let notesCache = JSON.parse(oldNotesCache);
-let notesArray = notesCache || ['您目前还没有梦想呢，小傻瓜 ~'];
+let notesArray = notesCache || ['你还是一个没有愿望的小傻瓜呢 ~'];
 
-//简化url
+// 简化 url
 const simplifyUrl = (url) => {
   return url.replace('https://', '')
     .replace('http://', '')
     .replace('www.', '')
+    .replace('graduate.', '')
     .replace(/\/.*/, ''); // 删除 / 开头的内容
 }
-let $notesInput = $('.notesInput'); //获取便签input
-let $notesList = $('.notesList'); //获取便签List
-let $notesListUl = $('.notesListUl'); //获取便签List
-let $notesButton = $('.notesButton'); //获取便签按钮
-let $tabBar = $('.tab-bar');  //获取tabBar的按钮
-let $search = $('.search');  //获取search表单
-let $input = $('.search input');  //获取search表单的input
-let $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
-let $arrow = $('.arrow'); //获取底部的箭头
+
+let $navigatorPage = $('.navigator-page');
+let $picPage = $('.pic-page');
+let $notesInput = $('.notesInput'); // 获取便签input
+let $notesList = $('.notesList'); // 获取便签List
+let $notesListUl = $('.notesListUl'); // 获取便签List
+let $notesButton = $('.notesButton'); // 获取便签按钮
+let $tabBar = $('.tab-bar');  // 获取tabBar的按钮
+let $search = $('.search');  // 获取search表单
+let $input = $('.search input');  // 获取search表单的input
+let $addSiteLi = $('.addSiteLi'); // 获取新增快捷方式按钮
+let $guideToRight = $('.guide-to-right'); // 获取右侧导航按钮
+let $guideToLeft = $('.guide-to-left'); // 获取右侧导航按钮
+let $arrow = $('.arrow'); // 获取底部的箭头
 
 $notesInput.on('focus',() => {
   $notesList.addClass('showNotes');
@@ -64,7 +70,7 @@ $notesInput.bind('keypress', (event) => {
   }
 })
 
-$tabBar.on('click',"div",(event)=>{ //tabBar事件委托
+$tabBar.on('click',"div",(event) => { //tabBar事件委托
   const $tabItem = $(event.currentTarget);  //获取当前被点击的元素
   $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass(value,stateVal); 看mdn吧
 
@@ -103,7 +109,7 @@ $tabBar.on('click',"div",(event)=>{ //tabBar事件委托
   }
 })
 
-//页面渲染render
+// 页面渲染render
 let render = function(){
   $('.siteList').find('li:not(.addSiteLi)').remove(); //渲染前移除添加按钮前的模块
   hashMap.forEach((item,index)=>{ //根据hashMap创建相应的元素并添加到新增按钮前
@@ -135,10 +141,10 @@ let render = function(){
   })
 }
 
-//页面刷新时先渲染hashMap
+// 页面刷新时先渲染hashMap
 render();
 
-//点击添加快捷方式按钮，添加相应的li网址模块
+// 点击添加快捷方式按钮，添加相应的li网址模块
 $('.addSite').on('click',function () {
   let url = window.prompt('请输入你要访问的网址！');
   if (url.indexOf('http') !== 0){
@@ -149,31 +155,48 @@ $('.addSite').on('click',function () {
   render(); //重新渲染
 })
 
-let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0;  //标记当前背景图片
-let wallpaperArray = [  //背景图片地址数组
-  {imagePath:require(`./assets/img/wallpaper/yourname.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/lantern.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/bike.jpg`)},
-  {imagePath:require(`./assets/img/wallpaper/alley.png`)},
-  {imagePath:require(`./assets/img/wallpaper/pier.png`)},
-  {imagePath:require(`./assets/img/wallpaper/plum.jpg`)},
+let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0;  // 标记当前背景图片
+let wallpaperArray = [
+  {imagePath: require(`./assets/img/wallpaper/yourname.jpg`)},
+  {imagePath: require(`./assets/img/wallpaper/lantern.jpg`)},
+  {imagePath: require(`./assets/img/wallpaper/bike.jpg`)},
+  {imagePath: require(`./assets/img/wallpaper/alley.png`)},
+  {imagePath: require(`./assets/img/wallpaper/pier.png`)},
+  {imagePath: require(`./assets/img/wallpaper/plum.jpg`)},
 ]
-//渲染前先获取localstorage中标记的图片
-$("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
+
+
+$guideToRight.on('click', () => {
+  $guideToLeft[0].style.display = 'inline-block';
+  $navigatorPage[0].style.display = 'none'; // TODO
+})
+
+$guideToLeft.on('click', () => {
+  $guideToRight[0].style.display = 'inline-block';
+  $picPage[0].style.display = 'none'; // TODO
+})
+
+// 渲染前先获取 localstorage 中标记的图片
+$navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
 //点击箭头切换背景图片
-$arrow.on('click',()=>{
+$arrow.on('click',() => {
+  $arrow.addClass('rotate')
+  setTimeout(() => {
+    $arrow.removeClass('rotate')
+  }, 2000)
+
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
-  localStorage.setItem("backgroundImageFlag",wallpaperFlag);  //存储当前壁纸标记到 localStorage
+  localStorage.setItem("backgroundImageFlag",wallpaperFlag);  // 存储当前壁纸标记到 localStorage
   $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
 
-//窗口关闭前保存到localStorage
+// 窗口关闭前保存到localStorage
 window.onbeforeunload = function () {
   let newSitesCache = JSON.stringify(hashMap);
   localStorage.setItem('sitesCache',newSitesCache);
 }
 
-//监听键盘事件
+// 监听键盘事件
 // $(document).on('keypress', (event) => {
 //   const key = event.key; //const {key} = event;
 //   for (let i = 0; i < hashMap.length; i++) {

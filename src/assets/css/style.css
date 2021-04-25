@@ -1,13 +1,11 @@
-/*css reset*/
+/* css reset -> start */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-*:before, *:after {
-    box-sizing: border-box;
-}
+*:before, *:after {box-sizing: border-box;}
 
 ul, ol {list-style: none;}
 
@@ -20,18 +18,36 @@ img {
     max-width: 100%;
     max-height: 100%;
 }
+/* css reset -> end */
 
 body {
     /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
-    /*background-image: url(../img/wallpaper/yourname.jpg);*//*闪切背景图片*/
-    background-size:  100vw 100vh;
-    background-repeat: no-repeat;
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    width: 200vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.navigator-page {
+    /*background-image: url(../img/wallpaper/yourname.jpg);*/ /*闪切背景图片*/
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
     transition: 0.2s ease-in-out;   /*背景图片切换效果*/
+    height: 100vh;
+    width: 100vw;
+    float: left;
+}
+
+.pic-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
 }
@@ -252,10 +268,43 @@ nav .notes button {
     color: #909090;
 }
 
-.block:hover > .close {
-    display: block;
+.block:hover > .close {display: block;}
+
+.guide-to-right {
+    display: inline-block;
+    position: fixed;
+    top: 42%;
+    right: 0%;
+    cursor: pointer;
 }
 
+.guide-to-left {
+    display: inline-block;
+    position: fixed;
+    top: 42%;
+    left: 0%;
+    cursor: pointer;
+    display: none;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    position: absolute;
+    left: 50vw;
+    bottom: 50px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.rotate {animation: rotate 2s infinite;}
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(2turn)}
+    100% { transform: translate(-50%, -50%) rotate(4turn)}
+}
+
+/* kanban part css*/
 live2d-widget-container {
     position: fixed;
     right: 0px;
@@ -273,30 +322,4 @@ live2d-widget-container {
     top: 0px;
     width: 200px;
     height: 400px;
-}
-
-.footer .arrow{
-    display: flex;
-    justify-content: center;
-    align-self: flex-end;
-    position: absolute;
-    left: 50vw;
-    bottom: 50px;
-    transform: translate(-50%,-50%);
-    cursor: pointer;
-}
-
-.footer .arrow {
-    animation: vibration 3s infinite;
-}
-@keyframes vibration {
-    0% {
-        transform: translate(0px, 0px);
-    }
-    50% {
-        transform: translate(0px, -10px);
-    }
-    100% {
-        transform: translate(0px, 0px);
-    }
 }

@@ -22,50 +22,62 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav>
-    <div class="notes">
+  <!-- 导航页 part -->
+  <div class="navigator-page">
+    <nav>
+      <div class="notes">
         <input class="notesInput" type="text" placeholder="在这许小小愿望，小傻瓜！"/>
         <button class="notesButton" type="submit" title="点击许愿哦 ~"><img src="./assets/img/schedule.png"></button>
-    </div>
-    <div class="notesList">
-      <ul class="notesListUl">
-        <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
-          <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
-          <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
-        </li>-->
+      </div>
+      <div class="notesList">
+        <ul class="notesListUl">
+          <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
+            <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
+            <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+          </li>-->
+        </ul>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="tab-bar">
+        <div class="tab-bar-item baidu selected"><img src="./assets/img/tabbar/baidu.png" alt="百度"></div>
+        <div class="tab-bar-item zhihu"><img src="./assets/img/tabbar/zhihu.png" alt="知乎"></div>
+        <div class="tab-bar-item csdn"><img src="./assets/img/tabbar/csdn.png" alt="csdn"></div>
+        <div class="tab-bar-item github"><img src="./assets/img/tabbar/github.png" alt="github"></div>
+        <div class="tab-bar-item github"><img src="./assets/img/tabbar/knowledge.png" alt="超星"></div>
+        <div class="tab-bar-item github"><img src="./assets/img/tabbar/academic.png" alt="百度学术"></div>
+        <div class="tab-bar-item github"><img src="./assets/img/tabbar/duxiu.png" alt="读秀"></div>
+      </div>
+      <form class="search" method="get" action="http://www.baidu.com/s">
+        <input name="wd" type="text" required placeholder="众里寻他千百度 —— 百度">
+        <button type="submit"><img src="./assets/img/search.png"></button>
+      </form>
+    </header>
+    <main class="main">
+      <ul class="siteList">
+        <li class="addSiteLi">
+          <div class="addSite">
+            <div class="logo"><img src="assets/img/icon/add.png"></div>
+            <div class="site">Add shortcuts</div>
+          </div>
+        </li>
       </ul>
+    </main>
+    <div class="guide-to-right">
+      <img src="./assets/img/guide.png">
     </div>
-  </nav>
-  <header class="header">
-    <div class="tab-bar">
-      <div class="tab-bar-item baidu selected"><img src="./assets/img/tabbar/baidu.png" alt="百度"></div>
-      <div class="tab-bar-item zhihu"><img src="./assets/img/tabbar/zhihu.png" alt="知乎"></div>
-      <div class="tab-bar-item csdn"><img src="./assets/img/tabbar/csdn.png" alt="csdn"></div>
-      <div class="tab-bar-item github"><img src="./assets/img/tabbar/github.png" alt="github"></div>
-      <div class="tab-bar-item github"><img src="./assets/img/tabbar/knowledge.png" alt="超星"></div>
-      <div class="tab-bar-item github"><img src="./assets/img/tabbar/academic.png" alt="百度学术"></div>
-      <div class="tab-bar-item github"><img src="./assets/img/tabbar/duxiu.png" alt="读秀"></div>
-    </div>
-    <form class="search" method="get" action="http://www.baidu.com/s">
-      <input name="wd" type="text" required placeholder="众里寻他千百度 —— 百度">
-      <button type="submit"><img src="./assets/img/search.png"></button>
-    </form>
-  </header>
-  <main class="main">
-    <ul class="siteList">
-      <li class="addSiteLi">
-        <div class="addSite">
-          <div class="logo"><img src="assets/img/icon/add.png"></div>
-          <div class="site">Add shortcuts</div>
-        </div>
-      </li>
-    </ul>
-  </main>
-  <footer class="footer">
     <div class="arrow" title="点击切换背景图片">
-      <img src="./assets/img/arrow.png">
+      <img src="./assets/img/windmill.png">
     </div>
-  </footer>
+  </div>
+
+  <!-- 照片墙 part -->
+  <div class="pic-page" style="border: 1px solid red;">
+    <div class="guide-to-left">
+      <img src="./assets/img/guide.png">
+    </div>
+  </div>
+
   <!--Kanban container-->
   <div id="live2d-widget" class="live2d-widget-container">
     <canvas id="live2dcanvas" width="400" height="800"></canvas>
