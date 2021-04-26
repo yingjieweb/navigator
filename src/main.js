@@ -70,7 +70,7 @@ $notesInput.bind('keypress', (event) => {
   }
 })
 
-$tabBar.on('click',"div",(event) => { //tabBar事件委托
+$tabBar.on('click',"div",(event) => { // tabBar事件委托
   const $tabItem = $(event.currentTarget);  //获取当前被点击的元素
   $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass(value,stateVal); 看mdn吧
 
@@ -141,10 +141,10 @@ let render = function(){
   })
 }
 
-// 页面刷新时先渲染hashMap
+// 页面刷新时先渲染 hashMap
 render();
 
-// 点击添加快捷方式按钮，添加相应的li网址模块
+// 点击添加快捷方式按钮，添加相应的 li 网址模块
 $('.addSite').on('click',function () {
   let url = window.prompt('请输入你要访问的网址！');
   if (url.indexOf('http') !== 0){
@@ -165,18 +165,7 @@ let wallpaperArray = [
   {imagePath: require(`./assets/img/wallpaper/plum.jpg`)},
 ]
 
-
-$guideToRight.on('click', () => {
-  $guideToLeft[0].style.display = 'inline-block';
-  $navigatorPage[0].style.display = 'none'; // TODO
-})
-
-$guideToLeft.on('click', () => {
-  $guideToRight[0].style.display = 'inline-block';
-  $picPage[0].style.display = 'none'; // TODO
-})
-
-// 渲染前先获取 localstorage 中标记的图片
+// 渲染前先获取 localstorage 中标记的壁纸图片
 $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
 //点击箭头切换背景图片
 $arrow.on('click',() => {
@@ -187,7 +176,19 @@ $arrow.on('click',() => {
 
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag",wallpaperFlag);  // 存储当前壁纸标记到 localStorage
-  $("body").css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
+  $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
+})
+
+// 导航页 -> 照片页切换
+$guideToRight.on('click', () => {
+  $navigatorPage.addClass('toggle-nav-pic')
+  $picPage.addClass('toggle-nav-pic')
+})
+
+// 导航页 -> 照片页切换
+$guideToLeft.on('click', () => {
+  $navigatorPage.removeClass('toggle-nav-pic')
+  $picPage.removeClass('toggle-nav-pic')
 })
 
 // 窗口关闭前保存到localStorage
