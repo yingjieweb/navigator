@@ -15,55 +15,63 @@
       overflow: hidden;
       cursor: pointer;
     }</style>
-  <!--初始化样式 normalize.css-->
-  <link rel="stylesheet" href="normalize.0b179f84.css">
-  <link rel="stylesheet" href="style.9ca9d960.css">
+  <link rel="stylesheet" href="reset.5c50b88d.css">
+  <link rel="stylesheet" href="navigator.7b3c9338.css">
+  <link rel="stylesheet" href="pic_wall.15a9147c.css">
 </head>
 <body>
-  <nav>
-    <div class="notes">
+  <!-- 导航页 part -->
+  <div class="navigator-page">
+    <nav>
+      <div class="notes">
         <input class="notesInput" type="text" placeholder="在这许小小愿望，小傻瓜！">
         <button class="notesButton" type="submit" title="点击许愿哦 ~"><img src="schedule.4220b496.png"></button>
-    </div>
-    <div class="notesList">
-      <ul class="notesListUl">
-        <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
-          <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
-          <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
-        </li>-->
+      </div>
+      <div class="notesList">
+        <ul class="notesListUl">
+          <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
+            <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
+            <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+          </li>-->
+        </ul>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="tab-bar">
+        <div class="tab-bar-item baidu selected"><img src="baidu.6e9f8494.png" alt="百度"></div>
+        <div class="tab-bar-item zhihu"><img src="zhihu.bf2dbc83.png" alt="知乎"></div>
+        <div class="tab-bar-item csdn"><img src="csdn.ab9e781d.png" alt="csdn"></div>
+        <div class="tab-bar-item github"><img src="github.49c5c3e5.png" alt="github"></div>
+        <div class="tab-bar-item github"><img src="knowledge.fa06bb7b.png" alt="超星"></div>
+        <div class="tab-bar-item github"><img src="academic.458be9d5.png" alt="百度学术"></div>
+        <div class="tab-bar-item github"><img src="duxiu.f2c55b8b.png" alt="读秀"></div>
+      </div>
+      <form class="search" method="get" action="http://www.baidu.com/s">
+        <input name="wd" type="text" required="" placeholder="众里寻他千百度 —— 百度">
+        <button type="submit"><img src="search.6c6082e0.png"></button>
+      </form>
+    </header>
+    <main class="main">
+      <ul class="siteList">
+        <li class="addSiteLi">
+          <div class="addSite">
+            <div class="logo"><img src="add.fa8b77f4.png"></div>
+            <div class="site">Add shortcuts</div>
+          </div>
+        </li>
       </ul>
-    </div>
-  </nav>
-  <header class="header">
-    <div class="tab-bar">
-      <div class="tab-bar-item baidu selected"><img src="baidu.6e9f8494.png" alt="百度"></div>
-      <div class="tab-bar-item zhihu"><img src="zhihu.bf2dbc83.png" alt="知乎"></div>
-      <div class="tab-bar-item csdn"><img src="csdn.ab9e781d.png" alt="csdn"></div>
-      <div class="tab-bar-item github"><img src="github.49c5c3e5.png" alt="github"></div>
-      <div class="tab-bar-item github"><img src="knowledge.fa06bb7b.png" alt="超星"></div>
-      <div class="tab-bar-item github"><img src="academic.458be9d5.png" alt="百度学术"></div>
-      <div class="tab-bar-item github"><img src="duxiu.f2c55b8b.png" alt="读秀"></div>
-    </div>
-    <form class="search" method="get" action="http://www.baidu.com/s">
-      <input name="wd" type="text" required="" placeholder="众里寻他千百度 —— 百度">
-      <button type="submit"><img src="search.6c6082e0.png"></button>
-    </form>
-  </header>
-  <main class="main">
-    <ul class="siteList">
-      <li class="addSiteLi">
-        <div class="addSite">
-          <div class="logo"><img src="add.fa8b77f4.png"></div>
-          <div class="site">Add shortcuts</div>
-        </div>
-      </li>
-    </ul>
-  </main>
-  <footer class="footer">
-    <div class="arrow" title="点击切换背景图片">
-      <img src="arrow.70627fa1.png">
-    </div>
-  </footer>
+    </main>
+    <img class="guide-to-right" src="guide.4a6fc0ff.png">
+    <img class="arrow" src="windmill.e191339c.png">
+  </div>
+
+  <!-- 照片墙 part -->
+  <div class="pic-page">
+    先来一个占位图
+    <img class="placeholder" src="hold_baby.692bcf77.jpg">
+    <img class="guide-to-left" src="guide.4a6fc0ff.png">
+  </div>
+
   <!--Kanban container-->
   <div id="live2d-widget" class="live2d-widget-container">
     <canvas id="live2dcanvas" width="400" height="800"></canvas>
@@ -83,5 +91,5 @@
 <!--添加阿里 icon 动态引入-->
 <script src="//at.alicdn.com/t/font_1709463_gcxlpbmf635.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="main.c11787cf.js"></script>
+<script src="main.dbd787ac.js"></script>
 </html>

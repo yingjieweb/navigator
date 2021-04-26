@@ -140,13 +140,12 @@ module.exports = "pier.82ee67c4.png";
 },{}],"ZaH3":[function(require,module,exports) {
 module.exports = "plum.63af599e.jpg";
 },{}],"epB2":[function(require,module,exports) {
-//获取localStorage - 网址
+// 获取localStorage - 网址
 var oldSitesCache = localStorage.getItem('sitesCache');
 var sitesCache = JSON.parse(oldSitesCache);
-var hashMap = sitesCache || [//网址快捷方式图标及url
-{
+var hashMap = sitesCache || [{
   logoPath: require("./assets/img/icon/icon1.png"),
-  url: '//http://www.graduate.nuaa.edu.cn/'
+  url: 'http://www.graduate.nuaa.edu.cn'
 }, {
   logoPath: require("./assets/img/icon/icon2.png"),
   url: 'https://juejin.im'
@@ -156,33 +155,39 @@ var hashMap = sitesCache || [//网址快捷方式图标及url
 }, {
   logoPath: require("./assets/img/icon/icon4.png"),
   url: 'https://www.cnki.net'
-}]; //获取localStorage - notes
+}]; // 获取localStorage - notes
 
 var oldNotesCache = localStorage.getItem('notesCache');
 var notesCache = JSON.parse(oldNotesCache);
-var notesArray = notesCache || ['您目前还没有梦想呢，小傻瓜 ~']; //简化url
+var notesArray = notesCache || ['你还是一个没有愿望的小傻瓜呢 ~']; // 简化 url
 
 var simplifyUrl = function simplifyUrl(url) {
-  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
+  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace('graduate.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
 };
 
-var $notesInput = $('.notesInput'); //获取便签input
+var $navigatorPage = $('.navigator-page');
+var $picPage = $('.pic-page');
+var $notesInput = $('.notesInput'); // 获取便签input
 
-var $notesList = $('.notesList'); //获取便签List
+var $notesList = $('.notesList'); // 获取便签List
 
-var $notesListUl = $('.notesListUl'); //获取便签List
+var $notesListUl = $('.notesListUl'); // 获取便签List
 
-var $notesButton = $('.notesButton'); //获取便签按钮
+var $notesButton = $('.notesButton'); // 获取便签按钮
 
-var $tabBar = $('.tab-bar'); //获取tabBar的按钮
+var $tabBar = $('.tab-bar'); // 获取tabBar的按钮
 
-var $search = $('.search'); //获取search表单
+var $search = $('.search'); // 获取search表单
 
-var $input = $('.search input'); //获取search表单的input
+var $input = $('.search input'); // 获取search表单的input
 
-var $addSiteLi = $('.addSiteLi'); //获取新增快捷方式按钮
+var $addSiteLi = $('.addSiteLi'); // 获取新增快捷方式按钮
 
-var $arrow = $('.arrow'); //获取底部的箭头
+var $guideToRight = $('.guide-to-right'); // 获取右侧导航按钮
+
+var $guideToLeft = $('.guide-to-left'); // 获取右侧导航按钮
+
+var $arrow = $('.arrow'); // 获取底部的箭头
 
 $notesInput.on('focus', function () {
   $notesList.addClass('showNotes');
@@ -214,7 +219,7 @@ $notesInput.bind('keypress', function (event) {
   }
 });
 $tabBar.on('click', "div", function (event) {
-  //tabBar事件委托
+  // tabBar事件委托
   var $tabItem = $(event.currentTarget); //获取当前被点击的元素
 
   $tabItem.addClass("selected").siblings().removeClass("selected"); //toggleClass(value,stateVal); 看mdn吧
@@ -254,7 +259,7 @@ $tabBar.on('click', "div", function (event) {
     $input.attr("name", "sw");
     $input.attr("placeholder", "海量学术文献搜索 —— 读秀");
   }
-}); //页面渲染render
+}); // 页面渲染render
 
 var render = function render() {
   $('.siteList').find('li:not(.addSiteLi)').remove(); //渲染前移除添加按钮前的模块
@@ -275,10 +280,10 @@ var render = function render() {
     var $li = $("<li title=\"\u70B9\u51FB\u5C0F\u7EA2\u5FC3\u5C31\u8868\u793A\u613F\u671B\u5DF2\u7ECF\u5B9E\u73B0\u4E86\u54E6 ~\">\n      <span style=\"line-height: 40px; max-width: 280px;\">".concat(item, "</span>\n      <svg class=\"icon\" onclick=\"window.alert('\u613F\u671B\u5B9E\u73B0\u529F\u80FD\u6B63\u5728\u5F00\u53D1\u5F53\u4E2D\u5462 ~')\"><use xlink:href=\"#icon-aixin\"></use></svg>\n    </li>\n    "));
     $notesListUl.append($li);
   });
-}; //页面刷新时先渲染hashMap
+}; // 页面刷新时先渲染 hashMap
 
 
-render(); //点击添加快捷方式按钮，添加相应的li网址模块
+render(); // 点击添加快捷方式按钮，添加相应的 li 网址模块
 
 $('.addSite').on('click', function () {
   var url = window.prompt('请输入你要访问的网址！');
@@ -296,10 +301,9 @@ $('.addSite').on('click', function () {
   });
   render(); //重新渲染
 });
-var wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0; //标记当前背景图片
+var wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0; // 标记当前背景图片
 
-var wallpaperArray = [//背景图片地址数组
-{
+var wallpaperArray = [{
   imagePath: require("./assets/img/wallpaper/yourname.jpg")
 }, {
   imagePath: require("./assets/img/wallpaper/lantern.jpg")
@@ -311,21 +315,35 @@ var wallpaperArray = [//背景图片地址数组
   imagePath: require("./assets/img/wallpaper/pier.png")
 }, {
   imagePath: require("./assets/img/wallpaper/plum.jpg")
-}]; //渲染前先获取localstorage中标记的图片
+}]; // 渲染前先获取 localstorage 中标记的壁纸图片
 
-$("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
+$navigatorPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); //点击箭头切换背景图片
 
 $arrow.on('click', function () {
+  $arrow.addClass('rotate');
+  setTimeout(function () {
+    $arrow.removeClass('rotate');
+  }, 2000);
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
-  localStorage.setItem("backgroundImageFlag", wallpaperFlag); //存储当前壁纸标记到 localStorage
+  localStorage.setItem("backgroundImageFlag", wallpaperFlag); // 存储当前壁纸标记到 localStorage
 
-  $("body").css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
-}); //窗口关闭前保存到localStorage
+  $navigatorPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
+}); // 导航页 -> 照片页切换
+
+$guideToRight.on('click', function () {
+  $navigatorPage.addClass('toggle-nav-pic');
+  $picPage.addClass('toggle-nav-pic');
+}); // 导航页 -> 照片页切换
+
+$guideToLeft.on('click', function () {
+  $navigatorPage.removeClass('toggle-nav-pic');
+  $picPage.removeClass('toggle-nav-pic');
+}); // 窗口关闭前保存到localStorage
 
 window.onbeforeunload = function () {
   var newSitesCache = JSON.stringify(hashMap);
   localStorage.setItem('sitesCache', newSitesCache);
-}; //监听键盘事件
+}; // 监听键盘事件
 // $(document).on('keypress', (event) => {
 //   const key = event.key; //const {key} = event;
 //   for (let i = 0; i < hashMap.length; i++) {
@@ -346,4 +364,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.c11787cf.js.map
+//# sourceMappingURL=main.dbd787ac.js.map
