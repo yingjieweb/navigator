@@ -1,0 +1,34 @@
+.pic-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  font-size: 0;  /* 清除图片间隙 */
+}
+
+.pic-fall {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+/* 隐藏滑块 but 依然能滑动 */
+.pic-fall::-webkit-scrollbar {display: none;}
+
+.placeholder {
+  width: 10vw;
+  cursor: pointer;
+}
+
+.placeholder:hover {
+  transform: scale(1.1);
+}
+
+.guide-to-left {
+  position: absolute;
+  top: 42%;
+  left: 0%;
+  cursor: pointer;
+}
+
+
+/*# sourceMappingURL=pic_wall.4d2c1654.css.map */

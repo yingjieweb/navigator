@@ -332,12 +332,10 @@ $arrow.on('click', function () {
 
 $guideToRight.on('click', function () {
   $navigatorPage.addClass('toggle-nav-pic');
-  $picPage.addClass('toggle-nav-pic');
 }); // 导航页 -> 照片页切换
 
 $guideToLeft.on('click', function () {
   $navigatorPage.removeClass('toggle-nav-pic');
-  $picPage.removeClass('toggle-nav-pic');
 }); // 窗口关闭前保存到localStorage
 
 window.onbeforeunload = function () {
@@ -364,4 +362,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.dbd787ac.js.map
+//# sourceMappingURL=main.934a12b1.js.map
