@@ -182,13 +182,11 @@ $arrow.on('click',() => {
 // 导航页 -> 照片页切换
 $guideToRight.on('click', () => {
   $navigatorPage.addClass('toggle-nav-pic')
-  $picPage.addClass('toggle-nav-pic')
 })
 
 // 导航页 -> 照片页切换
 $guideToLeft.on('click', () => {
   $navigatorPage.removeClass('toggle-nav-pic')
-  $picPage.removeClass('toggle-nav-pic')
 })
 
 // 窗口关闭前保存到localStorage

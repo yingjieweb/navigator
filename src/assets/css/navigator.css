@@ -2,9 +2,8 @@ body {
     /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
     width: 200vw;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    position: relative;
+    overflow: hidden;
+    display: flex;
 }
 
 .navigator-page {
@@ -14,11 +13,10 @@ body {
     transition: 0.2s ease-in-out;   /*背景图片切换效果*/
     height: 100vh;
     width: 100vw;
-    float: left;
     position: relative;
 }
 
-.toggle-nav-pic {transform: translateX(-100vw);}
+.toggle-nav-pic {margin-left: -100vw;}
 
 nav {
     position: absolute;
