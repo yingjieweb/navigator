@@ -191,6 +191,7 @@ Array.from($indicatorLis).forEach((item, index) => {
 // 点击 indicator 切换屏幕 0：导航 1：照片墙
 $indicatorUl.on('click', (event) => {
   let clickedIndex = Array.from($indicatorLis).indexOf(event.target)
+  if (clickedIndex === -1) return
   $indicatorLis.eq(currentIndicator).removeClass('active')
   $indicatorLis.eq(clickedIndex).addClass('active')
   currentIndicator = clickedIndex
