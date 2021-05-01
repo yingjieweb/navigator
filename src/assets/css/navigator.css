@@ -1,23 +1,3 @@
-body {
-    /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
-    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
-    width: 200vw;
-    overflow: hidden;
-    display: flex;
-}
-
-.navigator-page {
-    /*background-image: url(../img/wallpaper/yourname.jpg);*/ /*闪切背景图片*/
-    background-size: 100vw 100vh;
-    background-repeat: no-repeat;
-    transition: 0.2s ease-in-out;   /*背景图片切换效果*/
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-}
-
-.toggle-nav-pic {margin-left: -100vw;}
-
 nav {
     position: absolute;
     right: 0;
@@ -163,6 +143,7 @@ nav .notes button {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 60px;
 }
 
 .main > .siteList {
@@ -241,13 +222,6 @@ nav .notes button {
 }
 
 .block:hover > .close {display: block;}
-
-.guide-to-right {
-    position: absolute;
-    top: 42%;
-    right: 0%;
-    cursor: pointer;
-}
 
 .arrow {
     display: flex;
