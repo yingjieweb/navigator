@@ -22,8 +22,10 @@ const simplifyUrl = (url) => {
     .replace(/\/.*/, ''); // 删除 / 开头的内容
 }
 
-let $navigatorPage = $('.navigator-page');
-let $picPage = $('.pic-page');
+let $navigatorPage = $('.navigator-page');  // 导航页
+let $picPage = $('.pic-page');  // 照片墙
+let $indicatorUl = $('.indicator ul');  // 切换标识 ul
+let $indicatorLis = $indicatorUl.find('li');  // 切换标识 ul > lis
 let $notesInput = $('.notesInput'); // 获取便签input
 let $notesList = $('.notesList'); // 获取便签List
 let $notesListUl = $('.notesListUl'); // 获取便签List
@@ -32,10 +34,9 @@ let $tabBar = $('.tab-bar');  // 获取tabBar的按钮
 let $search = $('.search');  // 获取search表单
 let $input = $('.search input');  // 获取search表单的input
 let $addSiteLi = $('.addSiteLi'); // 获取新增快捷方式按钮
-let $guideToRight = $('.guide-to-right'); // 获取右侧导航按钮
-let $guideToLeft = $('.guide-to-left'); // 获取右侧导航按钮
 let $arrow = $('.arrow'); // 获取底部的箭头
 
+// focus 许愿 input 显示愿望清单
 $notesInput.on('focus',() => {
   $notesList.addClass('showNotes');
 })
@@ -179,15 +180,49 @@ $arrow.on('click',() => {
   $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
 
-// 导航页 -> 照片页切换
-$guideToRight.on('click', () => {
-  $navigatorPage.addClass('toggle-nav-pic')
+
+// 获取当前 active 的 indicator li
+let currentIndicator = 0
+Array.from($indicatorLis).forEach((item, index) => {
+  if (item.className.indexOf('active') > 0)
+    currentIndicator = index
 })
 
-// 导航页 -> 照片页切换
-$guideToLeft.on('click', () => {
-  $navigatorPage.removeClass('toggle-nav-pic')
+// 点击 indicator 切换屏幕 0：导航 1：照片墙
+$indicatorUl.on('click', (event) => {
+  let clickedIndex = Array.from($indicatorLis).indexOf(event.target)
+  $indicatorLis.eq(currentIndicator).removeClass('active')
+  $indicatorLis.eq(clickedIndex).addClass('active')
+  currentIndicator = clickedIndex
+  $navigatorPage.css('margin-top', `${clickedIndex * -100}vh`)
 })
+
+// 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙
+$(document).on("mousewheel DOMMouseScroll", function (event) {
+  var delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
+      (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));              // firefox
+
+  if (delta > 0) {  // 向上滚
+    currentIndicator--
+    if (currentIndicator >= 0) {
+      $indicatorLis.eq(currentIndicator + 1).removeClass('active')
+      $navigatorPage.css('margin-top', `${-currentIndicator * 100}vh`)
+      $indicatorLis.eq(currentIndicator).addClass('active')
+    } else {
+      currentIndicator = 0
+    }
+  } else if (delta < 0) { // 向下滚
+    currentIndicator++
+    if (currentIndicator <= $indicatorLis.length - 1) {
+      $indicatorLis.eq(currentIndicator - 1).removeClass('active')
+      $navigatorPage.css('margin-top', `${-currentIndicator * 100}vh`)
+      $indicatorLis.eq(currentIndicator).addClass('active')
+    } else {
+      currentIndicator = $indicatorLis.length - 1
+    }
+  }
+});
+
 
 // 窗口关闭前保存到localStorage
 window.onbeforeunload = function () {

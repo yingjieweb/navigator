@@ -165,8 +165,14 @@ var simplifyUrl = function simplifyUrl(url) {
   return url.replace('https://', '').replace('http://', '').replace('www.', '').replace('graduate.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
 };
 
-var $navigatorPage = $('.navigator-page');
-var $picPage = $('.pic-page');
+var $navigatorPage = $('.navigator-page'); // 导航页
+
+var $picPage = $('.pic-page'); // 照片墙
+
+var $indicatorUl = $('.indicator ul'); // 切换标识 ul
+
+var $indicatorLis = $indicatorUl.find('li'); // 切换标识 ul > lis
+
 var $notesInput = $('.notesInput'); // 获取便签input
 
 var $notesList = $('.notesList'); // 获取便签List
@@ -183,11 +189,8 @@ var $input = $('.search input'); // 获取search表单的input
 
 var $addSiteLi = $('.addSiteLi'); // 获取新增快捷方式按钮
 
-var $guideToRight = $('.guide-to-right'); // 获取右侧导航按钮
-
-var $guideToLeft = $('.guide-to-left'); // 获取右侧导航按钮
-
 var $arrow = $('.arrow'); // 获取底部的箭头
+// focus 许愿 input 显示愿望清单
 
 $notesInput.on('focus', function () {
   $notesList.addClass('showNotes');
@@ -328,14 +331,48 @@ $arrow.on('click', function () {
   localStorage.setItem("backgroundImageFlag", wallpaperFlag); // 存储当前壁纸标记到 localStorage
 
   $navigatorPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
-}); // 导航页 -> 照片页切换
+}); // 获取当前 active 的 indicator li
 
-$guideToRight.on('click', function () {
-  $navigatorPage.addClass('toggle-nav-pic');
-}); // 导航页 -> 照片页切换
+var currentIndicator = 0;
+Array.from($indicatorLis).forEach(function (item, index) {
+  if (item.className.indexOf('active') > 0) currentIndicator = index;
+}); // 点击 indicator 切换屏幕 0：导航 1：照片墙
 
-$guideToLeft.on('click', function () {
-  $navigatorPage.removeClass('toggle-nav-pic');
+$indicatorUl.on('click', function (event) {
+  var clickedIndex = Array.from($indicatorLis).indexOf(event.target);
+  $indicatorLis.eq(currentIndicator).removeClass('active');
+  $indicatorLis.eq(clickedIndex).addClass('active');
+  currentIndicator = clickedIndex;
+  $navigatorPage.css('margin-top', "".concat(clickedIndex * -100, "vh"));
+}); // 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙
+
+$(document).on("mousewheel DOMMouseScroll", function (event) {
+  var delta = event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1) || // chrome & ie
+  event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1); // firefox
+
+  if (delta > 0) {
+    // 向上滚
+    currentIndicator--;
+
+    if (currentIndicator >= 0) {
+      $indicatorLis.eq(currentIndicator + 1).removeClass('active');
+      $navigatorPage.css('margin-top', "".concat(-currentIndicator * 100, "vh"));
+      $indicatorLis.eq(currentIndicator).addClass('active');
+    } else {
+      currentIndicator = 0;
+    }
+  } else if (delta < 0) {
+    // 向下滚
+    currentIndicator++;
+
+    if (currentIndicator <= $indicatorLis.length - 1) {
+      $indicatorLis.eq(currentIndicator - 1).removeClass('active');
+      $navigatorPage.css('margin-top', "".concat(-currentIndicator * 100, "vh"));
+      $indicatorLis.eq(currentIndicator).addClass('active');
+    } else {
+      currentIndicator = $indicatorLis.length - 1;
+    }
+  }
 }); // 窗口关闭前保存到localStorage
 
 window.onbeforeunload = function () {
@@ -362,4 +399,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.934a12b1.js.map
+//# sourceMappingURL=main.0cad19cd.js.map
