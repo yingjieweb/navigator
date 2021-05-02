@@ -195,6 +195,7 @@ nav .notes button {
 }
 
 .main > .siteList .addSiteLi {
+    user-select: none;  /* 禁止双击选中 */
     /*以下定义高斯模糊样式*/
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
@@ -232,6 +233,7 @@ nav .notes button {
     bottom: 50px;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    user-select: none;  /* 禁止双击选中 */
 }
 
 .rotate {animation: rotate 2s infinite;}
@@ -261,4 +263,4 @@ live2d-widget-container {
 }
 
 
-/*# sourceMappingURL=navigator.cf61bd61.css.map */
+/*# sourceMappingURL=navigator.3dc11f96.css.map */
