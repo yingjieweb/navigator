@@ -26,13 +26,13 @@ let $navigatorPage = $('.navigator-page');  // 导航页
 let $picPage = $('.pic-page');  // 照片墙
 let $indicatorUl = $('.indicator ul');  // 切换标识 ul
 let $indicatorLis = $indicatorUl.find('li');  // 切换标识 ul > lis
-let $notesInput = $('.notesInput'); // 获取便签input
-let $notesList = $('.notesList'); // 获取便签List
-let $notesListUl = $('.notesListUl'); // 获取便签List
+let $notesInput = $('.notesInput'); // 获取便签 input
+let $notesList = $('.notesList'); // 获取便签 list
+let $notesListUl = $('.notesListUl'); // 获取便签 list
 let $notesButton = $('.notesButton'); // 获取便签按钮
-let $tabBar = $('.tab-bar');  // 获取tabBar的按钮
-let $search = $('.search');  // 获取search表单
-let $input = $('.search input');  // 获取search表单的input
+let $tabBar = $('.tab-bar');  // 获取 tabBar 的按钮
+let $search = $('.search');  // 获取 search 表单
+let $input = $('.search input');  // 获取 search 表单的 input
 let $addSiteLi = $('.addSiteLi'); // 获取新增快捷方式按钮
 let $arrow = $('.arrow'); // 获取底部的箭头
 
@@ -73,12 +73,12 @@ $notesInput.bind('keypress', (event) => {
 
 $tabBar.on('click',"div",(event) => { // tabBar事件委托
   const $tabItem = $(event.currentTarget);  //获取当前被点击的元素
-  $tabItem.addClass("selected").siblings().removeClass("selected");//toggleClass(value,stateVal); 看mdn吧
+  $tabItem.addClass("selected").siblings().removeClass("selected"); // toggleClass(value, stateVal); link mdn
 
   let index = $tabItem.index();
 
-  //采取四个表单的措施也是可以的，或者采用判断 index 值修改表单的action和input的name属性
-  //$tabContent.children().eq(index).addClass("active").siblings().removeClass("active");
+  // 采取四个表单的措施也是可以的，或者采用判断 index 值修改表单的action和input的name属性
+  // $tabContent.children().eq(index).addClass("active").siblings().removeClass("active");
   if (index === 0){
     $search.attr("action","http://www.baidu.com/s");
     $input.attr("name","wd");
@@ -96,15 +96,15 @@ $tabBar.on('click',"div",(event) => { // tabBar事件委托
     $input.attr("name","q");
     $input.attr("placeholder","创建自己的开源项目 — GitHub");
   }else if(index === 4){
-    $search.attr("action","http://ss.chaoxing.com/search");//超新星
+    $search.attr("action","http://ss.chaoxing.com/search");// 超新星
     $input.attr("name","sw");
     $input.attr("placeholder","超星发现 —— 小傻瓜加油！");
   }else if (index === 5){
-    $search.attr("action","http://xueshu.baidu.com/s");//百度学术
+    $search.attr("action","http://xueshu.baidu.com/s");// 百度学术
     $input.attr("name","wd");
     $input.attr("placeholder","保持学习的态度 —— 百度学术");
   }else{
-    $search.attr("action","https://book.duxiu.com/search");//读秀
+    $search.attr("action","https://book.duxiu.com/search");// 读秀
     $input.attr("name","sw");
     $input.attr("placeholder","海量学术文献搜索 —— 读秀");
   }
@@ -112,8 +112,8 @@ $tabBar.on('click',"div",(event) => { // tabBar事件委托
 
 // 页面渲染render
 let render = function(){
-  $('.siteList').find('li:not(.addSiteLi)').remove(); //渲染前移除添加按钮前的模块
-  hashMap.forEach((item,index)=>{ //根据hashMap创建相应的元素并添加到新增按钮前
+  $('.siteList').find('li:not(.addSiteLi)').remove(); // 渲染前移除添加按钮前的模块
+  hashMap.forEach((item,index)=>{ // 根据hashMap创建相应的元素并添加到新增按钮前
     let $li = $(`<li class="block">
       <a href="${item.url}">
         <div class="logo"><img src=${item.logoPath} alt="点击添加"></div>
@@ -123,9 +123,13 @@ let render = function(){
     </li>
     `).insertBefore($addSiteLi);
 
-    $li.on('click','.close',(event)=>{
-      event.stopPropagation();  //阻止事件冒泡
+    if (hashMap.length >= 10)
+      $addSiteLi.css('visibility', 'hidden')
+
+    $li.on('click','.close',(event) => {
+      event.stopPropagation();  // 阻止事件冒泡
       hashMap.splice(index,1);
+      $addSiteLi.css('visibility', 'visible')
       render();
     })
   })
@@ -146,13 +150,19 @@ let render = function(){
 render();
 
 // 点击添加快捷方式按钮，添加相应的 li 网址模块
-$('.addSite').on('click',function () {
+$('.addSite').on('click',() => {
   let url = window.prompt('请输入你要访问的网址！');
   if (url.indexOf('http') !== 0){
     url = 'https://' + url;
   }
   let path = require('./assets/img/icon/icon5.png'); //不能使用变量，待优化
-  hashMap.push({logoPath:path,url:url});
+  hashMap.push({logoPath: path,url: url});
+
+  if (hashMap.length >= 10) {
+    $addSiteLi.css('visibility', 'hidden')
+    alert('真是个贪心的小傻瓜呢~ 😏')
+  }
+
   render(); //重新渲染
 })
 
@@ -168,18 +178,19 @@ let wallpaperArray = [
 
 // 渲染前先获取 localstorage 中标记的壁纸图片
 $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`);
-//点击箭头切换背景图片
+// 点击箭头切换背景图片
 $arrow.on('click',() => {
   $arrow.addClass('rotate')
+  $arrow.css('pointer-events', 'none')
   setTimeout(() => {
     $arrow.removeClass('rotate')
+    $arrow.css('pointer-events', 'auto')
   }, 2000)
 
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag",wallpaperFlag);  // 存储当前壁纸标记到 localStorage
   $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
-
 
 // 获取当前 active 的 indicator li
 let currentIndicator = 0
@@ -192,8 +203,7 @@ Array.from($indicatorLis).forEach((item, index) => {
 $indicatorUl.on('click', (event) => {
   let clickedIndex = Array.from($indicatorLis).indexOf(event.target)
   if (clickedIndex === -1) return
-  $indicatorLis.eq(currentIndicator).removeClass('active')
-  $indicatorLis.eq(clickedIndex).addClass('active')
+  $indicatorLis.eq(clickedIndex).addClass('active').siblings().removeClass("active");
   currentIndicator = clickedIndex
   $navigatorPage.css('margin-top', `${clickedIndex * -100}vh`)
 })
@@ -206,18 +216,16 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
   if (delta > 0) {  // 向上滚
     currentIndicator--
     if (currentIndicator >= 0) {
-      $indicatorLis.eq(currentIndicator + 1).removeClass('active')
       $navigatorPage.css('margin-top', `${-currentIndicator * 100}vh`)
-      $indicatorLis.eq(currentIndicator).addClass('active')
+      $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active");
     } else {
       currentIndicator = 0
     }
   } else if (delta < 0) { // 向下滚
     currentIndicator++
     if (currentIndicator <= $indicatorLis.length - 1) {
-      $indicatorLis.eq(currentIndicator - 1).removeClass('active')
       $navigatorPage.css('margin-top', `${-currentIndicator * 100}vh`)
-      $indicatorLis.eq(currentIndicator).addClass('active')
+      $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active");
     } else {
       currentIndicator = $indicatorLis.length - 1
     }
