@@ -340,6 +340,7 @@ Array.from($indicatorLis).forEach(function (item, index) {
 
 $indicatorUl.on('click', function (event) {
   var clickedIndex = Array.from($indicatorLis).indexOf(event.target);
+  if (clickedIndex === -1) return;
   $indicatorLis.eq(currentIndicator).removeClass('active');
   $indicatorLis.eq(clickedIndex).addClass('active');
   currentIndicator = clickedIndex;
@@ -399,4 +400,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.0cad19cd.js.map
+//# sourceMappingURL=main.d66bdf26.js.map
