@@ -34,7 +34,8 @@ let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
 let $input = $('.search input')  // 获取 search 表单的 input
 let $addSiteLi = $('.addSiteLi') // 获取新增快捷方式按钮
-let $arrow = $('.arrow') // 获取底部的箭头
+let audio = $("#audio")[0]  // 获取音频元素
+let $windmill = $('.windmill') // 获取底部的箭头
 
 // focus 许愿 input 显示愿望清单
 $notesInput.on('focus',() => {
@@ -179,22 +180,24 @@ let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0  
 let wallpaperArray = [
   {imagePath: require(`./assets/img/wallpaper/yourname.jpg`)},
   {imagePath: require(`./assets/img/wallpaper/lantern.jpg`)},
-  {imagePath: require(`./assets/img/wallpaper/bike.jpg`)},
-  {imagePath: require(`./assets/img/wallpaper/alley.png`)},
   {imagePath: require(`./assets/img/wallpaper/pier.png`)},
-  {imagePath: require(`./assets/img/wallpaper/plum.jpg`)},
+  {imagePath: require(`./assets/img/wallpaper/Noon.png`)},
+  {imagePath: require(`./assets/img/wallpaper/Nezuko.png`)},
+  {imagePath: require(`./assets/img/wallpaper/schoolGirl.png`)},
 ]
 
 // 渲染前先获取 localstorage 中标记的壁纸图片
 $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 // 点击箭头切换背景图片
-$arrow.on('click',() => {
-  $arrow.addClass('rotate')
-  $arrow.css('pointer-events', 'none')
+$windmill.on('click',() => {
+  $windmill.addClass('rotate')
+  $windmill.css('pointer-events', 'none')
+  audio.play();
   setTimeout(() => {
-    $arrow.removeClass('rotate')
-    $arrow.css('pointer-events', 'auto')
-  }, 2000)
+    $windmill.removeClass('rotate')
+    $windmill.css('pointer-events', 'auto')
+    audio.ended
+  }, 3000)
 
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1
   localStorage.setItem("backgroundImageFlag",wallpaperFlag)  // 存储当前壁纸标记到 localStorage
@@ -242,7 +245,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
 })
 
 
-// 窗口关闭前保存到localStorage
+// 窗口关闭前保存到 localStorage
 window.onbeforeunload = function () {
   let newSitesCache = JSON.stringify(hashMap)
   localStorage.setItem('sitesCache',newSitesCache)
@@ -258,7 +261,7 @@ window.onbeforeunload = function () {
 //   }
 // })
 
-// 百度统计脚本
+// statistical script
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
