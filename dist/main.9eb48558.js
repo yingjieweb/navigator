@@ -141,14 +141,14 @@ module.exports = "icon10.e22aac8a.png";
 module.exports = "yourname.7afbc98d.jpg";
 },{}],"UonK":[function(require,module,exports) {
 module.exports = "lantern.667737f1.jpg";
-},{}],"SLsw":[function(require,module,exports) {
-module.exports = "bike.0049547a.jpg";
-},{}],"O0r3":[function(require,module,exports) {
-module.exports = "alley.130af910.png";
 },{}],"C48A":[function(require,module,exports) {
 module.exports = "pier.82ee67c4.png";
-},{}],"ZaH3":[function(require,module,exports) {
-module.exports = "plum.63af599e.jpg";
+},{}],"dCRy":[function(require,module,exports) {
+module.exports = "Noon.a464d1be.png";
+},{}],"Lm7Z":[function(require,module,exports) {
+module.exports = "Nezuko.e694af32.png";
+},{}],"jYol":[function(require,module,exports) {
+module.exports = "schoolGirl.7c5ec6d5.png";
 },{}],"epB2":[function(require,module,exports) {
 // 获取localStorage - 网址
 var oldSitesCache = localStorage.getItem('sitesCache');
@@ -199,7 +199,9 @@ var $input = $('.search input'); // 获取 search 表单的 input
 
 var $addSiteLi = $('.addSiteLi'); // 获取新增快捷方式按钮
 
-var $arrow = $('.arrow'); // 获取底部的箭头
+var audio = $("#audio")[0]; // 获取音频元素
+
+var $windmill = $('.windmill'); // 获取底部的箭头
 // focus 许愿 input 显示愿望清单
 
 $notesInput.on('focus', function () {
@@ -336,24 +338,26 @@ var wallpaperArray = [{
 }, {
   imagePath: require("./assets/img/wallpaper/lantern.jpg")
 }, {
-  imagePath: require("./assets/img/wallpaper/bike.jpg")
-}, {
-  imagePath: require("./assets/img/wallpaper/alley.png")
-}, {
   imagePath: require("./assets/img/wallpaper/pier.png")
 }, {
-  imagePath: require("./assets/img/wallpaper/plum.jpg")
+  imagePath: require("./assets/img/wallpaper/Noon.png")
+}, {
+  imagePath: require("./assets/img/wallpaper/Nezuko.png")
+}, {
+  imagePath: require("./assets/img/wallpaper/schoolGirl.png")
 }]; // 渲染前先获取 localstorage 中标记的壁纸图片
 
 $navigatorPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); // 点击箭头切换背景图片
 
-$arrow.on('click', function () {
-  $arrow.addClass('rotate');
-  $arrow.css('pointer-events', 'none');
+$windmill.on('click', function () {
+  $windmill.addClass('rotate');
+  $windmill.css('pointer-events', 'none');
+  audio.play();
   setTimeout(function () {
-    $arrow.removeClass('rotate');
-    $arrow.css('pointer-events', 'auto');
-  }, 2000);
+    $windmill.removeClass('rotate');
+    $windmill.css('pointer-events', 'auto');
+    audio.ended;
+  }, 3000);
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag", wallpaperFlag); // 存储当前壁纸标记到 localStorage
 
@@ -398,7 +402,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
       currentIndicator = $indicatorLis.length - 1;
     }
   }
-}); // 窗口关闭前保存到localStorage
+}); // 窗口关闭前保存到 localStorage
 
 window.onbeforeunload = function () {
   var newSitesCache = JSON.stringify(hashMap);
@@ -412,7 +416,7 @@ window.onbeforeunload = function () {
 //     }
 //   }
 // })
-// 百度统计脚本
+// statistical script
 
 
 var _hmt = _hmt || [];
@@ -423,5 +427,5 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/icon/icon6.png":"TLFA","./assets/img/icon/icon7.png":"aS9c","./assets/img/icon/icon8.png":"EsZT","./assets/img/icon/icon9.png":"WTB7","./assets/img/icon/icon10.png":"jYai","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/bike.jpg":"SLsw","./assets/img/wallpaper/alley.png":"O0r3","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/plum.jpg":"ZaH3"}]},{},["epB2"], null)
-//# sourceMappingURL=main.628c5b98.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/icon/icon6.png":"TLFA","./assets/img/icon/icon7.png":"aS9c","./assets/img/icon/icon8.png":"EsZT","./assets/img/icon/icon9.png":"WTB7","./assets/img/icon/icon10.png":"jYai","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/Noon.png":"dCRy","./assets/img/wallpaper/Nezuko.png":"Lm7Z","./assets/img/wallpaper/schoolGirl.png":"jYol"}]},{},["epB2"], null)
+//# sourceMappingURL=main.9eb48558.js.map
