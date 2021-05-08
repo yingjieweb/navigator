@@ -197,7 +197,7 @@ $windmill.on('click',() => {
     $windmill.removeClass('rotate')
     $windmill.css('pointer-events', 'auto')
     audio.ended
-  }, 3000)
+  }, 2000)
 
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1
   localStorage.setItem("backgroundImageFlag",wallpaperFlag)  // 存储当前壁纸标记到 localStorage

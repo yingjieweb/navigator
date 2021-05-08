@@ -236,7 +236,7 @@ nav .notes button {
     user-select: none;  /* 禁止双击选中 */
 }
 
-.rotate {animation: rotate 3.5s infinite;}
+.rotate {animation: rotate 2s infinite;}
 @keyframes rotate {
     0% { transform: translate(-50%, -50%) rotate(2turn)}
     100% { transform: translate(-50%, -50%) rotate(4turn)}
