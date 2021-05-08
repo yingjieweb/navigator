@@ -357,7 +357,7 @@ $windmill.on('click', function () {
     $windmill.removeClass('rotate');
     $windmill.css('pointer-events', 'auto');
     audio.ended;
-  }, 3000);
+  }, 2000);
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag", wallpaperFlag); // 存储当前壁纸标记到 localStorage
 
@@ -428,4 +428,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/icon/icon6.png":"TLFA","./assets/img/icon/icon7.png":"aS9c","./assets/img/icon/icon8.png":"EsZT","./assets/img/icon/icon9.png":"WTB7","./assets/img/icon/icon10.png":"jYai","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/Noon.png":"dCRy","./assets/img/wallpaper/Nezuko.png":"Lm7Z","./assets/img/wallpaper/schoolGirl.png":"jYol"}]},{},["epB2"], null)
-//# sourceMappingURL=main.9eb48558.js.map
+//# sourceMappingURL=main.3b5eec1a.js.map
