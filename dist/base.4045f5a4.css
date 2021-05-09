@@ -21,7 +21,7 @@ body {
   height: 100vh;
   width: 100vw;
   position: relative;
-  font-size: 0;  /* 清除图片间隙 */
+  background-color: #ffeaa7;
 }
 
 .indicator {
@@ -45,4 +45,4 @@ body {
 }
 
 
-/*# sourceMappingURL=base.202b3cfc.css.map */
+/*# sourceMappingURL=base.4045f5a4.css.map */
