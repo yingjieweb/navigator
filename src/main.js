@@ -86,7 +86,7 @@ $tabBar.on('click', "div", (event) => { // tabBar事件委托
     $input.attr("placeholder","众里寻他千百度 —— 百度")
   }else if (index === 1){
     $search.attr("action","https://www.zhihu.com/search")
-    $input.attr("name","")
+    $input.attr("name","q")
     $input.attr("placeholder","我们都是有问题的人 —— 知乎")
   }else if (index === 2){
     $search.attr("action","https://so.csdn.net/so/search/s.do")

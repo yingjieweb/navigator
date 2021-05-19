@@ -248,7 +248,7 @@ $tabBar.on('click', "div", function (event) {
     $input.attr("placeholder", "众里寻他千百度 —— 百度");
   } else if (index === 1) {
     $search.attr("action", "https://www.zhihu.com/search");
-    $input.attr("name", "");
+    $input.attr("name", "q");
     $input.attr("placeholder", "我们都是有问题的人 —— 知乎");
   } else if (index === 2) {
     $search.attr("action", "https://so.csdn.net/so/search/s.do");
@@ -428,4 +428,4 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 },{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/icon/icon6.png":"TLFA","./assets/img/icon/icon7.png":"aS9c","./assets/img/icon/icon8.png":"EsZT","./assets/img/icon/icon9.png":"WTB7","./assets/img/icon/icon10.png":"jYai","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/Noon.png":"dCRy","./assets/img/wallpaper/Nezuko.png":"Lm7Z","./assets/img/wallpaper/schoolGirl.png":"jYol"}]},{},["epB2"], null)
-//# sourceMappingURL=main.3b5eec1a.js.map
+//# sourceMappingURL=main.df6c4050.js.map
