@@ -1,4 +1,4 @@
-.pic-swiper {
+.album-swiper {
   width: 200vw;
   height: 100vh;
   overflow: auto;
@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #ffeaa7;
+  background-color: #FFFFEE;
   animation: roll 40s linear infinite;
 }
 @keyframes roll {
@@ -17,7 +17,7 @@
 }
 
 /* 隐藏滑块 but 依然能滑动 */
-.pic-swiper::-webkit-scrollbar {display: none;}
+.album-swiper::-webkit-scrollbar {display: none;}
 
 .placeholder {
   width: 8vw;

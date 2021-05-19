@@ -22,13 +22,12 @@ const simplifyUrl = (url) => {
     .replace(/\/.*/, '') // 删除 / 开头的内容
 }
 
-let $navigatorPage = $('.navigator-page')  // 导航页
-let $picPage = $('.pic-page')  // 照片墙
+let $naviPage = $('.navi-page')  // 导航页
 let $indicatorUl = $('.indicator ul')  // 切换标识 ul
 let $indicatorLis = $indicatorUl.find('li')  // 切换标识 ul > lis
 let $notesInput = $('.notesInput') // 获取便签 input
 let $notesList = $('.notesList') // 获取便签 list
-let $notesListUl = $('.notesListUl') // 获取便签 list
+let $notesListUl = $('.notesListUl') // 获取便签 listUl
 let $notesButton = $('.notesButton') // 获取便签按钮
 let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
@@ -50,7 +49,7 @@ $notesButton.on('click', () => {
   } else {
     $notesListUl.append(`
       <li>
-          <span style="line-height: 40px max-width: 280px">${$notesInput.val()}</span>
+          <span style="line-height: 40px; max-width: 280px;">${$notesInput.val()}</span>
           <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
         </li>
     `)
@@ -135,7 +134,7 @@ let render = function(){
     })
   })
 
-  $notesListUl.find('li').remove() //渲染前移除之前的notes
+  $notesListUl.find('li').remove() // 渲染前移除之前的notes
   notesArray.forEach((item) => {
     let $li = $(`<li title="点击小红心就表示愿望已经实现了哦 ~">
       <span style="line-height: 40px max-width: 280px">${item}</span>
@@ -182,12 +181,12 @@ let wallpaperArray = [
   {imagePath: require(`./assets/img/wallpaper/lantern.jpg`)},
   {imagePath: require(`./assets/img/wallpaper/pier.png`)},
   {imagePath: require(`./assets/img/wallpaper/Noon.png`)},
-  {imagePath: require(`./assets/img/wallpaper/Nezuko.png`)},
+  {imagePath: require(`./assets/img/wallpaper/night.png`)},
   {imagePath: require(`./assets/img/wallpaper/schoolGirl.png`)},
 ]
 
 // 渲染前先获取 localstorage 中标记的壁纸图片
-$navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
+$naviPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 // 点击箭头切换背景图片
 $windmill.on('click',() => {
   $windmill.addClass('rotate')
@@ -201,7 +200,7 @@ $windmill.on('click',() => {
 
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1
   localStorage.setItem("backgroundImageFlag",wallpaperFlag)  // 存储当前壁纸标记到 localStorage
-  $navigatorPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
+  $naviPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
 })
 
 // 获取当前 active 的 indicator li
@@ -217,7 +216,7 @@ $indicatorUl.on('click', (event) => {
   if (clickedIndex === -1) return
   $indicatorLis.eq(clickedIndex).addClass('active').siblings().removeClass("active")
   currentIndicator = clickedIndex
-  $navigatorPage.css('margin-top', `${clickedIndex * -100}vh`)
+  $naviPage.css('margin-top', `${clickedIndex * -100}vh`)
 })
 
 // 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙
@@ -228,7 +227,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
   if (delta > 0) {  // 向上滚
     currentIndicator--
     if (currentIndicator >= 0) {
-      $navigatorPage.css('margin-top', `${-currentIndicator * 100}vh`)
+      $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)
       $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active")
     } else {
       currentIndicator = 0
@@ -236,7 +235,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
   } else if (delta < 0) { // 向下滚
     currentIndicator++
     if (currentIndicator <= $indicatorLis.length - 1) {
-      $navigatorPage.css('margin-top', `${-currentIndicator * 100}vh`)
+      $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)
       $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active")
     } else {
       currentIndicator = $indicatorLis.length - 1

@@ -145,11 +145,11 @@ module.exports = "lantern.667737f1.jpg";
 module.exports = "pier.82ee67c4.png";
 },{}],"dCRy":[function(require,module,exports) {
 module.exports = "Noon.a464d1be.png";
-},{}],"Lm7Z":[function(require,module,exports) {
-module.exports = "Nezuko.e694af32.png";
+},{}],"DO8X":[function(require,module,exports) {
+module.exports = "night.237d5bd5.png";
 },{}],"jYol":[function(require,module,exports) {
 module.exports = "schoolGirl.7c5ec6d5.png";
-},{}],"epB2":[function(require,module,exports) {
+},{}],"ct08":[function(require,module,exports) {
 // 获取localStorage - 网址
 var oldSitesCache = localStorage.getItem('sitesCache');
 var sitesCache = JSON.parse(oldSitesCache);
@@ -175,9 +175,7 @@ var simplifyUrl = function simplifyUrl(url) {
   return url.replace('https://', '').replace('http://', '').replace('www.', '').replace('graduate.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
 };
 
-var $navigatorPage = $('.navigator-page'); // 导航页
-
-var $picPage = $('.pic-page'); // 照片墙
+var $naviPage = $('.navi-page'); // 导航页
 
 var $indicatorUl = $('.indicator ul'); // 切换标识 ul
 
@@ -187,7 +185,7 @@ var $notesInput = $('.notesInput'); // 获取便签 input
 
 var $notesList = $('.notesList'); // 获取便签 list
 
-var $notesListUl = $('.notesListUl'); // 获取便签 list
+var $notesListUl = $('.notesListUl'); // 获取便签 listUl
 
 var $notesButton = $('.notesButton'); // 获取便签按钮
 
@@ -214,7 +212,7 @@ $notesButton.on('click', function () {
   if ($notesInput.val() === '') {
     alert('你还没写愿望呢，小傻瓜！');
   } else {
-    $notesListUl.append("\n      <li>\n          <span style=\"line-height: 40px max-width: 280px\">".concat($notesInput.val(), "</span>\n          <svg class=\"icon\"><use xlink:href=\"#icon-aixin\"></use></svg>\n        </li>\n    "));
+    $notesListUl.append("\n      <li>\n          <span style=\"line-height: 40px; max-width: 280px;\">".concat($notesInput.val(), "</span>\n          <svg class=\"icon\"><use xlink:href=\"#icon-aixin\"></use></svg>\n        </li>\n    "));
     notesArray.push($notesInput.val());
 
     if (notesArray.length > 1 && notesArray[0] === '您目前还没有梦想呢，小傻瓜 ~') {
@@ -291,7 +289,7 @@ var render = function render() {
       render();
     });
   });
-  $notesListUl.find('li').remove(); //渲染前移除之前的notes
+  $notesListUl.find('li').remove(); // 渲染前移除之前的notes
 
   notesArray.forEach(function (item) {
     var $li = $("<li title=\"\u70B9\u51FB\u5C0F\u7EA2\u5FC3\u5C31\u8868\u793A\u613F\u671B\u5DF2\u7ECF\u5B9E\u73B0\u4E86\u54E6 ~\">\n      <span style=\"line-height: 40px max-width: 280px\">".concat(item, "</span>\n      <svg class=\"icon\" onclick=\"window.alert('\u613F\u671B\u5B9E\u73B0\u529F\u80FD\u6B63\u5728\u5F00\u53D1\u5F53\u4E2D\u5462 ~')\"><use xlink:href=\"#icon-aixin\"></use></svg>\n    </li>\n    "));
@@ -342,12 +340,12 @@ var wallpaperArray = [{
 }, {
   imagePath: require("./assets/img/wallpaper/Noon.png")
 }, {
-  imagePath: require("./assets/img/wallpaper/Nezuko.png")
+  imagePath: require("./assets/img/wallpaper/night.png")
 }, {
   imagePath: require("./assets/img/wallpaper/schoolGirl.png")
 }]; // 渲染前先获取 localstorage 中标记的壁纸图片
 
-$navigatorPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); // 点击箭头切换背景图片
+$naviPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")")); // 点击箭头切换背景图片
 
 $windmill.on('click', function () {
   $windmill.addClass('rotate');
@@ -361,7 +359,7 @@ $windmill.on('click', function () {
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1;
   localStorage.setItem("backgroundImageFlag", wallpaperFlag); // 存储当前壁纸标记到 localStorage
 
-  $navigatorPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
+  $naviPage.css("backgroundImage", "url(".concat(wallpaperArray[wallpaperFlag].imagePath, ")"));
 }); // 获取当前 active 的 indicator li
 
 var currentIndicator = 0;
@@ -374,7 +372,7 @@ $indicatorUl.on('click', function (event) {
   if (clickedIndex === -1) return;
   $indicatorLis.eq(clickedIndex).addClass('active').siblings().removeClass("active");
   currentIndicator = clickedIndex;
-  $navigatorPage.css('margin-top', "".concat(clickedIndex * -100, "vh"));
+  $naviPage.css('margin-top', "".concat(clickedIndex * -100, "vh"));
 }); // 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙
 
 $(document).on("mousewheel DOMMouseScroll", function (event) {
@@ -386,7 +384,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
     currentIndicator--;
 
     if (currentIndicator >= 0) {
-      $navigatorPage.css('margin-top', "".concat(-currentIndicator * 100, "vh"));
+      $naviPage.css('margin-top', "".concat(-currentIndicator * 100, "vh"));
       $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active");
     } else {
       currentIndicator = 0;
@@ -396,7 +394,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
     currentIndicator++;
 
     if (currentIndicator <= $indicatorLis.length - 1) {
-      $navigatorPage.css('margin-top', "".concat(-currentIndicator * 100, "vh"));
+      $naviPage.css('margin-top', "".concat(-currentIndicator * 100, "vh"));
       $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active");
     } else {
       currentIndicator = $indicatorLis.length - 1;
@@ -427,5 +425,5 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
-},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/icon/icon6.png":"TLFA","./assets/img/icon/icon7.png":"aS9c","./assets/img/icon/icon8.png":"EsZT","./assets/img/icon/icon9.png":"WTB7","./assets/img/icon/icon10.png":"jYai","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/Noon.png":"dCRy","./assets/img/wallpaper/Nezuko.png":"Lm7Z","./assets/img/wallpaper/schoolGirl.png":"jYol"}]},{},["epB2"], null)
-//# sourceMappingURL=main.df6c4050.js.map
+},{"./assets/img/icon/icon1.png":"AB3p","./assets/img/icon/icon2.png":"GXZF","./assets/img/icon/icon3.png":"Skyo","./assets/img/icon/icon4.png":"sTvj","./assets/img/icon/icon5.png":"f9I4","./assets/img/icon/icon6.png":"TLFA","./assets/img/icon/icon7.png":"aS9c","./assets/img/icon/icon8.png":"EsZT","./assets/img/icon/icon9.png":"WTB7","./assets/img/icon/icon10.png":"jYai","./assets/img/wallpaper/yourname.jpg":"kAkt","./assets/img/wallpaper/lantern.jpg":"UonK","./assets/img/wallpaper/pier.png":"C48A","./assets/img/wallpaper/Noon.png":"dCRy","./assets/img/wallpaper/night.png":"DO8X","./assets/img/wallpaper/schoolGirl.png":"jYol"}]},{},["ct08"], null)
+//# sourceMappingURL=navi_part.c6ead0d0.js.map

@@ -1,3 +1,10 @@
+.gauss {
+    /* 定义高斯模糊样式 */
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
+}
+
 nav {
     position: absolute;
     right: 0;
@@ -19,11 +26,6 @@ nav .notes input {
     outline: none;
     color: #34495e;
     border-radius: 4px;
-
-    /*以下定义高斯模糊样式*/
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
 }
 
 nav .notes button {
@@ -36,11 +38,6 @@ nav .notes button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-
-    /*以下定义高斯模糊样式*/
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .notesList {
@@ -53,11 +50,14 @@ nav .notes button {
 
 .notesList:hover {display: block;}
 
-.notesList li {
+.notesList .notesListUl li {
     display: flex;
     align-items: center;
     border-radius: 4px;
     color: #34495e;
+    line-height: 40px;
+    margin: 2px auto;
+    overflow: hidden;
 
     /*以下定义高斯模糊样式*/
     -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -115,11 +115,6 @@ nav .notes button {
     outline: none;
     color: #34495e;
     border-radius: 4px;
-
-    /*以下定义高斯模糊样式*/
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .search button {
@@ -129,14 +124,8 @@ nav .notes button {
     border: none;
     outline: none;
     border-radius: 4px;
-    background-color: white;
     font-size: 16px;
     cursor: pointer;
-
-    /*以下定义高斯模糊样式*/
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
 }
 
 .main {
@@ -194,13 +183,7 @@ nav .notes button {
     background-color: rgba(255, 255, 255, 0.7)
 }
 
-.main > .siteList .addSiteLi {
-    user-select: none;  /* 禁止双击选中 */
-    /*以下定义高斯模糊样式*/
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
-}
+.main > .siteList .addSiteLi {user-select: none;}
 
 .main > .siteList .logo {
     display: flex;
