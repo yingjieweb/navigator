@@ -24,6 +24,13 @@ body {
   background-color: #ffeaa7;
 }
 
+.anni-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: auto; /* BFC */
+}
+
 .indicator {
   position: fixed;
   top: 46%;

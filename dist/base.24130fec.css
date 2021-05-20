@@ -1,0 +1,55 @@
+body {
+  /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
+  font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.navi-page {
+  /*background-image: url(../img/wallpaper/yourname.jpg);*/ /*闪切背景图片*/
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  transition: 0.2s ease-in-out;   /*背景图片切换效果*/
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: auto; /* BFC */
+}
+
+.album-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: #ffeaa7;
+}
+
+.anni-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: auto; /* BFC */
+}
+
+.indicator {
+  position: fixed;
+  top: 46%;
+  right: 2%;
+  transform: translateY(-50%);
+}
+
+.indicator > ul > li {
+  width: 1em;
+  height: 1em;
+  margin: 2em 0;
+  cursor: pointer;
+  border: 1px solid navajowhite;
+  transform: rotate(45deg);
+}
+
+.indicator > ul > .active {
+  background-color: navajowhite;
+}
+
+
+/*# sourceMappingURL=base.24130fec.css.map */

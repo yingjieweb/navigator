@@ -33,7 +33,8 @@ let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
 let $input = $('.search input')  // 获取 search 表单的 input
 let $addSiteLi = $('.addSiteLi') // 获取新增快捷方式按钮
-let audio = $("#audio")[0]  // 获取音频元素
+let $audioWind = $("#audio-wind")[0]  // 获取 wind 音频元素
+let $audioLove = $("#audio-love")[0]  // 获取 love 音频元素
 let $windmill = $('.windmill') // 获取底部的箭头
 
 // focus 许愿 input 显示愿望清单
@@ -191,11 +192,11 @@ $naviPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})
 $windmill.on('click',() => {
   $windmill.addClass('rotate')
   $windmill.css('pointer-events', 'none')
-  audio.play();
+  $audioWind.play();
   setTimeout(() => {
     $windmill.removeClass('rotate')
     $windmill.css('pointer-events', 'auto')
-    audio.ended
+    $audioWind.ended
   }, 2000)
 
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1
@@ -219,7 +220,7 @@ $indicatorUl.on('click', (event) => {
   $naviPage.css('margin-top', `${clickedIndex * -100}vh`)
 })
 
-// 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙
+// 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙 2：纪念日
 $(document).on("mousewheel DOMMouseScroll", function (event) {
   var delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
       (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1))              // firefox
@@ -232,6 +233,9 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
     } else {
       currentIndicator = 0
     }
+
+    // 滑动到非纪念日页 → 停止播放音乐
+    if (currentIndicator !== 2) $audioLove.pause()
   } else if (delta < 0) { // 向下滚
     currentIndicator++
     if (currentIndicator <= $indicatorLis.length - 1) {
@@ -240,6 +244,9 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
     } else {
       currentIndicator = $indicatorLis.length - 1
     }
+
+    // 滑动到纪念日页 → 播放音乐
+    if (currentIndicator === 2) $audioLove.play()
   }
 })
 
