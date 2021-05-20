@@ -22,6 +22,7 @@ body {
   width: 100vw;
   position: relative;
   background-color: #ffeaa7;
+  overflow: hidden; /* BFC */
 }
 
 .anni-page {
@@ -52,4 +53,4 @@ body {
 }
 
 
-/*# sourceMappingURL=base.24130fec.css.map */
+/*# sourceMappingURL=base.713f2b16.css.map */
