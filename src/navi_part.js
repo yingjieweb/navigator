@@ -4,7 +4,7 @@ let sitesCache = JSON.parse(oldSitesCache)
 let hashMap = sitesCache ||  [
   {logoPath: require(`./assets/img/icon/icon1.png`), url: 'http://www.graduate.nuaa.edu.cn'},
   {logoPath: require(`./assets/img/icon/icon2.png`), url: 'https://juejin.im'},
-  {logoPath: require(`./assets/img/icon/icon3.png`), url: 'https://modao.cc'},
+  {logoPath: require(`./assets/img/icon/icon3.png`), url: 'https://https://xueshu.baidu.com'},
   {logoPath: require(`./assets/img/icon/icon4.png`), url: 'https://www.cnki.net'}
 ]
 

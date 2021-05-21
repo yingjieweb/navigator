@@ -23,6 +23,8 @@ body {
   position: relative;
   background-color: #ffeaa7;
   overflow: hidden; /* BFC */
+  background-image: url(../assets/img/wallpaper/normal.jpg);
+  background-size: 100vw 100vh;
 }
 
 .anni-page {

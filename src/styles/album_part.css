@@ -17,7 +17,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #FFFFEE;
   animation: roll 80s linear infinite alternate;
 }
 @keyframes roll {
