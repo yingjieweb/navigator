@@ -358,5 +358,3 @@ if (!document.createElement('canvas').getContext) {
   // adjustCodePosition();
   $(".code").typewriter();
 }
-
-
