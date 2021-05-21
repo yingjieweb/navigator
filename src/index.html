@@ -27,17 +27,25 @@
   <!-- 导航页 part -->
   <div class="navi-page">
     <nav>
-      <div class="notes">
-        <input class="notesInput gauss" type="text" placeholder="在这许小小愿望，小傻瓜！"/>
-        <button class="notesButton gauss" type="submit" title="点击许愿哦 ~"><img src="./assets/img/schedule.png"></button>
+      <div class="feature">
+        <button class="todo gauss" type="submit" title="添加代办事件 ~"><img src="./assets/img/schedule.png"></button>
+        <button class="map gauss" type="submit" title="查看点亮城市 ~"><img src="./assets/img/map.png"></button>
+        <!-- background: rgba(0,0,0,.5) -->
       </div>
-      <div class="notesList">
-        <ul class="notesListUl">
-          <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
-            <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
-            <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
-          </li>-->
-        </ul>
+
+      <div class="wish">
+        <div class="notes">
+          <input class="notes-input gauss" type="text" placeholder="在这许小小愿望，小傻瓜！"/>
+          <button class="notes-button gauss" type="submit" title="点击许愿哦 ~"><img src="./assets/img/heart.png"></button>
+        </div>
+        <div class="notes-list">
+          <ul class="notes-list-ul">
+            <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
+              <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
+              <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+            </li>-->
+          </ul>
+        </div>
       </div>
     </nav>
     <header class="header">
@@ -56,9 +64,9 @@
       </form>
     </header>
     <main class="main">
-      <ul class="siteList">
-        <li class="addSiteLi gauss">
-          <div class="addSite">
+      <ul class="site-list">
+        <li class="add-site-li gauss">
+          <div class="add-site">
             <div class="logo"><img src="assets/img/icon/add.png"></div>
             <div class="site">Add shortcuts</div>
           </div>
@@ -67,7 +75,7 @@
     </main>
 
     <audio id="audio-wind" src="./assets/audio/wind_1s.mp3" preload="auto"></audio>
-    <img class="windmill" src="./assets/img/windmill.png" title="点击切换背景图片~">
+    <img class="windmill" src="./assets/img/windmill.png" title="切换背景图片 ~">
   </div>
 
   <!-- 照片墙 part -->

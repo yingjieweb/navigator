@@ -4,7 +4,7 @@ let sitesCache = JSON.parse(oldSitesCache)
 let hashMap = sitesCache ||  [
   {logoPath: require(`./assets/img/icon/icon1.png`), url: 'http://www.graduate.nuaa.edu.cn'},
   {logoPath: require(`./assets/img/icon/icon2.png`), url: 'https://juejin.im'},
-  {logoPath: require(`./assets/img/icon/icon3.png`), url: 'https://https://xueshu.baidu.com'},
+  {logoPath: require(`./assets/img/icon/icon3.png`), url: 'https://xueshu.baidu.com'},
   {logoPath: require(`./assets/img/icon/icon4.png`), url: 'https://www.cnki.net'}
 ]
 
@@ -19,30 +19,42 @@ const simplifyUrl = (url) => {
     .replace('http://', '')
     .replace('www.', '')
     .replace('graduate.', '')
+    .replace('.com', '')
+    .replace('.cn', '')
     .replace(/\/.*/, '') // 删除 / 开头的内容
 }
 
 let $naviPage = $('.navi-page')  // 导航页
 let $indicatorUl = $('.indicator ul')  // 切换标识 ul
 let $indicatorLis = $indicatorUl.find('li')  // 切换标识 ul > lis
-let $notesInput = $('.notesInput') // 获取便签 input
-let $notesList = $('.notesList') // 获取便签 list
-let $notesListUl = $('.notesListUl') // 获取便签 listUl
-let $notesButton = $('.notesButton') // 获取便签按钮
+let $todoButton = $('.todo') // 获取代办 button
+let $mapButton = $('.map') // 获取地图 button
+let $notesInput = $('.notes-input') // 获取愿望 input
+let $notesList = $('.notes-list') // 获取愿望 list
+let $notesListUl = $('.notes-list-ul') // 获取愿望 listUl
+let $notesButton = $('.notes-button') // 获取愿望按钮
 let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
 let $input = $('.search input')  // 获取 search 表单的 input
-let $addSiteLi = $('.addSiteLi') // 获取新增快捷方式按钮
+let $addSiteLi = $('.add-site-li') // 获取新增快捷方式按钮
 let $audioWind = $("#audio-wind")[0]  // 获取 wind 音频元素
 let $audioLove = $("#audio-love")[0]  // 获取 love 音频元素
 let $windmill = $('.windmill') // 获取底部的箭头
 
+$todoButton.on('click',() => {
+  alert('添加代办事件功能正在开发当中呢 ~')
+})
+
+$mapButton.on('click',() => {
+  alert('点亮城市功能正在开发当中呢 ~')
+})
+
 // focus 许愿 input 显示愿望清单
 $notesInput.on('focus',() => {
-  $notesList.addClass('showNotes')
+  $notesList.addClass('show-notes')
 })
 $notesInput.on('blur',() => {
-  $notesList.removeClass('showNotes')
+  $notesList.removeClass('show-notes')
 })
 $notesButton.on('click', () => {
   if ($notesInput.val() === '') {
@@ -68,7 +80,7 @@ $notesButton.on('click', () => {
 })
 $notesInput.bind('keypress', (event) => {
   if(event.code === 'Enter') {
-    alert('点你右侧小本本，记录当前愿望哦 ~')
+    alert('点你右侧小心心，记录当前愿望哦 ~')
   }
 })
 
@@ -113,11 +125,11 @@ $tabBar.on('click', "div", (event) => { // tabBar事件委托
 
 // 页面渲染render
 let render = function(){
-  $('.siteList').find('li:not(.addSiteLi)').remove() // 渲染前移除添加按钮前的模块
+  $('.site-list').find('li:not(.add-site-li)').remove() // 渲染前移除添加按钮前的模块
   hashMap.forEach((item,index)=>{ // 根据hashMap创建相应的元素并添加到新增按钮前
     let $li = $(`<li class="block">
       <a href="${item.url}">
-        <div class="logo"><img src=${item.logoPath} alt="点击添加"></div>
+        <div class="logo"><img src=${item.logoPath}></div>
         <div class="site">${simplifyUrl(item.url)}</div>
       </a>
       <div class="close">×</div>
@@ -135,7 +147,7 @@ let render = function(){
     })
   })
 
-  $notesListUl.find('li').remove() // 渲染前移除之前的notes
+  $notesListUl.find('li').remove() // 渲染前移除之前的 notes
   notesArray.forEach((item) => {
     let $li = $(`<li title="点击小红心就表示愿望已经实现了哦 ~">
       <span style="line-height: 40px max-width: 280px">${item}</span>
@@ -151,7 +163,7 @@ let render = function(){
 render()
 
 // 点击添加快捷方式按钮，添加相应的 li 网址模块
-$('.addSite').on('click', () => {
+$('.add-site').on('click', () => {
   let url = window.prompt('请输入你要访问的网址！')
 
   if (url === ''){

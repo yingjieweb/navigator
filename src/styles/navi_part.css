@@ -9,26 +9,22 @@ nav {
     position: absolute;
     right: 0;
     top: 0;
-}
-
-nav .notes {
-    max-width: 320px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-nav .notes input {
-    height: 40px;
-    width: 100%;
-    margin: 5px;
-    padding: 0 10px;
-    border: none;
-    outline: none;
-    color: #34495e;
-    border-radius: 4px;
+nav .feature {
+    display: flex;
+    justify-content: space-between;
 }
 
-nav .notes button {
+nav .notes {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav button {
     height: 40px;
     margin: 5px;
     white-space: nowrap;
@@ -40,17 +36,31 @@ nav .notes button {
     cursor: pointer;
 }
 
-.notesList {
+nav button img {
+    width: 26px;
+}
+
+nav .notes input {
+    height: 40px;
+    margin: 5px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    color: #34495e;
+    border-radius: 4px;
+}
+
+.notes-list {
     margin: 5px;
     max-width: 320px;
     display: none;
 }
 
-.showNotes {display: block;}
+.show-notes {display: block;}
 
-.notesList:hover {display: block;}
+.notes-list:hover {display: block;}
 
-.notesList .notesListUl li {
+.notes-list .notes-list-ul li {
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -65,15 +75,11 @@ nav .notes button {
     background-color: rgba(255, 255, 255, 0.7)
 }
 
-.notesList li span{margin: 0 10px;}
+.notes-list li span{margin: 0 10px;}
 
-.header {margin: 60px;}
-
-@media (min-width: 500px) {
-    .header {
-        margin-top: 200px;
-        margin-bottom: 60px;
-    }
+.header {
+    margin-top: 200px;
+    margin-bottom: 60px;
 }
 
 .tab-bar {
@@ -94,16 +100,11 @@ nav .notes button {
 }
 
 .search {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: space-between;
-}
-
-@media (min-width: 500px) {
-    .search {
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
 
 .search input {
@@ -135,29 +136,15 @@ nav .notes button {
     margin-top: 60px;
 }
 
-.main > .siteList {
+.main > .site-list {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: -30px;
+    justify-content: flex-start;
 }
 
-@media (min-width: 500px) {
-    /*屏幕大于500像素*/
-    .siteList {
-        margin-left: 0;
-        margin-right: -30px;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 500px) {
-    /*屏幕小于500像素*/
-    .siteList {
-        margin: 20px;
-        justify-content: space-between;
-    }
-}
-
-.main > .siteList > li {
+.main > .site-list > li {
     width: 160px;
     display: flex;
     justify-content: center;
@@ -167,15 +154,10 @@ nav .notes button {
     padding: 20px 0;
     margin-bottom: 10px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
-@media (min-width: 500px) {
-    .main > .siteList > li {
-        margin-right: 20px;
-    }
-}
-
-.main > .siteList .block {
+.main > .site-list .block {
     position: relative;
     /*以下定义高斯模糊样式*/
     -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -183,20 +165,21 @@ nav .notes button {
     background-color: rgba(255, 255, 255, 0.7)
 }
 
-.main > .siteList .addSiteLi {user-select: none;}
+.main > .site-list .add-site-li {user-select: none;}
 
-.main > .siteList .logo {
+.main > .site-list .logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.main > .siteList .site {
+.main > .site-list .site {
     color: #34495e;
     margin-top: 4px;
+    text-align: center;
 }
 
-.main > .siteList .close {
+.main > .site-list .close {
     position: absolute;
     font-size: 30px;
     top: -8px;
