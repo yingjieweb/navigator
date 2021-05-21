@@ -83,29 +83,29 @@ $tabBar.on('click', "div", (event) => { // tabBar事件委托
   if (index === 0){
     $search.attr("action","http://www.baidu.com/s")
     $input.attr("name","wd")
-    $input.attr("placeholder","众里寻他千百度 —— 百度")
+    $input.attr("placeholder","众里寻你千百度的那个 —— 百度")
   }else if (index === 1){
     $search.attr("action","https://www.zhihu.com/search")
     $input.attr("name","q")
-    $input.attr("placeholder","我们都是有问题的人 —— 知乎")
+    $input.attr("placeholder","你也是个有问题的小傻瓜？ —— 知乎")
   }else if (index === 2){
     $search.attr("action","https://so.csdn.net/so/search/s.do")
     $input.attr("name","q")
-    $input.attr("placeholder","成就一亿技术人 —— CSDN")
+    $input.attr("placeholder","据说这里能成就一亿技术人 —— CSDN")
   }else if(index === 3){
     $search.attr("action","https://github.com/search")
     $input.attr("name","q")
-    $input.attr("placeholder","创建自己的开源项目 — GitHub")
+    $input.attr("placeholder","啥时候创建一个自己的开源项目？ — GitHub")
   }else if(index === 4){
-    $search.attr("action","http://ss.chaoxing.com/search")// 超新星
+    $search.attr("action","http://ss.chaoxing.com/search")
     $input.attr("name","sw")
     $input.attr("placeholder","超星发现 —— 小傻瓜加油！")
   }else if (index === 5){
-    $search.attr("action","http://xueshu.baidu.com/s")// 百度学术
+    $search.attr("action","http://xueshu.baidu.com/s")
     $input.attr("name","wd")
-    $input.attr("placeholder","保持学习的态度 —— 百度学术")
+    $input.attr("placeholder","告诉你要保持学习的态度 —— 百度学术")
   }else{
-    $search.attr("action","https://book.duxiu.com/search")// 读秀
+    $search.attr("action","https://book.duxiu.com/search")
     $input.attr("name","sw")
     $input.attr("placeholder","海量学术文献搜索 —— 读秀")
   }
@@ -153,6 +153,12 @@ render()
 // 点击添加快捷方式按钮，添加相应的 li 网址模块
 $('.addSite').on('click', () => {
   let url = window.prompt('请输入你要访问的网址！')
+
+  if (url === ''){
+    alert('啥也不写让我给你添加啥？小傻瓜!')
+    return
+  }
+
   if (url.indexOf('http') !== 0){
     url = 'https://' + url
   }
