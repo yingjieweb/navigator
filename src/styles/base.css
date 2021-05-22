@@ -21,7 +21,6 @@ body {
   height: 100vh;
   width: 100vw;
   position: relative;
-  background-color: #ffeaa7;
   overflow: hidden; /* BFC */
   background-image: url(../assets/img/wallpaper/normal.jpg);
   background-size: 100vw 100vh;
@@ -48,9 +47,17 @@ body {
   margin: 2em 0;
   cursor: pointer;
   border: 1px solid navajowhite;
+  box-shadow: 0 0 5px navajowhite;
   transform: rotate(45deg);
 }
 
 .indicator > ul > .active {
   background-color: navajowhite;
+}
+
+.gauss {
+  /* 定义高斯模糊样式 */
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.7)
 }

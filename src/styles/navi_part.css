@@ -1,25 +1,8 @@
-.gauss {
-    /* 定义高斯模糊样式 */
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
-}
-
 nav {
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav .feature {
-    display: flex;
-    justify-content: space-between;
-}
-
-nav .notes {
     display: flex;
     justify-content: space-between;
 }
@@ -34,13 +17,61 @@ nav button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    vertical-align:top;
 }
 
 nav button img {
     width: 26px;
 }
 
-nav .notes input {
+.todo-input {
+    height: 40px;
+    width: 210px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    color: #34495e;
+    border-radius: 4px;
+    display: none;
+}
+
+.todo-list {
+    position: fixed;
+    left: 0;
+    top: 80px;
+}
+
+.todo-list .todo-list-ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 240px;
+    border-radius: 4px;
+    color: #34495e;
+    line-height: 30px;
+    margin: 2px 0 2px 5px;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.todo-list .todo-list-ul li .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;     /* 将对象作为弹性伸缩盒子模型显示 */
+    -webkit-line-clamp: 3;    /* 控制最多显示几行 */
+    -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+
+.todo-list .todo-list-ul li .cheers {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.wish-input {
+    width: 200px;
     height: 40px;
     margin: 5px;
     padding: 0 10px;
@@ -48,34 +79,41 @@ nav .notes input {
     outline: none;
     color: #34495e;
     border-radius: 4px;
-}
-
-.notes-list {
-    margin: 5px;
-    max-width: 320px;
     display: none;
 }
 
-.show-notes {display: block;}
+.wish-list {
+    width: 300px;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    display: none;
+}
 
-.notes-list:hover {display: block;}
-
-.notes-list .notes-list-ul li {
+.wish-list .wish-list-ul li {
     display: flex;
     align-items: center;
     border-radius: 4px;
     color: #34495e;
     line-height: 40px;
-    margin: 2px auto;
-    overflow: hidden;
-
-    /*以下定义高斯模糊样式*/
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.7)
+    padding: 0 10px;
+    margin: 2px 5px;
 }
 
-.notes-list li span{margin: 0 10px;}
+.wish-list .wish-list-ul li .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;     /* 将对象作为弹性伸缩盒子模型显示 */
+    -webkit-line-clamp: 1;    /* 控制最多显示几行 */
+    -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+
+.wish-list .wish-list-ul li .heart {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
 
 .header {
     margin-top: 200px;
@@ -140,7 +178,6 @@ nav .notes input {
     display: flex;
     flex-wrap: wrap;
     margin-left: 0;
-    margin-right: -30px;
     justify-content: flex-start;
 }
 
@@ -215,7 +252,7 @@ live2d-widget-container {
     bottom: 0px;
     width: 200px;
     height: 400px;
-    z-index: 99999;
+    z-index: 99;
     opacity: 1;
     pointer-events: none;
 }

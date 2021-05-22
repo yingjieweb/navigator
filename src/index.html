@@ -10,7 +10,7 @@
   <!--添加阿里 icon 动态引入-->
   <style type="text/css">
     .icon {
-      width: 1em; height: 1em;
+      width: 1.5em; height: 1.5em;
       vertical-align: -0.15em;
       fill: currentColor;
       overflow: hidden;
@@ -27,23 +27,40 @@
   <!-- 导航页 part -->
   <div class="navi-page">
     <nav>
-      <div class="feature">
-        <button class="todo gauss" type="submit" title="添加代办事件 ~"><img src="./assets/img/schedule.png"></button>
-        <button class="map gauss" type="submit" title="查看点亮城市 ~"><img src="./assets/img/map.png"></button>
-        <!-- background: rgba(0,0,0,.5) -->
+      <div class="feature-part">
+        <div class="feature">
+          <button class="todo gauss" type="submit" title="添加代办事件 ~"><img src="./assets/img/schedule.png"></button>
+          <input class="todo-input gauss" type="text" placeholder="添加代办事件，写完按回车哦 ~"/>
+          <button class="map gauss" type="submit" title="查看点亮城市 ~"><img src="./assets/img/map.png"></button>
+        </div>
+        <div class="todo-list">
+          <ul class="todo-list-ul">
+            <!--<li class="gauss">
+              <div class="text-time">
+                <div class="text">第一个事件清单</div>
+                <div class="time">2021-05-22 10:59</div>
+              </div>
+              <div class="cheers" title="大功告成，干杯 ~">
+                <svg class="icon"><use xlink:href="#icon-jiubei"></use></svg>
+              </div>
+            </li>-->
+          </ul>
+        </div>
       </div>
 
-      <div class="wish">
-        <div class="notes">
-          <input class="notes-input gauss" type="text" placeholder="在这许小小愿望，小傻瓜！"/>
-          <button class="notes-button gauss" type="submit" title="点击许愿哦 ~"><img src="./assets/img/heart.png"></button>
+      <div class="wish-part">
+        <div class="wish">
+          <input class="wish-input gauss" type="text" placeholder="许个小愿望，写完按回车哦 ~"/>
+          <button class="wish-button gauss" type="submit" title="点击许愿哦 ~"><img src="./assets/img/heart.png"></button>
         </div>
-        <div class="notes-list">
-          <ul class="notes-list-ul">
-            <!--<li  title="点击小红心就表示愿望已经实现了哦 ~">
-              <span style="line-height: 40px; max-width: 280px;">这是我许愿的第一个愿望</span>
-              <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
-            </li>-->
+        <div class="wish-list">
+          <ul class="wish-list-ul">
+            <li class="gauss">
+              <span class="text" title="这是我许愿的第一个愿望">这是我许愿的第一个愿望</span>
+              <div class="heart" title="点击小红心就表示愿望已经实现了哦 ~">
+                <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -74,6 +91,9 @@
       </ul>
     </main>
 
+    <div class="cover">
+
+    </div>
     <audio id="audio-wind" src="./assets/audio/wind_1s.mp3" preload="auto"></audio>
     <img class="windmill" src="./assets/img/windmill.png" title="切换背景图片 ~">
   </div>
@@ -141,7 +161,7 @@
   </div>
 
   <div class="indicator">
-    <ul>
+    <ul title="滚动一下鼠标滑轮 ~">
       <li class="point active" data-index='0'></li>
       <li class="point" data-index='1'></li>
       <li class="point" data-index='2'></li>
@@ -166,7 +186,7 @@
   });
 </script>
 <!--添加阿里 icon 动态引入-->
-<script type="text/javascript" src="//at.alicdn.com/t/font_1709463_gcxlpbmf635.js"></script>
+<script type="text/javascript" src="//at.alicdn.com/t/font_1709463_mbketls4afi.js"></script>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="navi_part.js"></script>
 <script type="text/javascript" src="album_part.js"></script>
