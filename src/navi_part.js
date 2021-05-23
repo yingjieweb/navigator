@@ -1,13 +1,13 @@
 import {DateFormat} from "./utils/DateFormat"
 
 // 获取 localStorage - siteList
-let oldSitesCache = localStorage.getItem('sitesCache')
-let sitesCache = JSON.parse(oldSitesCache)
-let hashMap = sitesCache ||  [
-  {logoPath: require(`./assets/img/icon/icon1.png`), url: 'http://www.graduate.nuaa.edu.cn'},
-  {logoPath: require(`./assets/img/icon/icon2.png`), url: 'https://juejin.im'},
-  {logoPath: require(`./assets/img/icon/icon3.png`), url: 'https://xueshu.baidu.com'},
-  {logoPath: require(`./assets/img/icon/icon4.png`), url: 'https://www.cnki.net'}
+let oldSitesCache = localStorage.getItem('sitesHashMapCache')
+let sitesHashMapCache = JSON.parse(oldSitesCache)
+let sitesHashMap = sitesHashMapCache ||  [
+  {name: '南航', url: 'http://www.graduate.nuaa.edu.cn', logoPath: require(`./assets/img/icon/icon1.png`)},
+  {name: '掘金', url: 'https://juejin.im', logoPath: require(`./assets/img/icon/icon2.png`)},
+  {name: '百度学术', url: 'https://xueshu.baidu.com', logoPath: require(`./assets/img/icon/icon3.png`)},
+  {name: '知网', url: 'https://www.cnki.net', logoPath: require(`./assets/img/icon/icon4.png`)}
 ]
 
 // 获取 localStorage - wishList
@@ -19,17 +19,6 @@ let wishList = wishListCache || []
 let oldTodoListCache = localStorage.getItem('todoListCache')
 let todoListCache = JSON.parse(oldTodoListCache)
 let todoList = todoListCache || []
-
-// 简化 url
-const simplifyUrl = (url) => {
-  return url.replace('https://', '')
-    .replace('http://', '')
-    .replace('www.', '')
-    .replace('graduate.', '')
-    .replace('.com', '')
-    .replace('.cn', '')
-    .replace(/\/.*/, '') // 删除 / 开头的内容
-}
 
 let $naviPage = $('.navi-page')  // 导航页
 let $indicatorUl = $('.indicator ul')  // 切换标识 ul
@@ -46,6 +35,12 @@ let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
 let $input = $('.search input')  // 获取 search 表单的 input
 let $addSiteLi = $('.add-site-li') // 获取新增快捷方式按钮
+let $modalWindow = $('.modal-window') // 获取模态框 window
+let $modalClose = $('.modal-close') // 获取模态框 close
+let $newSiteName = $('.open-modal, .name') // 获取新增快捷方式的 name
+let $newSiteLink = $('.open-modal, .link') // 获取新增快捷方式的 link
+let $modalCancel = $('.cancel') // 获取新增快捷方式取消按钮
+let $modalConfirm = $('.open-modal, .confirm') // 获取新增快捷方式确认按钮
 let $audioWind = $("#audio-wind")[0]  // 获取 wind 音频元素
 let $audioLove = $("#audio-love")[0]  // 获取 love 音频元素
 let $windmill = $('.windmill') // 获取底部的箭头
@@ -187,22 +182,22 @@ $tabBar.on('click', "div", (event) => { // tabBar事件委托
 // 页面渲染render
 let render = function(){
   $('.site-list').find('li:not(.add-site-li)').remove() // 渲染前移除添加按钮前的模块
-  hashMap.forEach((item,index)=>{ // 根据hashMap创建相应的元素并添加到新增按钮前
+  sitesHashMap.forEach((item,index)=>{ // 根据sitesHashMap创建相应的元素并添加到新增按钮前
     let $li = $(`<li class="block">
       <a href="${item.url}">
         <div class="logo"><img src=${item.logoPath}></div>
-        <div class="site">${simplifyUrl(item.url)}</div>
+        <div class="site">${item.name}</div>
       </a>
       <div class="close">×</div>
     </li>
     `).insertBefore($addSiteLi)
 
-    if (hashMap.length >= 10)
+    if (sitesHashMap.length >= 10)
       $addSiteLi.css('visibility', 'hidden')
 
     $li.on('click','.close',(event) => {
       event.stopPropagation()  // 阻止事件冒泡
-      hashMap.splice(index,1)
+      sitesHashMap.splice(index,1)
       $addSiteLi.css('visibility', 'visible')
       render()
     })
@@ -212,41 +207,51 @@ let render = function(){
   })
 }
 
-// 页面刷新时先渲染 hashMap
+// 页面刷新时先渲染 sitesHashMap
 render()
 
-// 点击添加快捷方式按钮，添加相应的 li 网址模块
-$('.add-site').on('click', () => {
-  let url = window.prompt('请输入你要访问的网址！')
+// 点击添加快捷方式按钮，显示模态框
+$addSiteLi.on('click', () => {$modalWindow.addClass('show-modal-window')})
 
-  if (url === ''){
-    alert('啥也不写让我给你添加啥？小傻瓜!')
-    return
+// 添加相应的快捷方式 li 网址模块
+$modalConfirm.on('click', () => {
+  if ($newSiteName.val() && $newSiteLink.val()) {
+    $modalWindow.removeClass('show-modal-window')
+
+    let iconArr = {
+      icon5: require(`./assets/img/icon/icon5.png`),
+      icon6: require(`./assets/img/icon/icon6.png`),
+      icon7: require(`./assets/img/icon/icon7.png`),
+      icon8: require(`./assets/img/icon/icon8.png`),
+      icon9: require(`./assets/img/icon/icon9.png`),
+      icon10: require(`./assets/img/icon/icon10.png`)
+    }
+    let path = iconArr[`icon${sitesHashMap.length + 1}`] // TODO 依然待优化
+
+    sitesHashMap.push({
+      name: $newSiteName.val(),
+      url: $newSiteLink.val(),
+      logoPath: path
+    })
+    $newSiteName.val('')
+    $newSiteLink.val('')
+
+    if (sitesHashMap.length >= 10) {
+      $addSiteLi.css('visibility', 'hidden')
+      alert('真是个贪心的小傻瓜呢~ 😏')
+    }
+
+    render()
+  } else {
+    alert('调皮哦，不好好输入打你呦 ~')
   }
-
-  if (url.indexOf('http') !== 0){
-    url = 'https://' + url
-  }
-
-  let iconArr = {
-    icon5: require(`./assets/img/icon/icon5.png`),
-    icon6: require(`./assets/img/icon/icon6.png`),
-    icon7: require(`./assets/img/icon/icon7.png`),
-    icon8: require(`./assets/img/icon/icon8.png`),
-    icon9: require(`./assets/img/icon/icon9.png`),
-    icon10: require(`./assets/img/icon/icon10.png`)
-  }
-  let path = iconArr[`icon${hashMap.length+1}`] // TODO 依然待优化
-  hashMap.push({logoPath: path, url: url})
-
-  if (hashMap.length >= 10) {
-    $addSiteLi.css('visibility', 'hidden')
-    alert('真是个贪心的小傻瓜呢~ 😏')
-  }
-
-  render() //重新渲染
 })
 
+// 点击 关闭 / 取消 关闭模态框
+$modalClose.on('click', () => {$modalWindow.removeClass('show-modal-window')})
+$modalCancel.on('click', () => {$modalWindow.removeClass('show-modal-window')})
+
+// 背景图片部分
 let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0  // 标记当前背景图片
 let wallpaperArray = [
   {imagePath: require(`./assets/img/wallpaper/yourname.jpg`)},
@@ -282,13 +287,15 @@ Array.from($indicatorLis).forEach((item, index) => {
     currentIndicator = index
 })
 
-// 点击 indicator 切换屏幕 0：导航 1：照片墙
+// 点击 indicator 切换屏幕 0：导航 1：照片墙 2：纪念日
 $indicatorUl.on('click', (event) => {
   let clickedIndex = Array.from($indicatorLis).indexOf(event.target)
   if (clickedIndex === -1) return
   $indicatorLis.eq(clickedIndex).addClass('active').siblings().removeClass("active")
   currentIndicator = clickedIndex
   $naviPage.css('margin-top', `${clickedIndex * -100}vh`)
+
+  clickedIndex === 0 ? $todoListUl.css('display', 'block') : $todoListUl.css('display', 'none')
 })
 
 // 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙 2：纪念日
@@ -326,8 +333,8 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
 
 // 窗口关闭前缓存 localStorage
 window.onbeforeunload = function () {
-  let newSitesCache = JSON.stringify(hashMap)
-  localStorage.setItem('sitesCache', newSitesCache)
+  let newSitesHashMapCache = JSON.stringify(sitesHashMap)
+  localStorage.setItem('sitesHashMapCache', newSitesHashMapCache)
 
   let newWishListCache = JSON.stringify(wishList)
   localStorage.setItem('wishListCache', newWishListCache)

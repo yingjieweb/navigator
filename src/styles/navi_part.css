@@ -214,6 +214,8 @@ nav button img {
     color: #34495e;
     margin-top: 4px;
     text-align: center;
+    max-width: 160px;
+    overflow: hidden;
 }
 
 .main > .site-list .close {
@@ -245,6 +247,91 @@ nav button img {
     100% { transform: translate(-50%, -50%) rotate(4turn)}
 }
 
+/* ---------- 模态框部分 start ---------- */
+.modal-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-modal-window {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window .modal-body {
+    width: 480px;
+    padding: 20px 0 25px 0;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-window .modal-body .modal-title {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+.modal-window .modal-body .modal-close {
+    font-size: 40px;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    color: #909090;
+    cursor: pointer;
+}
+
+.modal-window .modal-body input {
+    width: 320px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 2px solid #66B1FF;
+    border-radius: 25px;
+    outline: none;
+    background: none;
+    text-align: center;
+    transition: 0.5s;
+    transition-property: width;
+}
+
+.modal-window .modal-body input:focus {width: 350px;}
+
+.modal-window .modal-body button {
+    width: 150px;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 25px;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-property: background, transform;
+}
+
+.modal-window .modal-body .modal-buttons .cancel {
+    border: 2px solid #F56C6C;
+    margin-right: 10px;
+}
+
+.modal-window .modal-body .modal-buttons .confirm {border: 2px solid #67C23A;}
+
+/* ---------- 模态框部分 end ---------- */
+
 /* kanban part css*/
 live2d-widget-container {
     position: fixed;
@@ -252,7 +339,7 @@ live2d-widget-container {
     bottom: 0px;
     width: 200px;
     height: 400px;
-    z-index: 99;
+    z-index: 999;
     opacity: 1;
     pointer-events: none;
 }

@@ -12,7 +12,7 @@
 .album-swiper {
   width: 100vw;
   min-height: 100vh;
-  /*overflow: auto;*/
+  padding-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

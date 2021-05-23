@@ -29,9 +29,9 @@
     <nav>
       <div class="feature-part">
         <div class="feature">
-          <button class="todo gauss" type="submit" title="添加代办事件 ~"><img src="./assets/img/schedule.png"></button>
+          <button class="todo gauss scale" type="submit" title="添加代办事件 ~"><img src="./assets/img/schedule.png"></button>
           <input class="todo-input gauss" type="text" placeholder="添加代办事件，写完按回车哦 ~"/>
-          <button class="map gauss" type="submit" title="查看点亮城市 ~"><img src="./assets/img/map.png"></button>
+          <button class="map gauss scale" type="submit" title="查看点亮城市 ~"><img src="./assets/img/map.png"></button>
         </div>
         <div class="todo-list">
           <ul class="todo-list-ul">
@@ -51,7 +51,7 @@
       <div class="wish-part">
         <div class="wish">
           <input class="wish-input gauss" type="text" placeholder="许个小愿望，写完按回车哦 ~"/>
-          <button class="wish-button gauss" type="submit" title="点击许愿哦 ~"><img src="./assets/img/heart.png"></button>
+          <button class="wish-button gauss scale" type="submit" title="点击许愿哦 ~"><img src="./assets/img/heart.png"></button>
         </div>
         <div class="wish-list">
           <ul class="wish-list-ul">
@@ -77,7 +77,7 @@
       </div>
       <form class="search" method="get" action="http://www.baidu.com/s">
         <input class="gauss" autocomplete="off" name="wd" type="text" required placeholder="众里寻你千百度的那个百度">
-        <button class="gauss" type="submit"><img src="./assets/img/search.png"></button>
+        <button class="gauss scale" type="submit"><img src="./assets/img/search.png"></button>
       </form>
     </header>
     <main class="main">
@@ -91,9 +91,20 @@
       </ul>
     </main>
 
-    <div class="cover">
-
+    <!-- 模态框部分 -->
+    <div id="open-modal" class="modal-window">
+      <div class="modal-body gauss">
+        <a class="modal-close">×</a>
+        <span class="modal-title">添加快捷方式</span>
+        <input type="text" class="name" placeholder="名称" required>
+        <input type="text" class="link" placeholder="网址" required>
+        <div class="modal-buttons">
+          <button class="cancel scale">取消</button>
+          <button class="confirm scale">完成</button>
+        </div>
+      </div>
     </div>
+
     <audio id="audio-wind" src="./assets/audio/wind_1s.mp3" preload="auto"></audio>
     <img class="windmill" src="./assets/img/windmill.png" title="切换背景图片 ~">
   </div>
