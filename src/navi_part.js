@@ -14,6 +14,12 @@ let sitesHashMap = sitesHashMapCache ||  [
 let oldWishListCache = localStorage.getItem('wishListCache')
 let wishListCache = JSON.parse(oldWishListCache)
 let wishList = wishListCache || []
+if (wishList.length) {
+  wishList = wishList.map(item => {
+    if (!item.hasOwnProperty('realize')) item.realize = 0
+    return item
+  })
+}
 
 // 获取 localStorage - todList
 let oldTodoListCache = localStorage.getItem('todoListCache')
@@ -27,10 +33,13 @@ let $todoButton = $('.todo') // 获取代办 button
 let $todoInput = $('.todo-input') // 获取代办 input
 let $todoListUl = $('.todo-list-ul') // 获取 todoListUl
 let $mapButton = $('.map') // 获取地图 button
+let $noticeButton = $('.notice') // 获取通知 button
 let $wishInput = $('.wish-input') // 获取愿望 input
 let $wishList = $('.wish-list') // 获取愿望 list
 let $wishListUl = $('.wish-list-ul') // 获取愿望 listUl
 let $wishButton = $('.wish-button') // 获取愿望按钮
+let $wishingTab = $('.wishing-tab')  // 获取
+let $realizeTab = $('.realize-tab')  // 获取
 let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
 let $input = $('.search input')  // 获取 search 表单的 input
@@ -94,9 +103,15 @@ function renderTodoList() {
     $todoListUl.append($li)
   })
 }
+// 初始化渲染 todoList
+renderTodoList()
 
 $mapButton.on('click',() => {
   alert('点亮城市功能正在开发当中呢 ~')
+})
+
+$noticeButton.on('click',() => {
+  alert('通知功能正在开发当中呢 ~')
 })
 
 // 添加小愿望 - wishList
@@ -111,7 +126,7 @@ $wishButton.on('click',(event) => {
   $wishInput.keydown((event) => {
     if(event.code === 'Enter'){
       if ($wishInput.val() === '') return
-      wishList.push({wishText: $wishInput.val(), createTime: DateFormat(new Date())})
+      wishList.push({wishText: $wishInput.val(), createTime: DateFormat(new Date()), realize: 0})
       $wishInput.val('')
 
       renderWishList()
@@ -119,17 +134,42 @@ $wishButton.on('click',(event) => {
   });
 })
 
-// 删除小愿望 wishListItem
+// 实现小愿望 wishListItem
 $wishListUl.on('click', 'svg', (event) => {
-  let clickedWishItemIndex = $(event.currentTarget.parentNode.parentNode).index()
-  wishList.splice(clickedWishItemIndex, 1)
+  let clickedWishItemText = $(event.currentTarget.parentNode.parentNode)[0].innerText
+  let clickedWishItemIndex
+  wishList.forEach((item, index) => {
+    if (item.wishText === clickedWishItemText){
+      clickedWishItemIndex = index
+    }
+  })
+  wishList[clickedWishItemIndex].realize = 1
   renderWishList()
 })
 
+// 切换愿望 tab - wishing
+$wishingTab.on('click', () => {
+  $wishingTab.addClass('active').siblings().removeClass("active")
+  $wishListUl.css('pointer-events', 'auto')
+  renderWishList()
+})
+
+// 切换愿望 tab - realize
+$realizeTab.on('click', () => {
+  $realizeTab.addClass('active').siblings().removeClass("active")
+  $wishListUl.css('pointer-events', 'none')
+  renderWishList('realize')
+})
+
+
 // 渲染 wishList
-function renderWishList() {
+function renderWishList(state = 'wishing') {
   $wishListUl.find('li').remove() // 渲染前移除之前的 wishItem
-  wishList.forEach((item) => {
+  let filterWishList = []
+  filterWishList = state === 'wishing' ?
+      wishList.filter(item => {return item.realize === 0}) :
+      wishList.filter(item => {return item.realize === 1})
+  filterWishList.forEach((item) => {
     let $li = $(`<li class="gauss">
               <span class="text" title="${item.wishText}">${item.wishText}</span>
               <div class="heart" title="点击小红心就表示愿望已经实现了哦 ~">
@@ -140,7 +180,11 @@ function renderWishList() {
   })
 }
 
-$tabBar.on('click', "div", (event) => { // tabBar事件委托
+// 初始化渲染 wishList
+renderWishList()
+
+// 切换搜索网站 → tabBar 事件委托
+$tabBar.on('click', "div", (event) => {
   const $tabItem = $(event.currentTarget)  //获取当前被点击的元素
   $tabItem.addClass("selected").siblings().removeClass("selected") // toggleClass(value, stateVal) link mdn
 
@@ -179,8 +223,8 @@ $tabBar.on('click', "div", (event) => { // tabBar事件委托
   }
 })
 
-// 页面渲染render
-let render = function(){
+// 渲染 SitesHashMap
+function renderSitesHashMap(){
   $('.site-list').find('li:not(.add-site-li)').remove() // 渲染前移除添加按钮前的模块
   sitesHashMap.forEach((item,index)=>{ // 根据sitesHashMap创建相应的元素并添加到新增按钮前
     let $li = $(`<li class="block">
@@ -199,16 +243,13 @@ let render = function(){
       event.stopPropagation()  // 阻止事件冒泡
       sitesHashMap.splice(index,1)
       $addSiteLi.css('visibility', 'visible')
-      render()
+      renderSitesHashMap()
     })
-
-    renderTodoList()
-    renderWishList()
   })
 }
 
-// 页面刷新时先渲染 sitesHashMap
-render()
+// 初始化渲染 sitesHashMap
+renderSitesHashMap()
 
 // 点击添加快捷方式按钮，显示模态框
 $addSiteLi.on('click', () => {$modalWindow.addClass('show-modal-window')})
@@ -241,7 +282,7 @@ $modalConfirm.on('click', () => {
       alert('真是个贪心的小傻瓜呢~ 😏')
     }
 
-    render()
+    renderSitesHashMap()
   } else {
     alert('调皮哦，不好好输入打你呦 ~')
   }
@@ -314,7 +355,6 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
 
     // 滑动到非纪念日页 → 停止播放音乐
     if (currentIndicator !== 2) $audioLove.pause()
-    if (currentIndicator === 0) $todoListUl.css('display', 'block')
   } else if (delta < 0) { // 向下滚
     currentIndicator++
     if (currentIndicator <= $indicatorLis.length - 1) {
@@ -326,21 +366,20 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
 
     // 滑动到纪念日页 → 播放音乐 + 隐藏 todoList
     if (currentIndicator === 2) $audioLove.play()
-    if (currentIndicator !== 0) $todoListUl.css('display', 'none')
   }
 })
 
 
 // 窗口关闭前缓存 localStorage
 window.onbeforeunload = function () {
-  let newSitesHashMapCache = JSON.stringify(sitesHashMap)
-  localStorage.setItem('sitesHashMapCache', newSitesHashMapCache)
+  let newTodoListCache = JSON.stringify(todoList)
+  localStorage.setItem('todoListCache', newTodoListCache)
 
   let newWishListCache = JSON.stringify(wishList)
   localStorage.setItem('wishListCache', newWishListCache)
 
-  let newTodoListCache = JSON.stringify(todoList)
-  localStorage.setItem('todoListCache', newTodoListCache)
+  let newSitesHashMapCache = JSON.stringify(sitesHashMap)
+  localStorage.setItem('sitesHashMapCache', newSitesHashMapCache)
 }
 
 // statistical script

@@ -37,7 +37,7 @@ nav button img {
 }
 
 .todo-list {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 80px;
 }
@@ -84,20 +84,40 @@ nav button img {
 
 .wish-list {
     width: 300px;
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 50px;
     display: none;
 }
 
-.wish-list .wish-list-ul li {
-    display: flex;
-    align-items: center;
+.wish-list .wish-tabs {
+    margin: 0 5px;
     border-radius: 4px;
-    color: #34495e;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wish-list .wish-tabs div {
+    width: 49.5%;
+    border-radius: 4px;
     line-height: 40px;
+    text-align: center;
+    color: #34495e;
+    cursor: pointer;
+    user-select: none;
+}
+
+.wish-list .wish-tabs .active {border: 2px solid #F56C6C;}
+
+.wish-list .wish-list-ul li {
     padding: 0 10px;
     margin: 2px 5px;
+    border-radius: 4px;
+    line-height: 40px;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 
 .wish-list .wish-list-ul li .text {
@@ -124,6 +144,7 @@ nav button img {
     margin: 20px;
     display: flex;
     justify-content: center;
+    user-select: none;
 }
 
 .tab-bar-item {
@@ -285,6 +306,7 @@ nav button img {
     display: inline-block;
     margin-bottom: 18px;
     font-size: 20px;
+    color: #34495e;
 }
 
 .modal-window .modal-body .modal-close {
@@ -321,6 +343,7 @@ nav button img {
     cursor: pointer;
     transition: 0.5s;
     transition-property: background, transform;
+    color: #34495e;
 }
 
 .modal-window .modal-body .modal-buttons .cancel {
