@@ -53,6 +53,7 @@ nav button img {
     margin: 2px 0 2px 5px;
     padding: 0 10px;
     overflow: hidden;
+    user-select: none;
 }
 
 .todo-list .todo-list-ul li .text {
@@ -107,7 +108,16 @@ nav button img {
     user-select: none;
 }
 
-.wish-list .wish-tabs .active {border: 2px solid #F56C6C;}
+.wish-list .wish-tabs .active {border-left: 5px solid #C53938;}
+
+.wish-list .wish-list-ul {
+    margin-top: 2px;
+    max-height: 272px;
+    overflow: scroll;
+}
+
+/* 隐藏滑块 but 依然能滑动 */
+.wish-list .wish-list-ul::-webkit-scrollbar {display: none;}
 
 .wish-list .wish-list-ul li {
     padding: 0 10px;

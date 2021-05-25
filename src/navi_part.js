@@ -61,6 +61,11 @@ $('body').on('click',() => {
   $wishList.css('display', 'none')
 })
 
+// 决定 document 是否有滚动权限
+let documentScrollAuthority = true
+$wishListUl.on('mouseover', () => {documentScrollAuthority = false})
+$wishListUl.on('mouseleave', () => {documentScrollAuthority = true})
+
 // 添加代办事件
 $todoButton.on('click', (event) => {
   event.stopPropagation()
@@ -71,9 +76,12 @@ $todoButton.on('click', (event) => {
   $todoInput.keydown((event) => {
     if(event.code === 'Enter'){
       if ($todoInput.val() === '') return
+      if (todoList.length >= 7) {
+        alert('事情总要一件一件的做嘛，先把这些做完小傻瓜 ~')
+        return
+      }
       todoList.push({todoText: $todoInput.val(), createTime: DateFormat(new Date())})
       $todoInput.val('')
-      $todoInput.css('display', 'none')
 
       renderTodoList()
     }
@@ -126,10 +134,21 @@ $wishButton.on('click',(event) => {
   $wishInput.keydown((event) => {
     if(event.code === 'Enter'){
       if ($wishInput.val() === '') return
-      wishList.push({wishText: $wishInput.val(), createTime: DateFormat(new Date()), realize: 0})
-      $wishInput.val('')
-
-      renderWishList()
+      let isRepeat = false
+      wishList.map(item => {
+        if (item.wishText === $wishInput.val()){
+          isRepeat = true
+        }
+      })
+      if (isRepeat) {
+        alert('有啦有啦，这个小愿望已经有啦 ~')
+      } else {
+        wishList.push({wishText: $wishInput.val(), createTime: DateFormat(new Date()), realize: 0})
+        $wishingTab.addClass('active').siblings().removeClass("active")
+        $wishListUl.css('pointer-events', 'auto')
+        $wishInput.val('')
+        renderWishList()
+      }
     }
   });
 })
@@ -143,24 +162,23 @@ $wishListUl.on('click', 'svg', (event) => {
       clickedWishItemIndex = index
     }
   })
-  wishList[clickedWishItemIndex].realize = 1
-  renderWishList()
+  wishList[clickedWishItemIndex].realize++
+  wishList[clickedWishItemIndex].realize > 1 ? renderWishList('realize') : renderWishList()
 })
 
 // 切换愿望 tab - wishing
 $wishingTab.on('click', () => {
   $wishingTab.addClass('active').siblings().removeClass("active")
-  $wishListUl.css('pointer-events', 'auto')
+  // $wishListUl.css('pointer-events', 'auto')
   renderWishList()
 })
 
 // 切换愿望 tab - realize
 $realizeTab.on('click', () => {
   $realizeTab.addClass('active').siblings().removeClass("active")
-  $wishListUl.css('pointer-events', 'none')
+  // $wishListUl.css('pointer-events', 'none')
   renderWishList('realize')
 })
-
 
 // 渲染 wishList
 function renderWishList(state = 'wishing') {
@@ -168,7 +186,7 @@ function renderWishList(state = 'wishing') {
   let filterWishList = []
   filterWishList = state === 'wishing' ?
       wishList.filter(item => {return item.realize === 0}) :
-      wishList.filter(item => {return item.realize === 1})
+      wishList.filter(item => {return item.realize >= 1})
   filterWishList.forEach((item) => {
     let $li = $(`<li class="gauss">
               <span class="text" title="${item.wishText}">${item.wishText}</span>
@@ -344,7 +362,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
   var delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
       (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1))              // firefox
 
-  if (delta > 0) {  // 向上滚
+  if (delta > 0 && documentScrollAuthority) {  // 向上滚
     currentIndicator--
     if (currentIndicator >= 0) {
       $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)
@@ -355,7 +373,7 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
 
     // 滑动到非纪念日页 → 停止播放音乐
     if (currentIndicator !== 2) $audioLove.pause()
-  } else if (delta < 0) { // 向下滚
+  } else if (delta < 0 && documentScrollAuthority) { // 向下滚
     currentIndicator++
     if (currentIndicator <= $indicatorLis.length - 1) {
       $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)
