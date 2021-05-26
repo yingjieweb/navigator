@@ -1,9 +1,10 @@
 body {
-  /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
-  font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   overflow: hidden;
+  user-select: none;
+  font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+  /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
 }
 
 .message-box {
@@ -16,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9;
 }
 
 .message-box .message {
@@ -49,19 +50,19 @@ body {
 .message-error {color: #DE4561;background-color: #FEF0F0;border: 1px solid #FDE5E5;}
 
 .navi-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
   /*background-image: url(../img/wallpaper/yourname.jpg);*/ /*闪切背景图片*/
-  background-size: 100vw 100vh;
+  background-size: 100% 100vh;
   background-repeat: no-repeat;
   transition: 0.2s ease-in-out;   /*背景图片切换效果*/
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: auto; /* BFC */
 }
 
 .album-page {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   position: relative;
   overflow: hidden; /* BFC */
   background-image: url(../assets/img/wallpaper/normal.jpg);
@@ -69,10 +70,10 @@ body {
 }
 
 .anni-page {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   position: relative;
-  overflow: auto; /* BFC */
+  overflow: hidden; /* BFC */
 }
 
 .indicator {
@@ -80,7 +81,7 @@ body {
   top: 46%;
   right: 2%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 7;
 }
 
 .indicator > ul > li {

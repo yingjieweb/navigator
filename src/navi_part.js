@@ -153,7 +153,7 @@ $wishInput.keydown((event) => {
 $wishListUl.on('click', 'svg', (event) => {
   let clickedWishItemText = $(event.currentTarget.parentNode.parentNode)[0].innerText
   let clickedWishItemIndex
-  wishList.forEach((item, index) => {
+  wishList.map((item, index) => {
     if (item.wishText === clickedWishItemText){
       clickedWishItemIndex = index
     }
@@ -352,7 +352,7 @@ $indicatorUl.on('click', (event) => {
   currentIndicator = clickedIndex
   $naviPage.css('margin-top', `${clickedIndex * -100}vh`)
 
-  clickedIndex === 0 ? $todoListUl.css('display', 'block') : $todoListUl.css('display', 'none')
+  if (clickedIndex === 2) PopToast('warning', '前方高能预警，单身狗请迅速撤离！ 🤭')
 })
 
 // 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙 2：纪念日

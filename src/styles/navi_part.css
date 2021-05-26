@@ -68,7 +68,6 @@ nav .feature .notice::after {
     margin: 2px 0 2px 5px;
     padding: 0 10px;
     overflow: hidden;
-    user-select: none;
 }
 
 .todo-list .todo-list-ul li .text {
@@ -120,7 +119,6 @@ nav .feature .notice::after {
     text-align: center;
     color: #34495e;
     cursor: pointer;
-    user-select: none;
 }
 
 .wish-list .wish-tabs .active {border-left: 5px solid #C53938;}
@@ -142,7 +140,6 @@ nav .feature .notice::after {
     color: #34495e;
     display: flex;
     align-items: center;
-    user-select: none;
 }
 
 .wish-list .wish-list-ul li .text {
@@ -169,7 +166,6 @@ nav .feature .notice::after {
     margin: 20px;
     display: flex;
     justify-content: center;
-    user-select: none;
 }
 
 .tab-bar-item {
@@ -248,8 +244,6 @@ nav .feature .notice::after {
     background-color: rgba(255, 255, 255, 0.7)
 }
 
-.main > .site-list .add-site-li {user-select: none;}
-
 .main > .site-list .logo {
     display: flex;
     justify-content: center;
@@ -284,7 +278,6 @@ nav .feature .notice::after {
     bottom: 50px;
     transform: translate(-50%, -50%);
     cursor: pointer;
-    user-select: none;  /* 禁止双击选中 */
 }
 
 .rotate {animation: rotate 2s infinite;}
@@ -301,7 +294,7 @@ nav .feature .notice::after {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;
+    z-index: 8;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -387,7 +380,7 @@ live2d-widget-container {
     bottom: 0px;
     width: 200px;
     height: 400px;
-    z-index: 999;
+    z-index: 99;
     opacity: 1;
     pointer-events: none;
 }
