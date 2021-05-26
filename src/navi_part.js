@@ -1,4 +1,5 @@
 import {DateFormat} from "./utils/DateFormat"
+import {PopToast} from "./utils/PopToast"
 
 // 获取 localStorage - siteList
 let oldSitesCache = localStorage.getItem('sitesHashMapCache')
@@ -14,12 +15,6 @@ let sitesHashMap = sitesHashMapCache ||  [
 let oldWishListCache = localStorage.getItem('wishListCache')
 let wishListCache = JSON.parse(oldWishListCache)
 let wishList = wishListCache || []
-if (wishList.length) {
-  wishList = wishList.map(item => {
-    if (!item.hasOwnProperty('realize')) item.realize = 0
-    return item
-  })
-}
 
 // 获取 localStorage - todList
 let oldTodoListCache = localStorage.getItem('todoListCache')
@@ -73,26 +68,28 @@ $todoButton.on('click', (event) => {
 
   $todoInput.css('display', 'inline-block')
   $todoInput.focus()
-  $todoInput.keydown((event) => {
-    if(event.code === 'Enter'){
-      if ($todoInput.val() === '') return
-      if (todoList.length >= 7) {
-        alert('事情总要一件一件的做嘛，先把这些做完小傻瓜 ~')
-        return
-      }
-      todoList.push({todoText: $todoInput.val(), createTime: DateFormat(new Date())})
-      $todoInput.val('')
-
-      renderTodoList()
-    }
-  });
 })
+$todoInput.keydown((event) => {
+  if(event.code === 'Enter'){
+    if ($todoInput.val() === '') return
+    if (todoList.length >= 7) {
+      PopToast('info', '事情总要一件一件的做嘛，小傻瓜 ~ 😉')
+      return
+    }
+    todoList.push({todoText: $todoInput.val(), createTime: DateFormat(new Date())})
+    $todoInput.val('')
+
+    renderTodoList()
+    PopToast('success', '事件添加成功，小傻瓜要加油啦 ~ 👻')
+  }
+});
 
 // 删除代办事件 todoListItem
 $todoListUl.on('click', 'svg', (event) => {
   let clickedTodoItemIndex = $(event.currentTarget.parentNode.parentNode).index()
   todoList.splice(clickedTodoItemIndex, 1)
   renderTodoList()
+  PopToast('success', '真是个勤劳的小傻瓜，要劳逸结合哦 ~ 😘')
 })
 
 // 渲染 todoList
@@ -115,11 +112,10 @@ function renderTodoList() {
 renderTodoList()
 
 $mapButton.on('click',() => {
-  alert('点亮城市功能正在开发当中呢 ~')
+  PopToast('loading', '点亮城市功能正在开发当中呢 ~ 🙈')
 })
-
 $noticeButton.on('click',() => {
-  alert('通知功能正在开发当中呢 ~')
+  PopToast('loading', '通知功能正在开发当中呢 ~ 🙈')
 })
 
 // 添加小愿望 - wishList
@@ -129,29 +125,29 @@ $wishButton.on('click',(event) => {
   $wishList.on('click', (event) => {event.stopPropagation()})
   $wishInput.css('display', 'inline-block')
   $wishList.css('display', 'inline-block')
-
   $wishInput.focus()
-  $wishInput.keydown((event) => {
-    if(event.code === 'Enter'){
-      if ($wishInput.val() === '') return
-      let isRepeat = false
-      wishList.map(item => {
-        if (item.wishText === $wishInput.val()){
-          isRepeat = true
-        }
-      })
-      if (isRepeat) {
-        alert('有啦有啦，这个小愿望已经有啦 ~')
-      } else {
-        wishList.push({wishText: $wishInput.val(), createTime: DateFormat(new Date()), realize: 0})
-        $wishingTab.addClass('active').siblings().removeClass("active")
-        $wishListUl.css('pointer-events', 'auto')
-        $wishInput.val('')
-        renderWishList()
-      }
-    }
-  });
 })
+$wishInput.keydown((event) => {
+  if(event.code === 'Enter'){
+    if ($wishInput.val() === '') return
+    let isRepeat = false
+    wishList.map(item => {
+      if (item.wishText === $wishInput.val()){
+        isRepeat = true
+      }
+    })
+    if (isRepeat) {
+      PopToast('warning', '有啦有啦，这个小愿望已经有啦 ~ 😉')
+    } else {
+      wishList.push({wishText: $wishInput.val(), createTime: DateFormat(new Date()), realize: 0})
+      $wishingTab.addClass('active').siblings().removeClass("active")
+      $wishListUl.css('pointer-events', 'auto')
+      $wishInput.val('')
+      renderWishList()
+      PopToast('success', '添加成功，让我看看我家小傻瓜许的什么愿？ 🧐')
+    }
+  }
+});
 
 // 实现小愿望 wishListItem
 $wishListUl.on('click', 'svg', (event) => {
@@ -164,19 +160,18 @@ $wishListUl.on('click', 'svg', (event) => {
   })
   wishList[clickedWishItemIndex].realize++
   wishList[clickedWishItemIndex].realize > 1 ? renderWishList('realize') : renderWishList()
+  PopToast('success', '哦吼吼，实现啦，愿望实现啦 ~ 😍')
 })
 
 // 切换愿望 tab - wishing
 $wishingTab.on('click', () => {
   $wishingTab.addClass('active').siblings().removeClass("active")
-  // $wishListUl.css('pointer-events', 'auto')
   renderWishList()
 })
 
 // 切换愿望 tab - realize
 $realizeTab.on('click', () => {
   $realizeTab.addClass('active').siblings().removeClass("active")
-  // $wishListUl.css('pointer-events', 'none')
   renderWishList('realize')
 })
 
@@ -262,6 +257,7 @@ function renderSitesHashMap(){
       sitesHashMap.splice(index,1)
       $addSiteLi.css('visibility', 'visible')
       renderSitesHashMap()
+      PopToast('success', '啊哦，快捷方式被删掉了哦 ~ 😮')
     })
   })
 }
@@ -297,12 +293,13 @@ $modalConfirm.on('click', () => {
 
     if (sitesHashMap.length >= 10) {
       $addSiteLi.css('visibility', 'hidden')
-      alert('真是个贪心的小傻瓜呢~ 😏')
+      PopToast('info', '真是个贪心的小傻瓜呢~ 😏')
     }
 
     renderSitesHashMap()
+    PopToast('success', '快捷方式添加成功，这下方便多了 ~ 😁')
   } else {
-    alert('调皮哦，不好好输入打你呦 ~')
+    PopToast('error', '调皮哦，不好好输入打你呦 ~ 🤨')
   }
 })
 
@@ -323,7 +320,7 @@ let wallpaperArray = [
 
 // 渲染前先获取 localstorage 中标记的壁纸图片
 $naviPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
-// 点击箭头切换背景图片
+// 点击风车 windmill 切换背景图片
 $windmill.on('click',() => {
   $windmill.addClass('rotate')
   $windmill.css('pointer-events', 'none')
@@ -337,6 +334,7 @@ $windmill.on('click',() => {
   wallpaperFlag = wallpaperFlag === 5 ? 0 : wallpaperFlag += 1
   localStorage.setItem("backgroundImageFlag",wallpaperFlag)  // 存储当前壁纸标记到 localStorage
   $naviPage.css("backgroundImage",`url(${wallpaperArray[wallpaperFlag].imagePath})`)
+  PopToast('success', '快告诉我这张壁纸好不好看呀 ~ 😎')
 })
 
 // 获取当前 active 的 indicator li
@@ -374,6 +372,8 @@ $(document).on("mousewheel DOMMouseScroll", function (event) {
     // 滑动到非纪念日页 → 停止播放音乐
     if (currentIndicator !== 2) $audioLove.pause()
   } else if (delta < 0 && documentScrollAuthority) { // 向下滚
+    if (currentIndicator === 1) PopToast('warning', '前方高能预警，单身狗请迅速撤离！ 🤭')
+
     currentIndicator++
     if (currentIndicator <= $indicatorLis.length - 1) {
       $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)

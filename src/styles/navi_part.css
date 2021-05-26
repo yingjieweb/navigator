@@ -24,6 +24,21 @@ nav button img {
     width: 26px;
 }
 
+nav .feature .notice {
+    position: relative;
+}
+
+nav .feature .notice::after {
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%;
+    background-color: #C53938;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+}
+
 .todo-input {
     height: 40px;
     width: 210px;
@@ -286,7 +301,7 @@ nav button img {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 99;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
