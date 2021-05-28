@@ -1,23 +1,25 @@
 {
   "scripts": {
+    "serve": "parcel src/index.html",
     "build": "rm -rf dist && parcel build src/index.html --no-minify --public-url ./"
   },
   "name": "navigator",
   "version": "1.0.0",
-  "description": "```\r yarn global add parcel-bundler\r ```",
+  "description": "yarn global add parcel-bundler",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yingjieweb/navigator.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["navigator"],
+  "author": "yingjieweb",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yingjieweb/navigator/issues"
   },
-  "homepage": "https://github.com/yingjieweb/navigator#readme"
+  "homepage": "https://github.com/yingjieweb/navigator#readme",
+  "dependencies": {
+    "echarts": "^5.1.1",
+    "jquery": "^3.6.0"
+  }
 }
