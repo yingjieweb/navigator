@@ -22,6 +22,7 @@
   "homepage": "https://github.com/yingjieweb/navigator#readme",
   "dependencies": {
     "echarts": "^5.1.1",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "src": "^1.1.2"
   }
 }
