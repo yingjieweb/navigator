@@ -1,5 +1,5 @@
 import $ from 'jQuery'
-import albumDB from "./database/album"
+import albumDB from "../database/album"
 
 let $albumSwiper = $(".album-swiper")
 

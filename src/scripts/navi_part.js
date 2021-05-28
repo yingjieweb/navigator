@@ -1,15 +1,15 @@
 import $ from 'jQuery'
-import {DateFormat} from "./utils/DateFormat"
-import {PopToast} from "./utils/PopToast"
+import {DateFormat} from "../utils/DateFormat"
+import {PopToast} from "../utils/PopToast"
 
 // 获取 localStorage - siteList
 let oldSitesCache = localStorage.getItem('sitesHashMapCache')
 let sitesHashMapCache = JSON.parse(oldSitesCache)
 let sitesHashMap = sitesHashMapCache ||  [
-  {name: '南航', url: 'http://www.graduate.nuaa.edu.cn', logoPath: require(`./assets/img/icon/icon1.png`)},
-  {name: '掘金', url: 'https://juejin.im', logoPath: require(`./assets/img/icon/icon2.png`)},
-  {name: '百度学术', url: 'https://xueshu.baidu.com', logoPath: require(`./assets/img/icon/icon3.png`)},
-  {name: '知网', url: 'https://www.cnki.net', logoPath: require(`./assets/img/icon/icon4.png`)}
+  {name: '南航', url: 'http://www.graduate.nuaa.edu.cn', logoPath: require(`../assets/img/icon/icon1.png`)},
+  {name: '掘金', url: 'https://juejin.im', logoPath: require(`../assets/img/icon/icon2.png`)},
+  {name: '百度学术', url: 'https://xueshu.baidu.com', logoPath: require(`../assets/img/icon/icon3.png`)},
+  {name: '知网', url: 'https://www.cnki.net', logoPath: require(`../assets/img/icon/icon4.png`)}
 ]
 
 // 获取 localStorage - wishList
@@ -270,12 +270,12 @@ $siteModalConfirm.on('click', () => {
     $siteModal.removeClass('show-site-modal')
 
     let iconArr = {
-      icon5: require(`./assets/img/icon/icon5.png`),
-      icon6: require(`./assets/img/icon/icon6.png`),
-      icon7: require(`./assets/img/icon/icon7.png`),
-      icon8: require(`./assets/img/icon/icon8.png`),
-      icon9: require(`./assets/img/icon/icon9.png`),
-      icon10: require(`./assets/img/icon/icon10.png`)
+      icon5: require(`../assets/img/icon/icon5.png`),
+      icon6: require(`../assets/img/icon/icon6.png`),
+      icon7: require(`../assets/img/icon/icon7.png`),
+      icon8: require(`../assets/img/icon/icon8.png`),
+      icon9: require(`../assets/img/icon/icon9.png`),
+      icon10: require(`../assets/img/icon/icon10.png`)
     }
     let path = iconArr[`icon${sitesHashMap.length + 1}`] // TODO 依然待优化
 
@@ -306,12 +306,12 @@ $siteModalCancel.on('click', () => {$siteModal.removeClass('show-site-modal')})
 // 背景图片部分
 let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0  // 标记当前背景图片
 let wallpaperArray = [
-  {imagePath: require(`./assets/img/wallpaper/yourname.jpg`)},
-  {imagePath: require(`./assets/img/wallpaper/lantern.jpg`)},
-  {imagePath: require(`./assets/img/wallpaper/pier.png`)},
-  {imagePath: require(`./assets/img/wallpaper/Noon.png`)},
-  {imagePath: require(`./assets/img/wallpaper/night.png`)},
-  {imagePath: require(`./assets/img/wallpaper/schoolGirl.png`)},
+  {imagePath: require(`../assets/img/wallpaper/yourname.jpg`)},
+  {imagePath: require(`../assets/img/wallpaper/lantern.jpg`)},
+  {imagePath: require(`../assets/img/wallpaper/pier.png`)},
+  {imagePath: require(`../assets/img/wallpaper/Noon.png`)},
+  {imagePath: require(`../assets/img/wallpaper/night.png`)},
+  {imagePath: require(`../assets/img/wallpaper/schoolGirl.png`)},
 ]
 
 // 渲染前先获取 localstorage 中标记的壁纸图片

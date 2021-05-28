@@ -1,6 +1,6 @@
 import $ from 'jQuery'
 import * as echarts from 'echarts';
-import './database/china.js'
+import '../database/china.js'
 
 let $mapButton = $('.map') // 获取通知 button
 let $mapModal = $('.map-modal') // 获取 map 模态框
