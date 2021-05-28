@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/yingjieweb/navigator.git"
   },
-  "keywords": ["navigator"],
+  "keywords": [
+    "navigator"
+  ],
   "author": "yingjieweb",
   "license": "ISC",
   "bugs": {
