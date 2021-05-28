@@ -5,21 +5,11 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>小傻瓜导航 ~</title>
-  <!--设置title图标ico-->
   <link rel="icon" href="assets/img/title/pilot.ico" type="images/x-ico" />
-  <!--添加阿里 icon 动态引入-->
-  <style type="text/css">
-    .icon {
-      width: 1.5em; height: 1.5em;
-      vertical-align: -0.15em;
-      fill: currentColor;
-      overflow: hidden;
-      cursor: pointer;
-    }
-  </style>
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/navi_part.css">
+  <link rel="stylesheet" href="styles/china_map.css">
   <link rel="stylesheet" href="styles/album_part.css">
   <link rel="stylesheet" href="styles/anni_part.css">
 </head>
@@ -104,14 +94,24 @@
       </ul>
     </main>
 
-    <!-- 模态框部分 -->
-    <div id="open-modal" class="modal-window">
-      <div class="modal-body gauss">
-        <a class="modal-close">×</a>
-        <span class="modal-title">添加快捷方式</span>
+    <!-- 地图模态框 modal -->
+    <div class="map-modal">
+      <div class="map-modal-body gauss">
+        <a class="map-modal-close">×</a>
+        <span class="map-modal-title">要不要跟我一起走遍大江南北 ~ 😏</span>
+        <div class="china-map">中国地图</div>
+        <!--<div id="main" style="width: 600px;height:400px;"></div>-->
+      </div>
+    </div>
+
+    <!-- 添加快捷方式 modal -->
+    <div class="site-modal">
+      <div class="site-modal-body gauss">
+        <a class="site-modal-close">×</a>
+        <span class="site-modal-title">添加快捷方式</span>
         <input type="text" class="name" placeholder="名称" required>
         <input type="text" class="link" placeholder="网址" required>
-        <div class="modal-buttons">
+        <div class="site-modal-buttons">
           <button class="cancel scale">取消</button>
           <button class="confirm scale">完成</button>
         </div>
@@ -191,28 +191,17 @@
       <li class="point" data-index='2'></li>
     </ul>
   </div>
+
   <!--Kanban container-->
   <div id="live2d-widget" class="live2d-widget-container">
     <canvas id="live2dcanvas" width="400" height="800"></canvas>
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-  L2Dwidget.init({
-    "display": {
-      "superSample": 2,
-      "width": 200,
-      "height": 400,
-      "position": "right",
-      "hOffset": 0,
-      "vOffset": 0
-    }
-  });
-</script>
-<!--添加阿里 icon 动态引入-->
 <script type="text/javascript" src="//at.alicdn.com/t/font_1709463_cmfzvmockja.js"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>-->
 <script type="text/javascript" src="navi_part.js"></script>
+<script type="text/javascript" src="china_map.js"></script>
 <script type="text/javascript" src="album_part.js"></script>
 <script type="text/javascript" src="anni_part.js"></script>
 </html>

@@ -286,8 +286,8 @@ nav .feature .notice::after {
     100% { transform: translate(-50%, -50%) rotate(4turn)}
 }
 
-/* ---------- 模态框部分 start ---------- */
-.modal-window {
+/* ---------- add site modal ---------- */
+.site-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -304,13 +304,13 @@ nav .feature .notice::after {
     align-items: center;
 }
 
-.show-modal-window {
+.show-site-modal {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
 }
 
-.modal-window .modal-body {
+.site-modal .site-modal-body {
     width: 480px;
     padding: 20px 0 25px 0;
     border-radius: 10px;
@@ -320,14 +320,14 @@ nav .feature .notice::after {
     align-items: center;
 }
 
-.modal-window .modal-body .modal-title {
+.site-modal .site-modal-body .site-modal-title {
     display: inline-block;
     margin-bottom: 18px;
     font-size: 20px;
     color: #34495e;
 }
 
-.modal-window .modal-body .modal-close {
+.site-modal .site-modal-body .site-modal-close {
     font-size: 40px;
     position: absolute;
     top: -8px;
@@ -336,7 +336,7 @@ nav .feature .notice::after {
     cursor: pointer;
 }
 
-.modal-window .modal-body input {
+.site-modal .site-modal-body input {
     width: 320px;
     padding: 10px 15px;
     margin: 10px 0;
@@ -349,9 +349,9 @@ nav .feature .notice::after {
     transition-property: width;
 }
 
-.modal-window .modal-body input:focus {width: 350px;}
+.site-modal .site-modal-body input:focus {width: 350px;}
 
-.modal-window .modal-body button {
+.site-modal .site-modal-body button {
     width: 150px;
     padding: 8px 15px;
     margin-top: 10px;
@@ -364,14 +364,12 @@ nav .feature .notice::after {
     color: #34495e;
 }
 
-.modal-window .modal-body .modal-buttons .cancel {
+.site-modal .site-modal-body .site-modal-buttons .cancel {
     border: 2px solid #F56C6C;
     margin-right: 10px;
 }
 
-.modal-window .modal-body .modal-buttons .confirm {border: 2px solid #67C23A;}
-
-/* ---------- 模态框部分 end ---------- */
+.site-modal .site-modal-body .site-modal-buttons .confirm {border: 2px solid #67C23A;}
 
 /* kanban part css*/
 live2d-widget-container {

@@ -1,3 +1,6 @@
+import $ from 'jQuery'
+import jQuery from 'jQuery'
+
 /**************************************** garden.js start ****************************************/
 function Vector(x, y) {
   this.x = x
@@ -210,7 +213,7 @@ let clientHeight = $(window).height();
 
 $(function () {
   // setup garden
-  $loveHeart = $(".love-heart");
+  let $loveHeart = $(".love-heart");
   let offsetX = $loveHeart.width() / 2;
   let offsetY = $loveHeart.height() / 2 - 55;
   $garden = $(".garden");

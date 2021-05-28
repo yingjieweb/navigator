@@ -1,3 +1,4 @@
+import $ from 'jQuery'
 import {DateFormat} from "./utils/DateFormat"
 import {PopToast} from "./utils/PopToast"
 
@@ -27,7 +28,6 @@ let $indicatorLis = $indicatorUl.find('li')  // 切换标识 ul > lis
 let $todoButton = $('.todo') // 获取代办 button
 let $todoInput = $('.todo-input') // 获取代办 input
 let $todoListUl = $('.todo-list-ul') // 获取 todoListUl
-let $mapButton = $('.map') // 获取地图 button
 let $noticeButton = $('.notice') // 获取通知 button
 let $wishInput = $('.wish-input') // 获取愿望 input
 let $wishList = $('.wish-list') // 获取愿望 list
@@ -39,12 +39,12 @@ let $tabBar = $('.tab-bar')  // 获取 tabBar 的按钮
 let $search = $('.search')  // 获取 search 表单
 let $input = $('.search input')  // 获取 search 表单的 input
 let $addSiteLi = $('.add-site-li') // 获取新增快捷方式按钮
-let $modalWindow = $('.modal-window') // 获取模态框 window
-let $modalClose = $('.modal-close') // 获取模态框 close
-let $newSiteName = $('.open-modal, .name') // 获取新增快捷方式的 name
-let $newSiteLink = $('.open-modal, .link') // 获取新增快捷方式的 link
-let $modalCancel = $('.cancel') // 获取新增快捷方式取消按钮
-let $modalConfirm = $('.open-modal, .confirm') // 获取新增快捷方式确认按钮
+let $siteModal = $('.site-modal') // 获取 site 模态框
+let $siteModalClose = $('.site-modal-close') // 获取 site 模态框 close
+let $newSiteName = $('.site-modal .name') // 获取新增快捷方式的 name
+let $newSiteLink = $('.site-modal .link') // 获取新增快捷方式的 link
+let $siteModalCancel = $('.site-modal .cancel') // 获取新增快捷方式取消按钮
+let $siteModalConfirm = $('.site-modal .confirm') // 获取新增快捷方式确认按钮
 let $audioWind = $("#audio-wind")[0]  // 获取 wind 音频元素
 let $audioLove = $("#audio-love")[0]  // 获取 love 音频元素
 let $windmill = $('.windmill') // 获取底部的箭头
@@ -111,9 +111,7 @@ function renderTodoList() {
 // 初始化渲染 todoList
 renderTodoList()
 
-$mapButton.on('click',() => {
-  PopToast('loading', '点亮城市功能正在开发当中呢 ~ 🙈')
-})
+// 通知功能相关
 $noticeButton.on('click',() => {
   PopToast('loading', '通知功能正在开发当中呢 ~ 🙈')
 })
@@ -163,13 +161,11 @@ $wishListUl.on('click', 'svg', (event) => {
   PopToast('success', '哦吼吼，实现啦，愿望实现啦 ~ 😍')
 })
 
-// 切换愿望 tab - wishing
+// 切换愿望 tab - wishing/realize
 $wishingTab.on('click', () => {
   $wishingTab.addClass('active').siblings().removeClass("active")
   renderWishList()
 })
-
-// 切换愿望 tab - realize
 $realizeTab.on('click', () => {
   $realizeTab.addClass('active').siblings().removeClass("active")
   renderWishList('realize')
@@ -266,12 +262,12 @@ function renderSitesHashMap(){
 renderSitesHashMap()
 
 // 点击添加快捷方式按钮，显示模态框
-$addSiteLi.on('click', () => {$modalWindow.addClass('show-modal-window')})
+$addSiteLi.on('click', () => {$siteModal.addClass('show-site-modal')})
 
 // 添加相应的快捷方式 li 网址模块
-$modalConfirm.on('click', () => {
+$siteModalConfirm.on('click', () => {
   if ($newSiteName.val() && $newSiteLink.val()) {
-    $modalWindow.removeClass('show-modal-window')
+    $siteModal.removeClass('show-site-modal')
 
     let iconArr = {
       icon5: require(`./assets/img/icon/icon5.png`),
@@ -303,9 +299,9 @@ $modalConfirm.on('click', () => {
   }
 })
 
-// 点击 关闭 / 取消 关闭模态框
-$modalClose.on('click', () => {$modalWindow.removeClass('show-modal-window')})
-$modalCancel.on('click', () => {$modalWindow.removeClass('show-modal-window')})
+// 点击 关闭/取消 关闭 site 模态框
+$siteModalClose.on('click', () => {$siteModal.removeClass('show-site-modal')})
+$siteModalCancel.on('click', () => {$siteModal.removeClass('show-site-modal')})
 
 // 背景图片部分
 let wallpaperFlag = parseInt(localStorage.getItem("backgroundImageFlag")) || 0  // 标记当前背景图片
@@ -399,6 +395,11 @@ window.onbeforeunload = function () {
   let newSitesHashMapCache = JSON.stringify(sitesHashMap)
   localStorage.setItem('sitesHashMapCache', newSitesHashMapCache)
 }
+
+// kanban part
+L2Dwidget.init({
+  "display": {"superSample": 2, "width": 200, "height": 400, "position": "right", "hOffset": 0, "vOffset": 0}
+});
 
 // statistical script
 var _hmt = _hmt || [];

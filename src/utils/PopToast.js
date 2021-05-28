@@ -1,3 +1,5 @@
+import $ from 'jQuery'
+
 let icons = {
   loading: '<svg class="icon loading"><use xlink:href="#icon-loading"></use></svg>',
   success: '<svg class="icon"><use xlink:href="#icon-check-fill"></use></svg>',

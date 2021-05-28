@@ -7,6 +7,14 @@ body {
   /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
 }
 
+.icon {
+  width: 1.5em; height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .message-box {
   position: absolute;
   top: 0;
