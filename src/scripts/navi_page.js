@@ -28,7 +28,6 @@ let $indicatorLis = $indicatorUl.find('li')  // 切换标识 ul > lis
 let $todoButton = $('.todo') // 获取代办 button
 let $todoInput = $('.todo-input') // 获取代办 input
 let $todoListUl = $('.todo-list-ul') // 获取 todoListUl
-let $noticeButton = $('.notice') // 获取通知 button
 let $wishInput = $('.wish-input') // 获取愿望 input
 let $wishList = $('.wish-list') // 获取愿望 list
 let $wishListUl = $('.wish-list-ul') // 获取愿望 listUl
@@ -110,11 +109,6 @@ function renderTodoList() {
 }
 // 初始化渲染 todoList
 renderTodoList()
-
-// 通知功能相关
-$noticeButton.on('click',() => {
-  PopToast('loading', '通知功能正在开发当中呢 ~ 🙈')
-})
 
 // 添加小愿望 - wishList
 $wishButton.on('click',(event) => {

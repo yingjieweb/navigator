@@ -31,6 +31,15 @@
   align-items: center;
 }
 
+.map-modal .map-modal-body .map-modal-close {
+  font-size: 40px;
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  color: #909090;
+  cursor: pointer;
+}
+
 .map-modal .map-modal-body .map-modal-title {
   display: inline-block;
   margin-bottom: 18px;
@@ -45,13 +54,4 @@
   justify-content: center;
   align-items: center;
   border-top: 1px solid #F5E5E5;
-}
-
-.map-modal .map-modal-body .map-modal-close {
-  font-size: 40px;
-  position: absolute;
-  top: -8px;
-  right: 12px;
-  color: #909090;
-  cursor: pointer;
 }

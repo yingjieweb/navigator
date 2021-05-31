@@ -120,7 +120,8 @@ let upperOption = {
           show: false
         },
         emphasis: {
-          show: false
+          color: "rgba(0,0,0,0.7)",
+          show: true
         }
       },
       itemStyle: {
@@ -149,7 +150,7 @@ let upperOption = {
       hoverSymbolSize: 8,
       tooltip: {
         formatter(value) {
-          return `${value.data.name} <br/> &nbsp;&nbsp; — ${value.data.time}`
+          return `${value.data.name} <br/> &nbsp;&nbsp; - ${value.data.time}`
         },
         position: "right",
         show: true
@@ -179,7 +180,7 @@ let upperOption = {
       symbolSize: 15,
       tooltip: {
         formatter(value) {
-          return `你不来, 我不老 <br/> ${value.data.name} — ${value.data.time}`
+          return `你不来, 我不老 <br/> ${value.data.name} - ${value.data.time}`
         },
         position: "right",
         show: true
