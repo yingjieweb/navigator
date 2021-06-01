@@ -342,7 +342,12 @@ $indicatorUl.on('click', (event) => {
   currentIndicator = clickedIndex
   $naviPage.css('margin-top', `${clickedIndex * -100}vh`)
 
-  if (clickedIndex === 2) PopToast('warning', '前方高能预警，单身狗请迅速撤离！ 🤭')
+  if (clickedIndex === 2) {
+    PopToast('warning', '前方高能预警，单身狗请迅速撤离！ 🤭')
+    $audioLove.play()
+  } else {
+    $audioLove.pause()
+  }
 })
 
 // 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙 2：纪念日

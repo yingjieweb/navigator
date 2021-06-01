@@ -9,6 +9,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  user-select: text;
 
   display: flex;
   justify-content: center;
@@ -57,3 +58,6 @@
   align-items: center;
   margin: 20px 0 10px 0;
 }
+
+.notice-modal .notice-modal-body .notice-details a {color: #409eff;}
+.notice-modal .notice-modal-body .notice-details a:hover {border-bottom: 1px solid #409eff;}
