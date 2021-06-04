@@ -27,7 +27,7 @@
 
 github: [https://github.com/yingjieweb](https://github.com/yingjieweb) </br>
 csdn: [https://blog.csdn.net/Marker__](https://blog.csdn.net/Marker__) </br>
-email: [https://mail.qq.com/](1184061078@qq.com)
+email: [1184061078@qq.com](https://mail.qq.com/)
 
 ### 🧐 Run and build
 |功能                       |命令                                                   |备注                                              |
