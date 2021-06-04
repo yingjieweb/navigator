@@ -40,9 +40,7 @@
   transform: scale(1.2);
   z-index: 3;
 }
-.album-item:hover .address, .album-item:hover .date {
-  display: block;
-}
+.album-item:hover .address, .album-item:hover .date {display: block;}
 
 .address {
   width: 100%;
@@ -54,9 +52,7 @@
   display: none;
 }
 
-.image {
-  border-radius: 12px;
-}
+.image {border-radius: 12px;}
 
 .date {
   width: 100%;

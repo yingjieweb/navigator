@@ -145,6 +145,10 @@ let albumDB = [
   {id: 144, address: '沈阳', image: require('../assets/img/album/2021-05-18(3).jpg'), date: '2021-05-18'},
   {id: 145, address: '沈阳', image: require('../assets/img/album/2021-05-18(4).jpg'), date: '2021-05-18'},
   {id: 146, address: '沈阳', image: require('../assets/img/album/2021-05-18(5).jpg'), date: '2021-05-18'},
+  {id: 147, address: '南京', image: require('../assets/img/album/2021-05-29.jpg'), date: '2021-05-29'},
+  {id: 148, address: '南京', image: require('../assets/img/album/2021-05-29(1).jpg'), date: '2021-05-29'},
+  {id: 149, address: '南京', image: require('../assets/img/album/2021-05-31.jpg'), date: '2021-05-31'},
+  {id: 150, address: '南京', image: require('../assets/img/album/2021-06-01.jpg'), date: '2021-06-01'},
 ]
 
 export default  albumDB
