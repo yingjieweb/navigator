@@ -63,7 +63,7 @@ body {
   position: relative;
   overflow: hidden;
   /*background-image: url(../img/wallpaper/yourname.jpg);*/ /*闪切背景图片*/
-  background-size: 100% 100vh;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: 0.2s ease-in-out;   /*背景图片切换效果*/
 }
@@ -74,7 +74,7 @@ body {
   position: relative;
   overflow: hidden; /* BFC */
   background-image: url(../assets/img/wallpaper/normal.jpg);
-  background-size: 100vw 100vh;
+  background-size: 100% 100%;
 }
 
 .anni-page {
