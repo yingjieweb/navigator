@@ -1,0 +1,119 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+  /*body可能并没有整个页面大小，但是给其设置背景色后浏览器会自动扩展至整个网页*/
+}
+
+.icon {
+  width: 1.5em; height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.message-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.message-box .message {
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 40px;
+  border-radius: 4px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  animation: stretch ease-in 0.1s;
+}
+@keyframes stretch {
+  0% {margin-top: 0; opacity: 0}
+  100% {margin-top: 20px; opacity: 1}
+}
+
+.message-box .message .icon {margin-right: 10px;}
+.message-box .message .loading {animation: loading 0.5s linear infinite}
+@keyframes loading {
+  0% {transform: rotate(0)}
+  50% {transform: rotate(180deg)}
+  100% {transform: rotate(360deg)}
+}
+
+.message-loading {color: #409EFF;background-color: #ECF5FF;border: 1px solid #C6E2FF;}
+.message-success {color: #33A03D;background-color: #F0F9EB;border: 1px solid #E1F3D9;}
+.message-info {color: #909399;background-color: #EDF2FC;border: 1px solid #EEF1F7;}
+.message-warning {color: #FFC429;background-color: #FDF6EC;border: 1px solid #FBF0DF;}
+.message-error {color: #DE4561;background-color: #FEF0F0;border: 1px solid #FDE5E5;}
+
+.navi-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /*background-image: url(../img/wallpaper/yourname.jpg);*/ /*闪切背景图片*/
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: 0.2s ease-in-out;   /*背景图片切换效果*/
+}
+
+.album-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; /* BFC */
+  background-image: url(normal.d50ebf7d.jpg);
+  background-size: 100% 100%;
+}
+
+.anni-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; /* BFC */
+}
+
+.indicator {
+  position: fixed;
+  top: 46%;
+  right: 2%;
+  transform: translateY(-50%);
+  z-index: 7;
+}
+
+.indicator > ul > li {
+  width: 1em;
+  height: 1em;
+  margin: 2em 0;
+  cursor: pointer;
+  border: 1px solid navajowhite;
+  box-shadow: 0 0 5px navajowhite;
+  transform: rotate(45deg);
+}
+
+.indicator > ul > .active {
+  background-color: navajowhite;
+}
+
+.gauss {
+  /* 定义高斯模糊样式 */
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.7)
+}
+
+.scale:hover {transform: scale(1.1);}
+
+
+/*# sourceMappingURL=base.9062cf29.css.map */

@@ -1,0 +1,60 @@
+.map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 8;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-map-modal {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.map-modal .map-modal-body {
+  width: 1200px;
+  padding: 20px 0 25px 0;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-modal .map-modal-body .map-modal-close {
+  font-size: 40px;
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  color: #909090;
+  cursor: pointer;
+}
+
+.map-modal .map-modal-body .map-modal-title {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 20px;
+  color: #34495e;
+}
+
+.map-modal .map-modal-body .china-map {
+  width: 100%;
+  height: 655px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #F5E5E5;
+}
+
+
+/*# sourceMappingURL=map_modal.51fbe457.css.map */

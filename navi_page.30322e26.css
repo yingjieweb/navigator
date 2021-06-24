@@ -1,0 +1,310 @@
+nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav button {
+    height: 40px;
+    margin: 5px;
+    white-space: nowrap;
+    padding: 0 25px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    vertical-align:top;
+}
+
+nav button img {
+    width: 26px;
+}
+
+nav .feature .notice {
+    position: relative;
+}
+
+nav .feature .notice::after {
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%;
+    background-color: #C53938;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+}
+
+.todo-input {
+    height: 40px;
+    width: 210px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    color: #34495e;
+    border-radius: 4px;
+    display: none;
+}
+
+.todo-list {
+    position: absolute;
+    left: 0;
+    top: 80px;
+}
+
+.todo-list .todo-list-ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 240px;
+    border-radius: 4px;
+    color: #34495e;
+    line-height: 30px;
+    margin: 2px 0 2px 5px;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.todo-list .todo-list-ul li .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;     /* 将对象作为弹性伸缩盒子模型显示 */
+    -webkit-line-clamp: 3;    /* 控制最多显示几行 */
+    -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+
+.todo-list .todo-list-ul li .cheers {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.wish-input {
+    width: 200px;
+    height: 40px;
+    margin: 5px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    color: #34495e;
+    border-radius: 4px;
+    display: none;
+}
+
+.wish-list {
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    display: none;
+}
+
+.wish-list .wish-tabs {
+    margin: 0 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wish-list .wish-tabs div {
+    width: 49.5%;
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: center;
+    color: #34495e;
+    cursor: pointer;
+}
+
+.wish-list .wish-tabs .active {border-left: 5px solid #C53938;}
+
+.wish-list .wish-list-ul {
+    margin-top: 2px;
+    max-height: 272px;
+    overflow: scroll;
+}
+
+/* 隐藏滑块 but 依然能滑动 */
+.wish-list .wish-list-ul::-webkit-scrollbar {display: none;}
+
+.wish-list .wish-list-ul li {
+    padding: 0 10px;
+    margin: 2px 5px;
+    border-radius: 4px;
+    line-height: 40px;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+}
+
+.wish-list .wish-list-ul li .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;     /* 将对象作为弹性伸缩盒子模型显示 */
+    -webkit-line-clamp: 1;    /* 控制最多显示几行 */
+    -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+
+.wish-list .wish-list-ul li .heart {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.header {
+    margin-top: 200px;
+    margin-bottom: 60px;
+}
+
+.tab-bar {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-bar-item {
+    margin: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.selected { /*tab-bar-item选中样式*/
+    transform: scale(1.4) translateY(-8px) rotate(720deg);
+    transition: 1s;/*动画过渡*/
+}
+
+.search {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search input {
+    height: 40px;
+    width: 100%;
+    margin-right: 10px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    color: #34495e;
+    border-radius: 4px;
+}
+
+.search button {
+    height: 40px;
+    white-space: nowrap;
+    padding: 0 25px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.main {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+.main > .site-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    justify-content: flex-start;
+}
+
+.main > .site-list > li {
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10%;
+    padding: 20px 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.main > .site-list .block {
+    position: relative;
+    /*以下定义高斯模糊样式*/
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.7)
+}
+
+.main > .site-list .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main > .site-list .site {
+    color: #34495e;
+    margin-top: 4px;
+    text-align: center;
+    max-width: 160px;
+    overflow: hidden;
+}
+
+.main > .site-list .close {
+    position: absolute;
+    font-size: 30px;
+    top: -8px;
+    right: 4px;
+    display: none;
+    color: #909090;
+}
+
+.block:hover > .close {display: block;}
+
+.windmill {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    position: absolute;
+    left: 50vw;
+    bottom: 50px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.rotate {animation: rotate 2s infinite;}
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(2turn)}
+    100% { transform: translate(-50%, -50%) rotate(4turn)}
+}
+
+/* kanban part css*/
+live2d-widget-container {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    width: 200px;
+    height: 400px;
+    z-index: 99;
+    opacity: 1;
+    pointer-events: none;
+}
+
+#live2dcanvas {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 400px;
+}
+
+
+/*# sourceMappingURL=navi_page.30322e26.css.map */
