@@ -1,4 +1,5 @@
 let albumDB = [
+  {id: 0, address: '曲阜', image: require('../assets/img/album/2018-05-20.jpg'), date: '2018-05-20'},
   {id: 1, address: '曲阜', image: require('../assets/img/album/2018-06-10.jpg'), date: '2018-06-10'},
   {id: 2, address: '曲阜', image: require('../assets/img/album/2018-06-24.jpg'), date: '2018-06-24'},
   {id: 3, address: '曲阜', image: require('../assets/img/album/2018-06-24(1).jpg'), date: '2018-06-24'},
@@ -145,6 +146,19 @@ let albumDB = [
   {id: 144, address: '沈阳', image: require('../assets/img/album/2021-05-18(3).jpg'), date: '2021-05-18'},
   {id: 145, address: '沈阳', image: require('../assets/img/album/2021-05-18(4).jpg'), date: '2021-05-18'},
   {id: 146, address: '沈阳', image: require('../assets/img/album/2021-05-18(5).jpg'), date: '2021-05-18'},
+  {id: 147, address: '沈阳', image: require('../assets/img/album/2021-05-29.jpg'), date: '2021-05-29'},
+  {id: 148, address: '沈阳', image: require('../assets/img/album/2021-06-01.jpg'), date: '2021-06-01'},
+  {id: 149, address: '沈阳', image: require('../assets/img/album/2021-06-01(1).jpg'), date: '2021-06-01'},
+  {id: 150, address: '沈阳', image: require('../assets/img/album/2021-06-01(2).jpg'), date: '2021-06-01'},
+  {id: 151, address: '沈阳', image: require('../assets/img/album/2021-06-06.jpg'), date: '2021-06-06'},
+  {id: 152, address: '沈阳', image: require('../assets/img/album/2021-06-09.jpg'), date: '2021-06-09'},
+  {id: 153, address: '沈阳', image: require('../assets/img/album/2021-06-09(1).jpg'), date: '2021-06-09'},
+  {id: 154, address: '沈阳', image: require('../assets/img/album/2021-06-09(2).jpg'), date: '2021-06-09'},
+  {id: 155, address: '沈阳', image: require('../assets/img/album/2021-06-10.jpg'), date: '2021-06-10'},
+  {id: 156, address: '沈阳', image: require('../assets/img/album/2021-06-19.jpg'), date: '2021-06-19'},
+  {id: 157, address: '沈阳', image: require('../assets/img/album/2021-06-20.jpg'), date: '2021-06-20'},
+
+
 ]
 
 export default  albumDB
