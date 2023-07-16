@@ -23,8 +23,6 @@ let todoListCache = JSON.parse(oldTodoListCache)
 let todoList = todoListCache || []
 
 let $naviPage = $('.navi-page')  // 导航页
-let $indicatorUl = $('.indicator ul')  // 切换标识 ul
-let $indicatorLis = $indicatorUl.find('li')  // 切换标识 ul > lis
 let $todoButton = $('.todo') // 获取代办 button
 let $todoInput = $('.todo-input') // 获取代办 input
 let $todoListUl = $('.todo-list-ul') // 获取 todoListUl
@@ -45,7 +43,6 @@ let $newSiteLink = $('.site-modal .link') // 获取新增快捷方式的 link
 let $siteModalCancel = $('.site-modal .cancel') // 获取新增快捷方式取消按钮
 let $siteModalConfirm = $('.site-modal .confirm') // 获取新增快捷方式确认按钮
 let $audioWind = $("#audio-wind")[0]  // 获取 wind 音频元素
-let $audioLove = $("#audio-love")[0]  // 获取 love 音频元素
 let $windmill = $('.windmill') // 获取底部的箭头
 
 // 隐藏 todoInput、wishInput、wishList
@@ -55,11 +52,6 @@ $('body').on('click',() => {
   $wishList.css('display', 'none')
 })
 
-// 决定 document 是否有滚动权限
-let documentScrollAuthority = true
-$wishListUl.on('mouseover', () => {documentScrollAuthority = false})
-$wishListUl.on('mouseleave', () => {documentScrollAuthority = true})
-
 // 添加代办事件
 $todoButton.on('click', (event) => {
   event.stopPropagation()
@@ -68,8 +60,8 @@ $todoButton.on('click', (event) => {
   $todoInput.css('display', 'inline-block')
   $todoInput.focus()
 })
-$todoInput.keydown((event) => {
-  if(event.code === 'Enter'){
+$todoInput.on("keydown", (event) => {
+  if(event.key === 'Enter'){
     if ($todoInput.val() === '') return
     if (todoList.length >= 7) {
       PopToast('info', '事情总要一件一件的做嘛，小傻瓜 ~ 😉')
@@ -119,8 +111,8 @@ $wishButton.on('click',(event) => {
   $wishList.css('display', 'inline-block')
   $wishInput.focus()
 })
-$wishInput.keydown((event) => {
-  if(event.code === 'Enter'){
+$wishInput.on("keydown", (event) => {
+  if(event.key === 'Enter'){
     if ($wishInput.val() === '') return
     let isRepeat = false
     wishList.map(item => {
@@ -327,62 +319,6 @@ $windmill.on('click',() => {
   PopToast('success', '快告诉我这张壁纸好不好看呀 ~ 😎')
 })
 
-// 获取当前 active 的 indicator li
-let currentIndicator = 0
-Array.from($indicatorLis).forEach((item, index) => {
-  if (item.className.indexOf('active') > 0)
-    currentIndicator = index
-})
-
-// 点击 indicator 切换屏幕 0：导航 1：照片墙 2：纪念日
-$indicatorUl.on('click', (event) => {
-  let clickedIndex = Array.from($indicatorLis).indexOf(event.target)
-  if (clickedIndex === -1) return
-  $indicatorLis.eq(clickedIndex).addClass('active').siblings().removeClass("active")
-  currentIndicator = clickedIndex
-  $naviPage.css('margin-top', `${clickedIndex * -100}vh`)
-
-  if (clickedIndex === 2) {
-    PopToast('warning', '前方高能预警，单身狗请迅速撤离！ 🤭')
-    $audioLove.play()
-  } else {
-    $audioLove.pause()
-  }
-})
-
-// 监听鼠标滚轮 切换屏幕 0：导航 1：照片墙 2：纪念日
-$(document).on("mousewheel DOMMouseScroll", function (event) {
-  var delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
-      (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1))              // firefox
-
-  if (delta > 0 && documentScrollAuthority) {  // 向上滚
-    currentIndicator--
-    if (currentIndicator >= 0) {
-      $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)
-      $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active")
-    } else {
-      currentIndicator = 0
-    }
-
-    // 滑动到非纪念日页 → 停止播放音乐
-    if (currentIndicator !== 2) $audioLove.pause()
-  } else if (delta < 0 && documentScrollAuthority) { // 向下滚
-    if (currentIndicator === 1) PopToast('warning', '前方高能预警，单身狗请迅速撤离！ 🤭')
-
-    currentIndicator++
-    if (currentIndicator <= $indicatorLis.length - 1) {
-      $naviPage.css('margin-top', `${-currentIndicator * 100}vh`)
-      $indicatorLis.eq(currentIndicator).addClass('active').siblings().removeClass("active")
-    } else {
-      currentIndicator = $indicatorLis.length - 1
-    }
-
-    // 滑动到纪念日页 → 播放音乐 + 隐藏 todoList
-    if (currentIndicator === 2) $audioLove.play()
-  }
-})
-
-
 // 窗口关闭前缓存 localStorage
 window.onbeforeunload = function () {
   let newTodoListCache = JSON.stringify(todoList)
@@ -394,17 +330,3 @@ window.onbeforeunload = function () {
   let newSitesHashMapCache = JSON.stringify(sitesHashMap)
   localStorage.setItem('sitesHashMapCache', newSitesHashMapCache)
 }
-
-// kanban part
-L2Dwidget.init({
-  "display": {"superSample": 2, "width": 200, "height": 400, "position": "right", "hOffset": 0, "vOffset": 0}
-});
-
-// statistical script
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8c000df8ca601a751a83c60449488c8e";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();

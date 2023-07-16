@@ -11,17 +11,13 @@
 
 .album-swiper {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: auto;
   padding-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  animation: roll 80s linear infinite alternate;
-}
-@keyframes roll {
-  0% {margin-top: 0;}
-  100% {margin-top: -10vh;} /* -10vh 最终会被新动画替换 */
 }
 
 /* 隐藏滑块 but 依然能滑动 */

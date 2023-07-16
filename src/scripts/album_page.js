@@ -14,20 +14,3 @@ albumDB.map(item => {
   fragment.append($albumItemDiv)
 })
 $albumSwiper.append(fragment)
-
-window.onload = function () {
-  // 获取照片墙高度，动态设置动画滚动距离
-  let albumSwiperHeight = $albumSwiper.height()
-  let clientHeight = document.documentElement.clientHeight
-  let rollHeight = albumSwiperHeight - clientHeight + 50  // 加上 album-nav 的高度
-  let style = document.styleSheets[7]
-  style.deleteRule(1)
-  style.insertRule(`
-    @keyframes roll {
-      0% {margin-top: 0} 
-      5% {margin-top: 0} 
-      98% {margin-top: -${rollHeight}px} 
-      100% {margin-top: -${rollHeight}px}
-    }`)
-}
-
