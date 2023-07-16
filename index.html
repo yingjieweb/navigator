@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小傻瓜导航 ~</title>
+  <link rel="icon" href="pilot.bd793bfa.ico" type="images/x-ico">
+  <link rel="stylesheet" href="reset.97e921d0.css">
+  <link rel="stylesheet" href="base.9062cf29.css">
+  <link rel="stylesheet" href="navi_page.30322e26.css">
+  <link rel="stylesheet" href="site_modal.84570f77.css">
+  <link rel="stylesheet" href="map_modal.51fbe457.css">
+  <link rel="stylesheet" href="notice_modal.d8cc036d.css">
+  <link rel="stylesheet" href="album_page.1dfcd325.css">
+  <link rel="stylesheet" href="anni_page.faca6c3d.css">
+</head>
+<body>
+  <!-- 提示 message -->
+  <div class="message-box">
+    <!--<message class="message message-success">
+      <svg class="icon"><use xlink:href="#icon-notice-fill"></use></svg>
+      <span class="text">弹出一条通知 ~</span>
+    </message>-->
+  </div>
+
+  <!-- 导航页 part -->
+  <div class="navi-page">
+    <nav>
+      <div class="feature-part">
+        <div class="feature">
+          <button class="todo gauss scale" type="submit" title="添加代办事件 ~"><img src="schedule.4220b496.png"></button>
+          <input class="todo-input gauss" type="text" placeholder="添加代办事件，写完按回车哦 ~">
+          <button class="map gauss scale" type="submit" title="查看点亮城市 ~"><img src="map.28b5a8b1.png"></button>
+          <button class="notice gauss scale" type="submit" title="查看通知 ~"><img src="notice.603b7ae3.png"></button>
+        </div>
+        <div class="todo-list">
+          <ul class="todo-list-ul">
+            <!--<li class="gauss">
+              <div class="text-time">
+                <div class="text">第一个事件清单</div>
+                <div class="time">2021-05-22 10:59</div>
+              </div>
+              <div class="cheers" title="大功告成，干杯 ~">
+                <svg class="icon"><use xlink:href="#icon-jiubei"></use></svg>
+              </div>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+
+      <div class="wish-part">
+        <div class="wish">
+          <input class="wish-input gauss" type="text" placeholder="许个小愿望，写完按回车哦 ~">
+          <button class="wish-button gauss scale" type="submit" title="点击许愿哦 ~"><img src="heart.428648b7.png"></button>
+        </div>
+        <div class="wish-list">
+          <div class="wish-tabs">
+            <div class="wishing-tab gauss active">实现 ing</div>
+            <div class="realize-tab gauss">完成啦</div>
+          </div>
+          <ul class="wish-list-ul">
+            <!--<li class="gauss">
+              <span class="text" title="这是我许愿的第一个愿望">这是我许愿的第一个愿望</span>
+              <div class="heart" title="点击小红心就表示愿望已经实现了哦 ~">
+                <svg class="icon"><use xlink:href="#icon-aixin"></use></svg>
+              </div>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="tab-bar">
+        <div class="tab-bar-item baidu selected"><img src="baidu.6e9f8494.png" alt="百度"></div>
+        <div class="tab-bar-item zhihu"><img src="zhihu.bf2dbc83.png" alt="知乎"></div>
+        <div class="tab-bar-item csdn"><img src="csdn.ab9e781d.png" alt="csdn"></div>
+        <div class="tab-bar-item github"><img src="github.49c5c3e5.png" alt="github"></div>
+        <div class="tab-bar-item github"><img src="knowledge.b2643311.png" alt="超星"></div>
+        <div class="tab-bar-item github"><img src="academic.458be9d5.png" alt="百度学术"></div>
+        <div class="tab-bar-item github"><img src="duxiu.f2c55b8b.png" alt="读秀"></div>
+      </div>
+      <form class="search" method="get" action="http://www.baidu.com/s">
+        <input class="gauss" autocomplete="off" name="wd" type="text" required="" placeholder="众里寻你千百度的那个百度">
+        <button class="gauss scale" type="submit"><img src="search.6c6082e0.png"></button>
+      </form>
+    </header>
+    <main class="main">
+      <ul class="site-list">
+        <li class="add-site-li gauss">
+          <div class="add-site">
+            <div class="logo"><img src="add.fa8b77f4.png"></div>
+            <div class="site">Add shortcuts</div>
+          </div>
+        </li>
+      </ul>
+    </main>
+
+    <!-- 地图模态框 modal -->
+    <div class="map-modal">
+      <div class="map-modal-body gauss">
+        <a class="map-modal-close">×</a>
+        <span class="map-modal-title">要不要跟我一起走遍大江南北 ~ 😏</span>
+        <div class="china-map">中国地图</div>
+      </div>
+    </div>
+
+    <!-- notice modal -->
+    <div class="notice-modal">
+      <div class="notice-modal-body gauss">
+        <a class="notice-modal-close">×</a>
+        <span class="notice-modal-title">关于本站</span>
+        <div class="notice-details">
+          <span class="introduce">😀 站点介绍</span>
+          <p class="intro-details">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            本站创立于 <strong>2020 年 03 月 23 日</strong>，做该项目的出发点来自于女朋友的一个日常行为，我发现每次她在看论文找资料的时候，
+            都需要找到指定的网站并搜索关键字，可能打开的标签页很多，这不免有一些混乱，我想是不是可以为她做点什么？
+            于是就有了这个 <strong>“小傻瓜导航站点”</strong> 👻。
+          </p>
+          <p class="intro-details">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            本站最大的特点在于，不需要打开指定的网站即可通过关键字搜索目标网站的资料，这会省去不少找网站的时间，相比将网站存到浏览器书签要方便的多。
+            本站主要关联的几个网站有：“百度”，“知乎”，“CSDN”，“GitHub”，“超星发现”，“百度学术”，“读秀” 等。同时，本站也提供了添加网站快捷方式的接口。
+          </p>
+          <p class="intro-details">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            经过断断续续的迭代，本站在原来的基础上对样式进行了一轮优化，并添加了代办事件、旅游城市、小愿望、切换背景图片、照片墙、纪念日等功能，
+            并于 <strong>2021 年 06 月 01 日</strong> 发布第一个正式版本 🎉。
+          </p>
+          <span class="source"><svg class="icon"><use xlink:href="#icon-github"></use></svg>&nbsp;关于开源</span>
+          <p class="source-details">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            由于最初只是想给女朋友做一个方便日常工作和学习的小导航站点，并不打算面向大众用户，而且开发本站时正值我学习 jQuery 之际，
+            所以本站也算是我个人的一个学习和实践的小项目，没有什么高深的架构设计和奇技淫巧，如果你感兴趣的话，不妨使用
+            <a href="https://github.com/yingjieweb/navigator">该源码</a> 搭建一个非常有趣的导航网站送给你的女朋友 😉。
+          </p>
+          <p class="source-details">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            哦哦，我忘了，你怎么可能会有女朋友呢 🐶。既然没有，那还不赶快去找一个，等着国家给你发呢？😒
+          </p>
+          <span class="help"><svg class="icon"><use xlink:href="#icon-goutong"></use></svg>&nbsp;联系方式</span>
+          <p class="help-details">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            在使用本站的过程中若出现任何问题，非常欢迎各位通过下面的方式给我留言和反馈 ~ <br> &nbsp;&nbsp;&nbsp;&nbsp;
+            github: <a href="https://github.com/yingjieweb" target="_blank">https://github.com/yingjieweb</a>
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;
+            csdn: <a href="https://blog.csdn.net/Marker__" target="_blank">https://blog.csdn.net/Marker__</a>
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;
+            email: <a href="https://mail.qq.com/" target="_blank">1184061078@qq.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 添加快捷方式 modal -->
+    <div class="site-modal">
+      <div class="site-modal-body gauss">
+        <a class="site-modal-close">×</a>
+        <span class="site-modal-title">添加快捷方式</span>
+        <input type="text" class="name" placeholder="名称" required="">
+        <input type="text" class="link" placeholder="网址" required="">
+        <div class="site-modal-buttons">
+          <button class="cancel scale">取消</button>
+          <button class="confirm scale">完成</button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audio-wind" src="wind_1s.fc7832cb.mp3" preload="auto"></audio>
+    <img class="windmill" src="windmill.e191339c.png" title="切换背景图片 ~">
+  </div>
+
+  <!-- 照片墙 part -->
+  <div class="album-page">
+    <div class="album-nav gauss">让我看看是谁在偷看我女朋友的照片 🧐</div>
+
+    <div class="album-swiper">
+      <div class="album-item">
+        <div class="address gauss">南京</div>
+        <img class="image" src="2018-05-19.3f6bc420.jpg">
+        <div class="date gauss">2018-05-19</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 纪念日 part -->
+  <div class="anni-page">
+    <div class="content">
+      <div class="code">
+        <span class="comments">/**</span><br>
+        <span class="space"><span class="comments">* Form 2018—06-29,</span><br>
+        <span class="space"><span class="comments">* to now and continue.</span><br>
+        <span class="comments">**/</span><br>
+        The little brother = <span class="keyword">Mr.</span> Song<br>
+        The little sisiter = <span class="keyword">Miss</span> Nie<br>
+        <span class="comments">// Fall in love river. </span><br>
+        The boy loves the girl;<br>
+        <span class="comments">// They love each other.</span><br>
+        The girl loves the boy;<br>
+        <span class="comments">// AS time goes on.</span><br>
+        The boy can not be separated the girl;<br>
+        <span class="comments">// At the same time.</span><br>
+        The girl can not be separated the boy;<br>
+        <span class="comments">// Both wind and snow all over the sky.</span><br>
+        <span class="comments">// Whether on foot or 1559 kilometers.</span><br>
+        <span class="keyword">The boy</span> very <span class="keyword">happy</span>;<br>
+        <span class="keyword">The girl</span> is also very <span class="keyword">happy</span>;<br>
+        <span class="comments">// Whether it is right now</span><br>
+        <span class="comments">// Still in the distant future.</span><br>
+        The boy has a dream;<br>
+        <span class="comments">// The boy wants the girl could well have been happy.</span><br>
+        <br>
+        <br>
+        <span class="space">I want to say:<br>
+        <span class="space">Baby, I love you forever;<br>
+      </span></span></span></span></div>
+      <div class="love-heart">
+        <canvas class="garden"></canvas>
+        <div class="words">
+          <div class="messages">
+            遇见你，是最美丽的意外。
+            <div class="elapseClock"></div>
+          </div>
+          <div class="loveu">
+            你不来，我不老。<br>
+            <div class="signature">- Song</div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="audio-love" src="love_simple.f9acc994.mp3" preload="auto"></audio>
+    </div>
+  </div>
+
+  <div class="indicator">
+    <ul title="滚动一下鼠标滑轮 ~">
+      <li class="point active" data-index="0"></li>
+      <li class="point" data-index="1"></li>
+      <li class="point" data-index="2"></li>
+    </ul>
+  </div>
+
+  <!--Kanban container-->
+  <div id="live2d-widget" class="live2d-widget-container">
+    <canvas id="live2dcanvas" width="400" height="800"></canvas>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+<script type="text/javascript" src="//at.alicdn.com/t/font_1709463_hkvkjmjk02a.js"></script>
+<script type="text/javascript" src="base.1af3371f.js"></script>
+<script type="text/javascript" src="navi_page.82d17594.js"></script>
+<script type="text/javascript" src="map_modal.04645656.js"></script>
+<script type="text/javascript" src="notice_modal.a9b9e778.js"></script>
+<script type="text/javascript" src="album_page.cc70277a.js"></script>
+<script type="text/javascript" src="anni_page.ea336554.js"></script>
+</html>
