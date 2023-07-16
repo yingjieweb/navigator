@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/yingjieweb/navigator#readme",
   "dependencies": {
-    "echarts": "^5.1.1",
-    "jquery": "^3.6.0",
+    "echarts": "^5.4.2",
+    "jquery": "^3.7.0",
     "src": "^1.1.2"
   }
 }
