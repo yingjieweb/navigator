@@ -81,7 +81,6 @@ let albumDB = [
   {id: 79, address: '南京', image: require('../assets/img/album/2020-05-23(1).jpg'), date: '2020-05-23'},
   {id: 80, address: '南京', image: require('../assets/img/album/2020-05-26.jpg'), date: '2020-05-26'},
   {id: 81, address: '南京', image: require('../assets/img/album/2020-05-27.jpg'), date: '2020-05-27'},
-  {id: 82, address: '南京', image: require('../assets/img/album/2020-06-04.jpg'), date: '2020-06-04'},
   {id: 83, address: '南京', image: require('../assets/img/album/2020-06-07.jpg'), date: '2020-06-07'},
   {id: 84, address: '杭州', image: require('../assets/img/album/2020-08-01.jpg'), date: '2020-08-01'},
   {id: 85, address: '杭州', image: require('../assets/img/album/2020-08-01(1).jpg'), date: '2020-08-01'},
